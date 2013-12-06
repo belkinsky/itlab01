@@ -6,31 +6,26 @@
 		<item value="620" key="org.eclipse.debug.ui.DIALOG_WIDTH"/>
 		<item value="640" key="DIALOG_HEIGHT"/>
 		<item value="0" key="org.eclipse.debug.ui.DIALOG_ORIGIN_Y"/>
-		<item value="1|Microsoft Sans Serif|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft Sans Serif" key="DIALOG_FONT_NAME"/>
 		<item value="202" key="org.eclipse.debug.ui.DIALOG_ORIGIN_X"/>
+		<item value="1|Microsoft Sans Serif|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft Sans Serif" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.debug.ui.sourcelookup.SourceLookupDialog">
 		<item value="438" key="DIALOG_WIDTH"/>
 		<item value="113" key="DIALOG_Y_ORIGIN"/>
-		<item value="297" key="DIALOG_X_ORIGIN"/>
 		<item value="386" key="DIALOG_HEIGHT"/>
+		<item value="297" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Microsoft Sans Serif|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft Sans Serif" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.debug.ui.STRING_VARIABLE_SELECTION_DIALOG_SECTION">
 		<item value="326" key="DIALOG_WIDTH"/>
 		<item value="529" key="org.eclipse.debug.ui.DIALOG_HEIGHT"/>
-		<item value="-3" key="DIALOG_Y_ORIGIN"/>
 		<item value="326" key="org.eclipse.debug.ui.DIALOG_WIDTH"/>
-		<item value="529" key="DIALOG_HEIGHT"/>
+		<item value="-3" key="DIALOG_Y_ORIGIN"/>
 		<item value="237" key="DIALOG_X_ORIGIN"/>
+		<item value="529" key="DIALOG_HEIGHT"/>
 		<item value="60" key="org.eclipse.debug.ui.DIALOG_ORIGIN_Y"/>
-		<item value="1|Tahoma|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Tahoma" key="DIALOG_FONT_NAME"/>
 		<item value="66" key="org.eclipse.debug.ui.DIALOG_ORIGIN_X"/>
-	</section>
-	<section name="org.eclipse.debug.ui.LAUNCH_CONFIGURATION_PROPERTIES_DIALOG_SECTION">
-		<item value="800" key="DIALOG_WIDTH"/>
-		<item value="640" key="DIALOG_HEIGHT"/>
-		<item value="1|Microsoft Sans Serif|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft Sans Serif" key="DIALOG_FONT_NAME"/>
+		<item value="1|Tahoma|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Tahoma" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.debug.ui.ENVIRONMENT_TAB.NATIVE_ENVIROMENT_DIALOG">
 		<item value="424" key="org.eclipse.debug.ui.DIALOG_HEIGHT"/>
@@ -38,19 +33,24 @@
 		<item value="39" key="org.eclipse.debug.ui.DIALOG_ORIGIN_Y"/>
 		<item value="259" key="org.eclipse.debug.ui.DIALOG_ORIGIN_X"/>
 	</section>
-	<section name="org.eclipse.debug.ui.LAUNCH_CONFIGURATIONS_DIALOG_SECTION">
-		<item value="850" key="DIALOG_WIDTH"/>
-		<item value="560" key="org.eclipse.debug.ui.DIALOG_HEIGHT"/>
-		<item value="153" key="DIALOG_Y_ORIGIN"/>
-		<item value="822" key="org.eclipse.debug.ui.DIALOG_WIDTH"/>
-		<item value=", org.eclipse.ui.externaltools.ProgramLaunchConfigurationType, com.zylin.embeddedcdt.idleNative, " key="org.eclipse.debug.ui.EXPANDED_NODES"/>
-		<item value="321" key="DIALOG_X_ORIGIN"/>
+	<section name="org.eclipse.debug.ui.LAUNCH_CONFIGURATION_PROPERTIES_DIALOG_SECTION">
+		<item value="800" key="DIALOG_WIDTH"/>
 		<item value="640" key="DIALOG_HEIGHT"/>
-		<item value="437" key="org.eclipse.debug.ui.DIALOG_SASH_WEIGHTS_1"/>
-		<item value="13" key="org.eclipse.debug.ui.DIALOG_ORIGIN_Y"/>
 		<item value="1|Microsoft Sans Serif|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft Sans Serif" key="DIALOG_FONT_NAME"/>
-		<item value="562" key="org.eclipse.debug.ui.DIALOG_SASH_WEIGHTS_2"/>
+	</section>
+	<section name="org.eclipse.debug.ui.LAUNCH_CONFIGURATIONS_DIALOG_SECTION">
+		<item value="824" key="DIALOG_WIDTH"/>
+		<item value="560" key="org.eclipse.debug.ui.DIALOG_HEIGHT"/>
+		<item value="822" key="org.eclipse.debug.ui.DIALOG_WIDTH"/>
+		<item value="153" key="DIALOG_Y_ORIGIN"/>
+		<item value=", org.eclipse.ui.externaltools.ProgramLaunchConfigurationType, " key="org.eclipse.debug.ui.EXPANDED_NODES"/>
+		<item value="547" key="DIALOG_HEIGHT"/>
+		<item value="321" key="DIALOG_X_ORIGIN"/>
+		<item value="13" key="org.eclipse.debug.ui.DIALOG_ORIGIN_Y"/>
+		<item value="437" key="org.eclipse.debug.ui.DIALOG_SASH_WEIGHTS_1"/>
 		<item value="55" key="org.eclipse.debug.ui.DIALOG_ORIGIN_X"/>
+		<item value="562" key="org.eclipse.debug.ui.DIALOG_SASH_WEIGHTS_2"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="ExportLaunchConfigurations">
 		<item value="false" key="overwrite"/>
@@ -59,31 +59,31 @@
 	<section name="org.eclipse.debug.ui.SELECT_LAUNCH_SHORTCUT_DIALOG">
 		<item value="450" key="DIALOG_WIDTH"/>
 		<item value="73" key="DIALOG_Y_ORIGIN"/>
-		<item value="291" key="DIALOG_X_ORIGIN"/>
 		<item value="450" key="DIALOG_HEIGHT"/>
+		<item value="291" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Tahoma|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Tahoma" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.debug.ui.SELECT_CONFIGURATION_TYPE_DIALOG">
 		<item value="223" key="DIALOG_WIDTH"/>
 		<item value="35" key="DIALOG_Y_ORIGIN"/>
-		<item value="292" key="DIALOG_HEIGHT"/>
 		<item value="190" key="DIALOG_X_ORIGIN"/>
+		<item value="292" key="DIALOG_HEIGHT"/>
+		<item value="1|Microsoft Sans Serif|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft Sans Serif" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="org.eclipse.debug.ui.LAUNCH_CONFIGURATION_EDIT_DIALOG_SECTION">
+		<item value="800" key="DIALOG_WIDTH"/>
+		<item value="640" key="DIALOG_HEIGHT"/>
 		<item value="1|Microsoft Sans Serif|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft Sans Serif" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="FAVORITES_DIALOG_SECTION">
 		<item value="350" key="DIALOG_WIDTH"/>
 		<item value="232" key="org.eclipse.debug.ui.DIALOG_HEIGHT"/>
-		<item value="219" key="DIALOG_Y_ORIGIN"/>
 		<item value="227" key="org.eclipse.debug.ui.DIALOG_WIDTH"/>
-		<item value="400" key="DIALOG_HEIGHT"/>
+		<item value="219" key="DIALOG_Y_ORIGIN"/>
 		<item value="403" key="DIALOG_X_ORIGIN"/>
+		<item value="400" key="DIALOG_HEIGHT"/>
 		<item value="216" key="org.eclipse.debug.ui.DIALOG_ORIGIN_Y"/>
-		<item value="1|Microsoft Sans Serif|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft Sans Serif" key="DIALOG_FONT_NAME"/>
 		<item value="399" key="org.eclipse.debug.ui.DIALOG_ORIGIN_X"/>
-	</section>
-	<section name="org.eclipse.debug.ui.LAUNCH_CONFIGURATION_EDIT_DIALOG_SECTION">
-		<item value="800" key="DIALOG_WIDTH"/>
-		<item value="640" key="DIALOG_HEIGHT"/>
 		<item value="1|Microsoft Sans Serif|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft Sans Serif" key="DIALOG_FONT_NAME"/>
 	</section>
 </section>
