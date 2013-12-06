@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="15" version="2.0">
+<workbench progressCount="14" version="2.0">
 <workbenchAdvisor/>
 <window height="730" maximized="true" width="1164" x="-1" y="-1">
 <fastViewData fastViewLocation="1024"/>
@@ -8,7 +8,7 @@
 </perspectiveBar>
 <coolbarLayout locked="0">
 <coolItem id="group.file" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="122" y="22"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="153" y="22"/>
 <coolItem id="additions" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.cdt.make.editor" itemType="typePlaceholder" x="36" y="22"/>
 <coolItem id="org.eclipse.cdt.managedbuilder.ui.buildConfigActionSet" itemType="typeToolBarContribution" x="50" y="22"/>
@@ -44,6 +44,12 @@
 </view>
 <view id="org.eclipse.cdt.ui.CView" partName="C/C++ Projects">
 <viewState horizontalPosition="0" verticalPosition="0">
+<expanded>
+<element path="D:\dev\itlab\itlab01\src\STM32-E407_blink_FLASH"/>
+</expanded>
+<selection>
+<element path="D:/dev/itlab/itlab01/src/STM32-E407_blink_FLASH"/>
+</selection>
 <customFilters userDefinedPatternsEnabled="false">
 <xmlDefinedFilters>
 <child filterId="org.eclipse.cdt.internal.ui.CView.ExecutableFilter" isEnabled="false"/>
@@ -51,8 +57,8 @@
 <child filterId="org.eclipse.cdt.internal.ui.CView.ClosedProjectFilter" isEnabled="false"/>
 <child filterId="org.eclipse.cdt.internal.ui.CView.NonCProjectsFilter" isEnabled="false"/>
 <child filterId="org.eclipse.cdt.internal.ui.CView.NonCElementFilter" isEnabled="false"/>
-<child filterId="org.eclipse.cdt.ui.CView_patternFilterId_.*" isEnabled="true"/>
 <child filterId="org.eclipse.cdt.internal.ui.CView.ObjectFilter" isEnabled="false"/>
+<child filterId="org.eclipse.cdt.ui.CView_patternFilterId_.*" isEnabled="true"/>
 <child filterId="org.eclipse.cdt.internal.ui.CView.ArchiveFilter" isEnabled="false"/>
 </xmlDefinedFilters>
 </customFilters>
