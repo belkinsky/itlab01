@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+opened,view,org.eclipse.debug.ui,3.5.1.v20090811_r351,"org.eclipse.debug.ui.ExpressionView",1271667653125
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271667653156
+opened,editor,org.eclipse.cdt.debug.ui,6.0.0.200909110608,"org.eclipse.cdt.debug.ui.SourceNotFoundEditor",1271667653218
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271667657250
+closed,view,org.eclipse.debug.ui,3.5.1.v20090811_r351,"org.eclipse.debug.ui.MemoryView",1271667658984
+closed,view,org.eclipse.debug.ui,3.5.1.v20090811_r351,"org.eclipse.debug.ui.RegisterView",1271667658984
+closed,view,org.eclipse.debug.ui,3.5.1.v20090811_r351,"org.eclipse.debug.ui.ModuleView",1271667658984
+closed,editor,org.eclipse.cdt.debug.ui,6.0.0.200909110608,"org.eclipse.cdt.debug.ui.SourceNotFoundEditor",1271667659015
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.debug.core"".",1271667659031
+error,log,,,"An exception occurred while dispatching debug events.",1271667659046
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.debug.core"".",1271667659046
+error,log,,,"An exception occurred while dispatching debug events.",1271667659062
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271667662078
+error,log,,,"Variable references empty selection: ${project_loc}",1271667662078
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271667662906
+activated,editor,org.eclipse.cdt.make.ui,6.0.1.200909110608,"org.eclipse.cdt.make.editor",1271667663093
+activated,view,org.eclipse.ui.console,3.4.0.v20090513,"org.eclipse.ui.console.ConsoleView",1271667671437
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271667694328
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271667694328
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271667694359
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271667699546
+activated,view,org.eclipse.cdt.debug.ui,6.0.0.200909110608,"org.eclipse.cdt.debug.ui.DisassemblyView",1271667700218
+activated,perspective,org.eclipse.cdt.ui,5.1.1.200909110608,"org.eclipse.cdt.ui.CPerspective",1271667723171
+activated,view,org.eclipse.ui.console,3.4.0.v20090513,"org.eclipse.ui.console.ConsoleView",1271667723171
+activated,view,org.eclipse.cdt.ui,5.1.1.200909110608,"org.eclipse.cdt.ui.CView",1271667724875

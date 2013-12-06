@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271321172656
+activated,editor,org.eclipse.cdt.ui,5.1.1.200909110608,"org.eclipse.cdt.ui.editor.CEditor",1271321172781
+activated,view,org.eclipse.ui.console,3.4.0.v20090513,"org.eclipse.ui.console.ConsoleView",1271321184546
+activated,view,org.eclipse.cdt.ui,5.1.1.200909110608,"org.eclipse.cdt.ui.CView",1271321186515
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271321188031
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271321236312
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271321236875
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271321272343
+activated,editor,org.eclipse.cdt.ui,5.1.1.200909110608,"org.eclipse.cdt.ui.editor.CEditor",1271321273031
+activated,view,org.eclipse.ui.console,3.4.0.v20090513,"org.eclipse.ui.console.ConsoleView",1271321286281
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271321288750
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271321414265
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271321418125
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271321421093
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271321424359
+error,log,,,"Variable references empty selection: ${project_loc}",1271321424375
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271321425375
+activated,editor,org.eclipse.cdt.ui,5.1.1.200909110608,"org.eclipse.cdt.ui.editor.CEditor",1271321426093
+activated,view,org.eclipse.ui.console,3.4.0.v20090513,"org.eclipse.ui.console.ConsoleView",1271321430078
+activated,view,org.eclipse.cdt.ui,5.1.1.200909110608,"org.eclipse.cdt.ui.CView",1271321437656
+opened,editor,org.eclipse.ui.editors,3.5.0.v20090527-2000,"org.eclipse.ui.DefaultTextEditor",1271321443609
+activated,editor,org.eclipse.ui.editors,3.5.0.v20090527-2000,"org.eclipse.ui.DefaultTextEditor",1271321443640
+activated,view,org.eclipse.cdt.ui,5.1.1.200909110608,"org.eclipse.cdt.ui.CView",1271321449468
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271321453093
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271321454265

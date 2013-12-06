@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;STM32-H107_blink_FLASH/stm32.cfg&apos; to &apos;____old___stm32.cfg&apos;" description="Rename resource &apos;stm32.cfg&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="stm32.cfg" name="____old___stm32.cfg" stamp="1348645660171" updateReferences="true"/>
+</session>

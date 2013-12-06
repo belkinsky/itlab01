@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.edit.copy",1271321044218
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.edit.paste",1271321050234
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271321081703
+executed,command,org.eclipse.ui.externaltools,3.2.0.v20090504,"org.eclipse.ui.externalTools.commands.OpenExternalToolsConfigurations",1271321081718
+activated,view,org.eclipse.ui.console,3.4.0.v20090513,"org.eclipse.ui.console.ConsoleView",1271321091281
+error,log,,,"Variable references empty selection: ${project_loc}",1271321101359
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271321101375
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271321102796
+activated,view,org.eclipse.cdt.ui,5.1.1.200909110608,"org.eclipse.cdt.ui.CView",1271321104031
+opened,editor,org.eclipse.cdt.ui,5.1.1.200909110608,"org.eclipse.cdt.ui.editor.CEditor",1271321106390
+activated,editor,org.eclipse.cdt.ui,5.1.1.200909110608,"org.eclipse.cdt.ui.editor.CEditor",1271321106546
+executed,command,org.eclipse.ui.externaltools,3.2.0.v20090504,"org.eclipse.ui.externaltools.ExternalToolMenuDelegateToolbar",1271321108328
+activated,view,org.eclipse.ui.console,3.4.0.v20090513,"org.eclipse.ui.console.ConsoleView",1271321118000
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271321120781
+error,log,,,"Variable references empty selection: ${project_loc}",1271321120781
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271321121734
+activated,editor,org.eclipse.cdt.ui,5.1.1.200909110608,"org.eclipse.cdt.ui.editor.CEditor",1271321121906
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271321136296
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.edit.copy",1271321146421
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.edit.paste",1271321149843
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271321152046
+executed,command,org.eclipse.ui.externaltools,3.2.0.v20090504,"org.eclipse.ui.externalTools.commands.OpenExternalToolsConfigurations",1271321152062
+activated,view,org.eclipse.ui.console,3.4.0.v20090513,"org.eclipse.ui.console.ConsoleView",1271321157609
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271321171562
+error,log,,,"Variable references empty selection: ${project_loc}",1271321171562

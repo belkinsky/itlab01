@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;sam7p256-flash-usb-temp/armusbocd.cfg&apos; to &apos;project.cfg&apos;" description="Rename resource &apos;armusbocd.cfg&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="armusbocd.cfg" name="project.cfg" stamp="1348045232421" updateReferences="true"/>
+</session>

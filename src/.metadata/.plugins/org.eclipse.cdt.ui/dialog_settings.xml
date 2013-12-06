@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="true" key="LexicalSortingAction.sort"/>
+	<section name="outline_presenter_bounds">
+	</section>
+	<section name="OptionalMessageDialog.hide.">
+		<item value="0" key="askReindex.detail"/>
+	</section>
+	<section name="completion_proposal_size">
+	</section>
+	<section name="CSearchPage">
+	</section>
+	<section name="IncludeSysmbolsPropertyPage">
+		<item value="0" key="pageIndex"/>
+	</section>
+	<section name="PDOMSearchPage">
+		<item value="227191" key="searchFlags"/>
+		<item value="false" key="caseSensitive"/>
+		<list key="previousPatterns">
+			<item value="Reset_Handler"/>
+			<item value="STM32F10X_MD"/>
+			<item value="STM32F10X_CL"/>
+			<item value="STM32F10X_MD_VL"/>
+			<item value="VECT_TAB_SRAM"/>
+			<item value="EMB_FLASH"/>
+		</list>
+	</section>
+	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration.internal">
+		<item value="801" key="size.width"/>
+		<item value="180" key="size.height"/>
+	</section>
+	<section name="CPathsPropertyPage">
+		<item value="0" key="pageIndex"/>
+	</section>
+	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration">
+	</section>
+	<section name="CPathContainerSelectionPage">
+		<item value="0" key="index"/>
+	</section>
+</section>

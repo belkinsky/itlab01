@@ -1,0 +1,2 @@
+make -k clean 
+rm -f obj/*.o ./*.out ./*.bin ./*.dmp ./*.map

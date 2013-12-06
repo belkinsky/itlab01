@@ -1,0 +1,15 @@
+
+**** Build of configuration Debug for project lpc2378 ****
+
+make all 
+.compiling
+arm-none-eabi-gcc -I./ -c -fno-common -O0 -g main.c
+main.c: In function 'InitClock':
+main.c:69:3: warning: large integer implicitly truncated to unsigned type
+..linking
+arm-none-eabi-ld -v -Map main.map -T2378_demo.cmd -o main.out  crt.o main.o
+GNU ld (GNU Binutils) 2.20.1.20100303
+...copying
+arm-none-eabi-objcopy -O binary main.out main.bin
+...building hex
+arm-none-eabi-objcopy -O ihex main.out main.hex

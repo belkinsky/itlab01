@@ -1,0 +1,114 @@
+# 	Makefile for compiling the Getting Started project
+
+#-------------------------------------------------------------------------------
+#		User-modifiable options
+#-------------------------------------------------------------------------------
+
+# Trace level used for compilation
+# (can be overriden by adding TRACE_LEVEL=#number to the command-line)
+# TRACE_LEVEL_DEBUG      5
+# TRACE_LEVEL_INFO       4
+# TRACE_LEVEL_WARNING    3
+# TRACE_LEVEL_ERROR      2
+# TRACE_LEVEL_FATAL      1
+# TRACE_LEVEL_NO_TRACE   0
+TRACE_LEVEL = 4
+
+# Optimization level
+OPTIMIZATION = -O0
+
+# Output file basename
+OUTPUT = main
+
+# Output directories
+BIN = .
+OBJ = obj
+
+# library dirs
+LIBRARYSRC = ./lib/src
+STARTUPFILE = ./lib/startup_stm32f10x_md.s
+
+#-------------------------------------------------------------------------------
+#		Tools
+#-------------------------------------------------------------------------------
+
+# Tool suffix when cross-compiling
+CROSS_COMPILE = arm-none-eabi-
+
+CC = $(CROSS_COMPILE)gcc
+SIZE = $(CROSS_COMPILE)size
+STRIP = $(CROSS_COMPILE)strip
+OBJCOPY = $(CROSS_COMPILE)objcopy
+OBJDUMP = $(CROSS_COMPILE)objdump
+LD = $(CROSS_COMPILE)ld
+AS = $(CROSS_COMPILE)as
+
+#-------------------------------------------------------------------------------
+#		Files
+#-------------------------------------------------------------------------------
+
+# include folders
+INCLUDES =  -I./
+INCLUDES += -I./lib/
+INCLUDES += -I./lib/inc/
+INCLUDES += -I./modules/
+INCLUDES += -I./sbblib/
+
+# paths that make searches
+VPATH  = .
+VPATH += ./lib
+VPATH += ./lib/inc/
+VPATH += ./lib/src/
+VPATH += ./modules/
+VPATH += ./sbblib/
+
+# C source files
+C_SOURCES  := $(wildcard *.c)
+
+# Objects built from C source files
+#C_OBJECTS = $(OBJ)/$(wildcard *.o)
+C_OBJECTS := $(patsubst %.c, %.o, $(C_SOURCES) )
+
+# Objects built from Assembly source files
+ASM_OBJECTS = $(OBJ)/a/startup_stm32f10x_md.o
+
+LINKER_SCRIPT = ./lib/stm32_flash.ld
+#LINKER_SCRIPT = ./lib/stm32_ram.ld
+
+# Append OBJ and BIN directories to output filename
+OUTPUT := $(BIN)/$(OUTPUT)
+
+#-------------------------------------------------------------------------------
+#		Rules
+#-------------------------------------------------------------------------------
+
+# Flags
+CFLAGS = -Wall -fno-common -c -g -mcpu=cortex-m3 -mthumb
+CFLAGS += -g $(OPTIMIZATION) $(INCLUDES) -DTRACE_LEVEL=$(TRACE_LEVEL)
+ASFLAGS = -g -mapcs-32
+LDFLAGS = -g -v -nostartfiles
+OBJCOPYFLAGS = -O binary
+OBJDUMPFLAGS = -x --syms -S
+
+all: $(BIN) $(OBJ) $(OUTPUT).out
+
+$(BIN) $(OBJ):
+	mkdir $@
+
+$(OUTPUT).out: $(C_OBJECTS) $(ASM_OBJECTS) $(LINKER_SCRIPT)
+	@ echo "..linking"
+	$(LD) $(LDFLAGS) -Map $(OUTPUT).map -T$(LINKER_SCRIPT) -o $(OUTPUT).out $(C_OBJECTS) $(ASM_OBJECTS) libgcc.a
+	$(OBJCOPY) $(OBJCOPYFLAGS) $(OUTPUT).out $(OUTPUT).bin
+	@ echo "...completed."
+	
+$(C_OBJECTS): $(C_SOURCES)
+	@ echo ".compiling"
+#	$(CC) $(CFLAGS) -o $(wildcard $(OBJ)/$(C_OBJECTS))
+	$(CC) $(CFLAGS) -c $(C_SOURCES)
+		
+$(ASM_OBJECTS): $(STARTUPFILE)
+	@ echo ".assembling"
+	$(AS) $(ASFLAGS) -o $(OBJ)/a/startup_stm32f10x_md.o $(STARTUPFILE)
+
+clean:
+	-rm -f $(OBJ)/a/*.o $(OBJ)/*.o $(BIN)/*.out $(BIN)/*.bin $(BIN)/*.dmp $(BIN)/*.map

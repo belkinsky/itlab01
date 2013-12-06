@@ -1,0 +1,11 @@
+
+**** Build of configuration Debug for project LPC-2378_blink_FLASH ****
+
+make all 
+.assembling
+arm-none-eabi-as -ahls -mapcs-32 -o crt.o crt.s > crt.lst
+..linking
+arm-none-eabi-ld -v -Map main.map -T2378_demo.cmd -o main.out  crt.o main.o
+GNU ld (GNU Binutils) 2.20.1.20100303
+arm-none-eabi-ld: crt.o: No such file: No such file or directory
+make: *** [main.out] Error 1

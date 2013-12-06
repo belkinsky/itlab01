@@ -1,0 +1,6 @@
+#Wed Sep 19 13:23:50 EEST 2012
+macros/workspace=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<macros/>\r\n
+eclipse.preferences.version=1
+indexer=org.eclipse.cdt.core.domsourceindexer
+org.eclipse.cdt.core.taskTags=TODO,FIXME,XXX
+org.eclipse.cdt.core.taskPriorities=normal,normal,normal

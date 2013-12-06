@@ -1,0 +1,903 @@
+/******************** (C) COPYRIGHT 2008 STMicroelectronics ********************
+* File Name          : main.c
+* Author             : MCD Application Team
+* Version            : V2.0.3
+* Date               : 09/22/2008
+* Description        : Main program body.
+********************************************************************************
+* THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
+* WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE TIME.
+* AS A RESULT, STMICROELECTRONICS SHALL NOT BE HELD LIABLE FOR ANY DIRECT,
+* INDIRECT OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING FROM THE
+* CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE CODING
+* INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
+*******************************************************************************/
+
+/* Includes ------------------------------------------------------------------*/
+#include <assert.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+#include <string.h>
+//#include <intrinsics.h>
+#include "stm32f10x_lib.h"
+#include "platform_config.h"
+
+#include "utils.h"
+#include "lcd-320x240.h"
+#include "touchscreen.h"
+#include "gps.h"
+#include "../sbblib/i2c2_drv.h"
+#include "../sbblib/accl_drv.h"
+
+#if defined(CONFIG_GSM)
+  #include "gsm.h"
+#endif	/* CONFIG_GSM */
+
+/* Private typedef -----------------------------------------------------------*/
+/* Private define ------------------------------------------------------------*/
+const char *SMS_NUMBER = "+359876041101";
+
+/* Private macro -------------------------------------------------------------*/
+/* Private variables ---------------------------------------------------------*/
+GPIO_InitTypeDef GPIO_InitStructure;
+ErrorStatus HSEStartUpStatus;
+Int32U CriticalSecCntr;
+
+volatile unsigned int counter_1ms;
+
+/* Private function prototypes -----------------------------------------------*/
+void RCC_Configuration(void);
+void NVIC_Configuration(void);
+void Delay(vu32 nCount);
+
+/* Private functions ---------------------------------------------------------*/
+static void set_gpio_lowpwr(void);
+
+
+static void reset_peripherals(void)
+{
+	RCC_APB2PeriphResetCmd(RCC_APB2Periph_ADC1
+				| RCC_APB2Periph_ADC2
+				| RCC_APB2Periph_TIM1
+				| RCC_APB2Periph_SPI1
+				| RCC_APB2Periph_TIM8
+				| RCC_APB2Periph_USART1
+				| RCC_APB2Periph_ADC3,
+				ENABLE);
+	RCC_APB1PeriphResetCmd(RCC_APB1Periph_ALL, ENABLE);
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_ALL, DISABLE);
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_ALL, DISABLE);
+	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA1
+			| RCC_AHBPeriph_DMA2
+			| RCC_AHBPeriph_SRAM
+			| RCC_AHBPeriph_FLITF
+			| RCC_AHBPeriph_CRC
+			| RCC_AHBPeriph_FSMC
+			| RCC_AHBPeriph_SDIO,
+			DISABLE);
+}
+
+static void set_gpio_lowpwr(void)
+{
+	static const struct {
+		GPIO_TypeDef *port;
+		unsigned int outm;
+		unsigned int outst;
+	} gpios[] = {
+		{ GPIOA, 0x1fee, 0x0100 },
+		{ GPIOB, 0xe023, 0x0000 },
+		{ GPIOC, 0xf0ff, 0x0000 },
+		{ GPIOD, 0xdff3, 0x00b0 },
+		{ GPIOE, 0xffef, 0x000c },
+		{ GPIOF, 0xffff, 0x0000 },
+		{ GPIOG, 0xffff, 0x0000 },
+	};
+
+	size_t i;
+	
+	for(i=0; i<ARRAY_NUMELEM(gpios); i++) {
+		unsigned int pin;
+		for(pin=1<<15; pin; pin>>=1) {
+			if(gpios[i].outm & pin) {
+				GPIO_InitStructure.GPIO_Pin = pin;
+				GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+				GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
+				GPIO_Init(gpios[i].port, &GPIO_InitStructure);
+				if(gpios[i].outst & pin) {
+					/* set as high output */
+					GPIO_SetBits(gpios[i].port, pin);
+				} else {
+					/* set as low output */
+					GPIO_ResetBits(gpios[i].port, pin);
+				}
+			} else {
+				/* set as input */
+				GPIO_InitStructure.GPIO_Pin = pin;
+				GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN;
+				GPIO_Init(gpios[i].port, &GPIO_InitStructure);
+			}
+		}
+	}
+}
+
+
+static void shutdown(void)
+{
+	/* the code here shutdowns EVERYTHING in order to save power */
+	Accl_PowerDown();
+	LCD_EnterDeepStandby();
+	LCD_SetBacklight(0);
+	USB_ConnectRes(FALSE);
+	SysTick_ITConfig(DISABLE);
+	SysTick_CounterCmd(SysTick_Counter_Disable);
+
+	__disable_interrupt();
+	
+	NVIC->ICER[0] = NVIC_ICER_CLRENA;
+	NVIC->ICER[1] = NVIC_ICER_CLRENA;
+	
+	//set_all_gpios_to_ain();
+	set_gpio_lowpwr();
+	
+	reset_peripherals();
+#if 1
+	for(;;) {
+		PWR_EnterSTANDBYMode();
+	}
+#elif 0
+	for(;;) {
+		PWR_EnterSTOPMode(PWR_Regulator_LowPower, PWR_STOPEntry_WFE);
+		__WFE();
+		__WFI();
+	}
+#endif
+}
+
+
+static int usb_powered(void)
+{
+	return GPIO_ReadInputDataBit(GPIOA, 1<<0);
+}
+
+
+#if 0
+static struct gps_position home_pos;
+static bool home_pos_valid;
+#elif 0
+/* Olimex home */
+static struct gps_position home_pos = {
+	((42*100 + 9) << 14) + (1357 * (1<<14))/60/100,
+	'N',
+	((24*100 + 46) << 14) + (3707 * (1<<14))/60/100,
+	'E'
+};
+static bool home_pos_valid = true;
+#elif 1
+/* Motel one, Nurnberg */
+static struct gps_position home_pos = {
+	((49*100 + 26) << 14) + (4278 * (1<<14))/60/100,
+	'N',
+	((11*100 + 4) << 14) + (832 * (1<<14))/60/100,
+	'E'
+};
+static bool home_pos_valid = true;
+#endif
+
+static void draw_dial(int x0, int y0, int angle, int bgcolor, int fgcolor)
+{
+	const int r = 30;
+	int x,y;
+			
+	x = x0+r;
+	y = y0;
+	LCD_RotatePoint(&x, &y, x0, y0, -angle);
+	LCD_DrawRect(x0-r, y0-r, 2*r+2, 2*r+2, bgcolor);
+	LCD_DrawLine(x, y, x0, y0, fgcolor);
+	LCD_DrawLine(x, y, x0+1, y0, fgcolor);
+	LCD_DrawLine(x, y, x0-1, y0, fgcolor);
+	LCD_DrawLine(x, y, x0+2, y0, fgcolor);
+	LCD_DrawLine(x, y, x0-2, y0, fgcolor);
+	LCD_DrawLine(x, y, x0, y0+1, fgcolor);
+	LCD_DrawLine(x, y, x0, y0-1, fgcolor);
+	LCD_DrawLine(x, y, x0, y0+2, fgcolor);
+	LCD_DrawLine(x, y, x0, y0-2, fgcolor);
+	LCD_DrawCircle(x0, y0, r+1, LCD_COLOR_BLUE);
+	LCD_DrawCircle(x0, y0, r+2, LCD_COLOR_BLUE);
+	LCD_DrawCircle(x0, y0, r+3, LCD_COLOR_BLUE);
+}
+
+static void draw_N(int x, int y, int color)
+{
+	LCD_DrawLine(x, y, x, y+10, color);
+	LCD_DrawLine(x, y, x+6, y+10, color);
+	LCD_DrawLine(x+6, y, x+6, y+10, color);
+}
+
+static void draw_battery(int x, int y, int color)
+{
+	LCD_DrawLine(x, y, x, y+8, color);
+	LCD_DrawLine(x, y+8, x+16, y+8, color);
+	LCD_DrawLine(x+16, y+8, x+16, y+5, color);
+	LCD_DrawLine(x+16, y+5, x+18, y+5, color);
+	LCD_DrawLine(x+18, y+5, x+18, y+3, color);
+	LCD_DrawLine(x+18, y+3, x+16, y+3, color);
+	LCD_DrawLine(x+16, y+3, x+16, y, color);
+	LCD_DrawLine(x+16, y, x, y, color);
+}
+
+
+
+static void update_gps_info(void)
+{
+	struct gps_gprmc info;
+	struct gps_gpgga info2;
+	long home_distance;
+
+	LCD_ConSetPos(0,0);
+
+	if(!gps_get_gprmc(&info) && !gps_get_gpgga(&info2)) {
+		char buf[16];
+		if(info.status != 'A') {
+			LCD_ConSetColor(LCD_COLOR_BLACK, LCD_COLOR_RED);
+		} else {
+			LCD_ConSetColor(LCD_COLOR_BLACK, LCD_COLOR_WHITE);
+		}
+		gps_print_polar(buf, info.pos.latitude);
+		LCD_Printf("%c %s\n", info.pos.ns, buf);
+		gps_print_polar(buf, info.pos.longitude);
+		LCD_Printf("%c %s\n", info.pos.ew, buf);
+
+		LCD_Printf("Time %d:%d:%d\nDate %d.%d.%d\n",
+				info.utc_time.hour,
+				info.utc_time.min,
+				info.utc_time.sec,
+				info.utc_date.day,
+				info.utc_date.month,
+				info.utc_date.year);
+		LCD_Printf("Speed=%d.%02d m/s\n",
+				gps_real_int(info.speed),
+				gps_real_fract100(info.speed));
+#if 1
+		LCD_Printf("Alt=%dm S=%d\n",
+				gps_real_int(info2.msl_altitude),
+				info2.sats_used);
+#else
+		LCD_Printf("%d  %d\n",
+			   	gps_calc_course_degr(&info.pos, &home_pos),
+				gps_real_int(info.course));
+#endif
+		
+		if(home_pos_valid) {
+			home_distance = gps_calc_distance_m(&home_pos, &info.pos);
+		}
+		if(!home_pos_valid) {
+			LCD_Printf("No home set\n");
+		} else if(home_distance < 0) {
+			/* at least inform user about our
+			 * crippled distance measurement code 
+			 */
+			LCD_Printf("DISTANCE ERR\n");
+		} else if(home_distance >= 10000) {
+			LCD_Printf("Home %d km\n", home_distance/1000);
+		} else {
+			LCD_Printf("Home %d m\n", home_distance);
+		}
+		LCD_Printf("\n");
+		LCD_Printf(" home  course ");
+		draw_N(158,216,LCD_COLOR_GREEN);
+		draw_N(46,216,LCD_COLOR_GREEN);
+		draw_dial(10*16,10*24+20, 90 - gps_real_int(info.course),
+			  	LCD_COLOR_BLACK, LCD_COLOR_RED);
+		draw_dial(3*16,10*24+20,
+			  home_pos_valid ? 90 + gps_calc_course_degr(&info.pos, &home_pos) : 0,
+			  LCD_COLOR_BLACK, 
+			  home_pos_valid ? LCD_COLOR_YELLOW : LCD_COLOR_GRAY);
+	} else {
+		LCD_Printf("GPS not\nconnected\nor no valid\ndata\n\n\n");
+	}
+	draw_battery(220, 300, usb_powered() ? LCD_COLOR_BLACK : LCD_COLOR_YELLOW);
+}
+
+
+/*-------------------------------------------------------------------------*/
+
+#if defined(CONFIG_GSM)
+
+static void send_position_with_sms(const char *sms_number)
+{
+	static char buf[256];
+	struct gps_gprmc info;
+	struct gps_gpgga info2;
+
+	if(!gps_get_gprmc(&info) && !gps_get_gpgga(&info2)) {
+		char lat[16];
+		char lon[16];
+
+		gps_print_polar(lat, info.pos.latitude);
+		gps_print_polar(lon, info.pos.latitude);
+		sprintf(buf, "%c %s, %c %s, Time %d:%d:%d %d.%d.%d, "
+				"Speed=%d%d m/s, Altitude=%d m, Sats=%d",
+				info.pos.ns, lat,
+				info.pos.ew, lon,
+				info.utc_time.hour,
+				info.utc_time.min,
+				info.utc_time.sec,
+				info.utc_date.day,
+				info.utc_date.month,
+				info.utc_date.year,
+				gps_real_int(info.speed),
+				gps_real_fract100(info.speed),
+				gps_real_int(info2.msl_altitude),
+				info2.sats_used);
+		gsm_send_sms(sms_number, buf);
+	}
+}
+
+
+static int gsm_ring_cntr;
+static int gsm_num_rings;
+static char gsm_clip_phonenum[64];
+
+static void gsm_ring_cb(void)
+{
+	if(gsm_ring_cntr)
+		gsm_num_rings++;
+	else
+		gsm_num_rings = 1;
+	gsm_ring_cntr = 20;
+}
+
+static void gsm_clip_cb(const char *phonenum)
+{
+	if(strlen(phonenum) < (sizeof(gsm_clip_phonenum)-1))
+		strcpy(gsm_clip_phonenum, phonenum);
+}
+
+struct gsm_notifications gsm_callbacks = {
+	.ring = gsm_ring_cb,
+	.clip = gsm_clip_cb,
+};
+
+static void update_gsm_info(void)
+{
+	int stat;
+	struct gsm_battery_status batstat;
+
+	LCD_ConSetPos(0,0);
+	if(!gsm_check_sanity()) {
+		LCD_Printf("***GSM*ERROR***\n\n");
+	} else {
+		LCD_Printf("------GSM------\n");
+	}
+	if(gsm_ring_cntr) {
+		if(strlen(gsm_clip_phonenum)>0) {
+			LCD_Printf("RING from:\n%s\n", gsm_clip_phonenum);
+		} else {
+			LCD_Printf("RINGING...\n");
+		}
+		gsm_ring_cntr--;
+		if(!gsm_ring_cntr) {
+			gsm_clip_phonenum[0]='\0';
+			gsm_num_rings = 0;
+		}
+	}
+
+	stat = gsm_get_battery_perc(&batstat);
+	if(stat) {
+		LCD_Printf("BAT ERR %d\n", stat);
+	} else {
+		LCD_Printf("VBAT=%d mV\n", batstat.voltage_mv);
+		if(batstat.bcs == GSM_BAT_CHARGING) {
+			LCD_Printf("BAT charging...");
+		} else if(batstat.bcs == GSM_BAT_CHARGING_FINISHED) {
+			LCD_Printf("BAT charged.");
+		} else {
+			LCD_Printf("BAT %d%%\n", batstat.bcl);
+		}
+	}
+	LCD_Printf("\n\n\n\n\n");
+}
+
+static void check_battery_level(void)
+{
+	int stat;
+	struct gsm_battery_status batstat;
+
+	stat = gsm_get_battery_perc(&batstat);
+	if(!stat && (batstat.voltage_mv < 3500)) {
+		/* power down to protect battery */
+		shutdown();
+	}
+
+}
+
+#endif	/* CONFIG_GSM */
+
+static void usb_pwrinp_init(void)
+{
+	GPIO_InitTypeDef GPIO_InitStructure;
+
+	GPIO_InitStructure.GPIO_Pin = 1<<0;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_Init(GPIOA, &GPIO_InitStructure);
+}
+
+static void usbhid_poll(void)
+{
+	const int mouse_delta = 30;
+	static Int8S mouse_X = 0, mouse_Y = 0;
+	static Int8U Buttons = 0, ButtonsHold = 0;
+
+	Int16S accl_X, accl_Y, accl_Z;
+
+	if(UsbCoreReq(UsbCoreReqDevState) == UsbDevStatusConfigured)
+	{
+		if(!Accl_Get(&accl_X,&accl_Y,&accl_Z)) {
+			accl_X = 0;
+			accl_Y = 0;
+			accl_Z = 0;
+		}
+
+		if(labs(accl_X) < mouse_delta)
+			accl_X = 0;
+		if(labs(accl_Y) < mouse_delta)
+			accl_Y = 0;
+		if(labs(accl_Z) < mouse_delta)
+			accl_Z = 0;
+
+		// Buttons and Joystick processing
+		mouse_Y += -accl_Y/64;
+		mouse_X += -accl_X/64;
+
+#if 0
+		if(ButtCtrl.JsCenter || ButtCtrl.B1)
+		{
+			Buttons |= 1;
+		}
+		else
+		{
+			Buttons &= ~1;
+		}
+
+		if(ButtCtrl.B2)
+		{
+			Buttons |= 2;
+		}
+		else
+		{
+			Buttons &=~2;
+		}
+#endif
+
+		if(mouse_Y || mouse_X  || Buttons || (ButtonsHold ^ Buttons))
+		{
+			UsbWakeUp();  // wake-up
+			// Send report
+			HidMouseSendReport(mouse_X,mouse_Y,Buttons);
+			ButtonsHold = Buttons;
+			mouse_Y = mouse_X = Buttons = 0;
+		}
+	}
+}
+
+
+static void draw_accl_chart(void)
+{
+	const int accl_max = 2*1024;
+	const int fgcolor = LCD_COLOR_WHITE;
+	const int color0 = LCD_COLOR_RED;
+	const int color1 = LCD_COLOR_GREEN;
+	const int color2 = LCD_COLOR_BLUE;
+	const int y_spacing = 32;
+	const int y0 = 0*2*y_spacing + y_spacing;
+	const int y1 = 1*2*y_spacing + y_spacing;
+	const int y2 = 2*2*y_spacing + y_spacing;
+
+	static int x;
+
+	Int16S X, Y, Z;
+
+	if(!Accl_Get(&X,&Y,&Z)) {
+		return;
+	}
+	if(x >= 240)
+		x = 0;
+	LCD_DrawLine(x, y0-y_spacing, x, y0+y_spacing-1, fgcolor);
+	LCD_DrawLine(x, y1-y_spacing, x, y1+y_spacing-1, fgcolor);
+	LCD_DrawLine(x, y2-y_spacing, x, y2+y_spacing-1, fgcolor);
+	
+	LCD_DrawLine(x, y0, x, y0 + X * y_spacing / accl_max, color0);
+	LCD_DrawLine(x, y1, x, y1 + Y * y_spacing / accl_max, color1);
+	LCD_DrawLine(x, y2, x, y2 + Z * y_spacing / accl_max, color2);
+	x++;
+}
+
+void lcd_tscal_cb(int x, int y)
+{
+	int color = LCD_COLOR_YELLOW;
+	
+	LCD_Clear(LCD_COLOR_BLACK);
+	if(x)
+		x = 238;
+	if(y)
+		y = 318;
+	LCD_SetPixel(x,y, color);
+	LCD_SetPixel(x+1,y, color);
+	LCD_SetPixel(x,y+1, color);
+	LCD_SetPixel(x+1,y+1, color);
+}
+
+
+/*******************************************************************************
+* Function Name  : main
+* Description    : Main program.
+* Input          : None
+* Output         : None
+* Return         : None
+*******************************************************************************/
+int main(void)
+{
+	int stat;
+  const u16 lcd_brush_colors[] = {
+	  LCD_COLOR_BLACK, LCD_COLOR_BLUE, LCD_COLOR_RED, LCD_COLOR_GREEN, 
+	  LCD_COLOR_WHITE,  LCD_COLOR_GRAY
+  };
+  enum {
+	  ST_GPS_INFO,
+	  ST_GSM_INFO,
+	  ST_DRAWING,
+  } cstate = ST_DRAWING;
+  int color_i = 0;
+  int prev_pendown = 0;
+  int lcd_backlight_cntr=0;
+  int lcd_on = 1;
+  int lcd_backlight_on = 1;
+  
+#ifdef DEBUG
+  debug();
+#endif
+
+  ENTR_CRT_SECTION();
+
+  /* System Clocks Configuration **********************************************/
+  RCC_Configuration();   
+
+  /* NVIC Configuration *******************************************************/
+  NVIC_Configuration();
+
+  /* Configure all unused GPIO port pins in Analog Input mode (floating input
+     trigger OFF), this will reduce the power consumption and increase the device
+     immunity against EMI/EMC *************************************************/
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_GPIOB |
+                         RCC_APB2Periph_GPIOC | RCC_APB2Periph_GPIOD |
+                         RCC_APB2Periph_GPIOE | RCC_APB2Periph_GPIOF |
+                         RCC_APB2Periph_GPIOG | RCC_APB2Periph_USART1 |
+                         RCC_APB2Periph_ADC3, ENABLE);
+  RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART2, ENABLE);
+
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_All;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN;
+  GPIO_Init(GPIOA, &GPIO_InitStructure);
+  GPIO_Init(GPIOB, &GPIO_InitStructure);
+  GPIO_Init(GPIOC, &GPIO_InitStructure);
+  GPIO_Init(GPIOD, &GPIO_InitStructure);
+  GPIO_Init(GPIOE, &GPIO_InitStructure);
+  GPIO_Init(GPIOF, &GPIO_InitStructure);
+  GPIO_Init(GPIOG, &GPIO_InitStructure);
+  
+  // HID USB
+  HidInit();
+  EXT_CRT_SECTION();
+
+  I2C2_Init();
+  
+  usb_pwrinp_init();
+
+  /* SysTick end of count event each 10ms with input clock equal to 9MHz (HCLK/8, default) */
+  SysTick_SetReload(9000*10);
+
+  /* Enable SysTick interrupt */
+  SysTick_ITConfig(ENABLE);
+  SysTick_CounterCmd(SysTick_Counter_Enable);
+  
+/*
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_GPIOB |
+                         RCC_APB2Periph_GPIOC | RCC_APB2Periph_GPIOD |
+                         RCC_APB2Periph_GPIOE, DISABLE);  
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOF | RCC_APB2Periph_GPIOG, ENABLE);
+
+  GPIO_Init(GPIOF, &GPIO_InitStructure);
+  GPIO_Init(GPIOG, &GPIO_InitStructure);
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOF | RCC_APB2Periph_GPIOG, DISABLE);
+*/
+  /* Enable the FSMC Clock */
+  RCC_AHBPeriphClockCmd(RCC_AHBPeriph_FSMC, ENABLE);
+  
+  /* Configure FSMC Bank1 NOR/SRAM3 */
+  LCD_Init();
+
+  if(!LCD_LcdIdOk()) {
+	  printf("LCD IS NOT RESPONDING!!!\n");
+	  assert(0);
+	  for(;;);
+  }
+  
+  LCD_Clear(LCD_COLOR_BLACK);
+  LCD_ConSetColor(LCD_COLOR_BLACK, LCD_COLOR_GRAY);
+  LCD_ConSetPos(0,0);
+  
+  ts_init();
+  gps_init();
+
+#if 1
+  LCD_Clear(LCD_COLOR_BLACK);
+  stat = ts_calibrate(lcd_tscal_cb);
+  if(stat) {
+          LCD_ConSetColor(LCD_COLOR_BLACK, LCD_COLOR_RED);
+          LCD_ConSetPos(0,0);
+          LCD_Printf("TOUCHSCREEN\nERROR");
+	  for(;;);
+  }
+#endif
+  
+  // Init Accl sensor
+  if(FALSE == Accl_Init())
+  {
+    // Initialization fault
+    LCD_Printf("Accelerometer\nLIS3LV020 Init.\nfault\n");
+    while(1);
+  }
+  
+#if 0
+  shutdown();
+#endif
+  
+  LCD_Printf("Initializing\nsystem\ncomponents...");
+#if defined(CONFIG_GSM)
+  gsm_init();
+#endif	/* CONFIG_GSM */
+  LCD_ConSetColor(LCD_COLOR_BLACK, LCD_COLOR_WHITE);
+
+  // Soft connection enable
+  USB_ConnectRes(TRUE);
+  
+  LCD_Clear(LCD_COLOR_WHITE);
+  
+  while (1)
+  {
+	  int x,y;
+	  int pressed;
+	  
+	  ts_poll(&x,&y,&pressed);
+	  gps_poll();
+#if defined(CONFIG_GSM)
+	  gsm_poll();
+#endif	/* CONFIG_GSM */
+	  if(pressed) {
+		  if(!lcd_on) {
+			  lcd_on = 1;
+			  LCD_ExitSleep();
+			  LCD_SetBacklight(1);
+		  }
+		  lcd_backlight_cntr = 0;
+		  if(cstate == ST_DRAWING) {
+			  if(y < 320)
+				  LCD_SetPixel(x,y, lcd_brush_colors[color_i]);
+		  } else {
+			  if(!prev_pendown && (y < 100)) {
+				  lcd_backlight_on = !lcd_backlight_on;
+				  LCD_SetBacklight(lcd_backlight_on);
+			  }
+		  }
+
+		  /* "Home" pressed. */
+		  if((x > (48*0+10)) && (x < (48*0+38)) && (y >= 325)) {
+			  struct gps_gprmc info;
+			  if(!gps_get_gprmc(&info)) {
+				home_pos = info.pos;
+				home_pos_valid = true;
+			  }
+		  }
+			       
+		  /* "Message" pressed. */
+		  if((x > (48*1+10)) && (x < (48*1+38)) && (y >= 325)) {
+			  if(!prev_pendown) {
+#if defined(CONFIG_GSM)
+				  send_position_with_sms(SMS_NUMBER);
+#endif	/* CONFIG_GSM */
+			  }
+			  //printf("Message\n");
+		  }
+			       
+		  /* "Address Book" pressed. */
+		  if((x > (48*2+10)) && (x < (48*2+38)) && (y >= 325)) {
+			  LCD_Clear(LCD_COLOR_BLACK);
+			  cstate = ST_GPS_INFO;
+		  }
+			       
+		  /* "Phone" pressed. */
+		  if((x > (48*3+10)) && (x < (48*3+38)) && (y >= 325)) {
+			  //printf("Phone\n");
+			  LCD_Clear(LCD_COLOR_BLACK);
+			  cstate = ST_GSM_INFO;
+		  }
+			       
+		  /* "Music" pressed. */
+		  if((x > (48*4+10)) && (x < (48*4+38)) && (y >= 325)) {
+			  //printf("Music\n");
+			  if(cstate != ST_DRAWING)
+				  LCD_Clear(LCD_COLOR_WHITE);
+			  cstate = ST_DRAWING;
+			  if(!prev_pendown) {
+				  if((++color_i) > ARRAY_NUMELEM(lcd_brush_colors))
+					  color_i = 0;
+			  }
+		  }
+			       
+	  }
+	  if(!usb_powered() && (lcd_backlight_cntr > 2*60*1000/500)) {
+		  if(lcd_on) {
+			  LCD_EnterSleep();
+			  LCD_SetBacklight(0);
+		  }
+		  lcd_on = 0;
+	  }
+	  prev_pendown = pressed;
+	  if(counter_1ms > 500) {
+		  if(lcd_backlight_cntr < INT_MAX)
+			  lcd_backlight_cntr++;
+		  if(cstate == ST_GPS_INFO) 
+			  update_gps_info();
+#if defined(CONFIG_GSM)
+		  if(cstate == ST_GSM_INFO) 
+			  update_gsm_info();
+		  check_battery_level();
+#endif	/* CONFIG_GSM */
+  		  counter_1ms = 0;
+	  }
+	  if(!(counter_1ms % 30)) {
+		  usbhid_poll();
+	  }
+	  if(!(counter_1ms % 100)) {
+		  if(cstate == ST_DRAWING) 
+			  draw_accl_chart();
+	  }
+
+#if defined(CONFIG_GSM)
+	  if(gsm_num_rings>=4) {
+		  send_position_with_sms(strlen(gsm_clip_phonenum) ? 
+	 			 gsm_clip_phonenum : SMS_NUMBER);
+		gsm_num_rings = 0;
+	  }
+#endif	/* CONFIG_GSM */
+	  
+  }
+}
+
+/*******************************************************************************
+* Function Name  : RCC_Configuration
+* Description    : Configures the different system clocks.
+* Input          : None
+* Output         : None
+* Return         : None
+*******************************************************************************/
+void RCC_Configuration(void)
+{   
+  /* RCC system reset(for debug purpose) */
+  RCC_DeInit();
+
+  /* Enable HSE */
+  RCC_HSEConfig(RCC_HSE_ON);
+
+  /* Wait till HSE is ready */
+  HSEStartUpStatus = RCC_WaitForHSEStartUp();
+
+  if(HSEStartUpStatus == SUCCESS)
+  {
+    /* Enable Prefetch Buffer */
+    FLASH_PrefetchBufferCmd(FLASH_PrefetchBuffer_Enable);
+
+    /* Flash 2 wait state */
+    FLASH_SetLatency(FLASH_Latency_2);
+ 	
+    /* HCLK = SYSCLK */
+    RCC_HCLKConfig(RCC_SYSCLK_Div1); 
+  
+    /* PCLK2 = HCLK */
+    RCC_PCLK2Config(RCC_HCLK_Div1); 
+
+    /* PCLK1 = HCLK/2 */
+    RCC_PCLK1Config(RCC_HCLK_Div2);
+
+    /* ADCCLK = PCLK2/4 */
+    RCC_ADCCLKConfig(RCC_PCLK2_Div4); 
+
+  
+    /* PLLCLK = 8MHz * 9 = 72 MHz */
+    RCC_PLLConfig(RCC_PLLSource_HSE_Div1, RCC_PLLMul_9);
+
+    /* Enable PLL */ 
+    RCC_PLLCmd(ENABLE);
+
+    /* Wait till PLL is ready */
+    while(RCC_GetFlagStatus(RCC_FLAG_PLLRDY) == RESET)
+    {
+    }
+
+    /* Select PLL as system clock source */
+    RCC_SYSCLKConfig(RCC_SYSCLKSource_PLLCLK);
+
+    /* Wait till PLL is used as system clock source */
+    while(RCC_GetSYSCLKSource() != 0x08)
+    {
+    }
+    RCC_USBCLKConfig(RCC_USBCLKSource_PLLCLK_1Div5);
+  }
+}
+
+/*******************************************************************************
+* Function Name  : NVIC_Configuration
+* Description    : Configures Vector Table base location.
+* Input          : None
+* Output         : None
+* Return         : None
+*******************************************************************************/
+void NVIC_Configuration(void)
+{
+#ifdef  VECT_TAB_RAM  
+  /* Set the Vector Table base location at 0x20000000 */ 
+  NVIC_SetVectorTable(NVIC_VectTab_RAM, 0x0); 
+#else  /* VECT_TAB_FLASH  */
+  /* Set the Vector Table base location at 0x08000000 */ 
+  NVIC_SetVectorTable(NVIC_VectTab_FLASH, 0x0);   
+#endif
+   /* Configure the NVIC Preemption Priority Bits */  
+  NVIC_PriorityGroupConfig(NVIC_PriorityGroup_0);  
+  NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);  
+}
+
+/*******************************************************************************
+* Function Name  : Delay
+* Description    : Inserts a delay time.
+* Input          : nCount: specifies the delay time length.
+* Output         : None
+* Return         : None
+*******************************************************************************/
+void Delay(vu32 nCount)
+{
+  for(; nCount != 0; nCount--);
+}
+
+#ifdef  DEBUG
+/*******************************************************************************
+* Function Name  : assert_failed
+* Description    : Reports the name of the source file and the source line number
+*                  where the assert_param error has occurred.
+* Input          : - file: pointer to the source file name
+*                  - line: assert_param error line source number
+* Output         : None
+* Return         : None
+*******************************************************************************/
+void assert_failed(u8* file, u32 line)
+{ 
+  /* User can add his own implementation to report the file name and line number,
+     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+
+  /* Infinite loop */
+  while (1)
+  {
+  }
+}
+#endif
+
+#if defined(NDEBUG)
+__interwork size_t __write(int handle, const unsigned char *buf, size_t size)
+{
+	(void)handle; (void)buf;
+	return size;
+}
+#endif
+
+/******************* (C) COPYRIGHT 2008 STMicroelectronics *****END OF FILE****/

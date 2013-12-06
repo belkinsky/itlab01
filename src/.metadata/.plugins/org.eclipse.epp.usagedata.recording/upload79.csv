@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+activated,view,org.eclipse.cdt.ui,5.1.1.200909110608,"org.eclipse.cdt.ui.CView",1271667317671
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271667321968
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271667323562
+activated,view,org.eclipse.ui.ide,3.5.1.M20090826-0800,"org.eclipse.ui.views.ProblemView",1271667324375
+activated,editor,org.eclipse.cdt.ui,5.1.1.200909110608,"org.eclipse.cdt.ui.editor.CEditor",1271667327312
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271667347171
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271667350828
+error,log,,,"Failed command: wiat_halt",1271667352640
+error,log,,,"Failed command: sleep 100",1271667352750
+error,log,,,"Failed command: load_image main.bin 0x40000000",1271667352859
+error,log,,,"Failed command: sleep 100",1271667352968
+activated,view,org.eclipse.ui.console,3.4.0.v20090513,"org.eclipse.ui.console.ConsoleView",1271667361609
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271667364781
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271667374390
+error,log,,,"Failed command: wait_halt",1271667375843
+error,log,,,"Failed command: sleep 100",1271667375953
+error,log,,,"Failed command: load_image main.bin 0x40000000",1271667376062
+error,log,,,"Failed command: sleep 100",1271667376171
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271667383484
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.edit.copy",1271667387843
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.edit.paste",1271667388437
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.edit.paste",1271667389671
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.edit.paste",1271667392109
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.edit.paste",1271667392703
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.edit.paste",1271667393734

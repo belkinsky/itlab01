@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;SAM9-L9260_blink_RAM&apos; to &apos;SAM9-L9260_blink_FLASH&apos;" description="Rename resource &apos;SAM9-L9260_blink_RAM&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/SAM9-L9260_blink_RAM" name="SAM9-L9260_blink_FLASH" stamp="1354086651421" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;LPC-H2294_flash&apos; to &apos;LPC-H2294_blink_FLASH&apos;" description="Rename resource &apos;LPC-H2294_flash&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/LPC-H2294_flash" name="LPC-H2294_blink_FLASH" stamp="1354280089406" updateReferences="true"/>
+</session>

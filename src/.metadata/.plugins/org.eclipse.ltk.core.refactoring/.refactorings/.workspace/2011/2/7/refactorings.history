@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;SAM7-EX256&apos; to &apos;SAM7-EX256_FLASH&apos;" description="Rename resource &apos;SAM7-EX256&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/SAM7-EX256" name="SAM7-EX256_FLASH" stamp="1297685370634" updateReferences="true"/>
+</session>

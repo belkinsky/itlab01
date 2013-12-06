@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<cHelpSettings>
+<project name="demo2106_blink_ram"/>
+<project name="STM-P103_GPIO">
+<provider id="org.eclipse.cdt.ui.provider1"/>
+</project>
+<project name="SAM7P256-FLASH-USB">
+<provider id="org.eclipse.cdt.ui.provider1"/>
+</project>
+<project name="STM32-H107_blink_FLASH">
+<provider id="org.eclipse.cdt.ui.provider1"/>
+</project>
+<project name="SAM7-P256-cdc_FLASH">
+<provider id="org.eclipse.cdt.ui.provider1"/>
+</project>
+<project name="SAM7-EX256-cdc_FLASH">
+<provider id="org.eclipse.cdt.ui.provider1"/>
+</project>
+<project name="LPC-P2378">
+<provider id="org.eclipse.cdt.ui.provider1"/>
+</project>
+<project name="Copy of STM32-P107_blink_FLASH">
+<provider id="org.eclipse.cdt.ui.provider1"/>
+</project>
+<project name="lkjkljlkjlk">
+<provider id="org.eclipse.cdt.ui.provider1"/>
+</project>
+<project name="SAM7-MT256_lcddemo_FLASH">
+<provider id="org.eclipse.cdt.ui.provider1"/>
+</project>
+<project name="LPC-H2294_blink_FLASH">
+<provider id="org.eclipse.cdt.ui.provider1"/>
+</project>
+<project name="LPC-L2294-1MB_blink_intFLASH">
+<provider id="org.eclipse.cdt.ui.provider1"/>
+</project>
+</cHelpSettings>

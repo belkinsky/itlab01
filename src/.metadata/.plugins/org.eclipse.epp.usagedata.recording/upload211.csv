@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+started,bundle,org.eclipse.jface,3.5.1.M20090826-0800,"org.eclipse.jface",1291102709828
+started,bundle,org.eclipse.ltk.core.refactoring,3.5.0.v20090513-2000,"org.eclipse.ltk.core.refactoring",1291102709843
+started,bundle,org.eclipse.search,3.5.1.r351_v20090708-0800,"org.eclipse.search",1291102709843
+started,bundle,org.eclipse.team.core,3.5.0.I20090527-0620,"org.eclipse.team.core",1291102709859
+started,bundle,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui",1291102709890
+started,bundle,org.eclipse.ui.console,3.4.0.v20090513,"org.eclipse.ui.console",1291102709890
+started,bundle,org.eclipse.ui.editors,3.5.0.v20090527-2000,"org.eclipse.ui.editors",1291102709890
+started,bundle,org.eclipse.ui.forms,3.4.1.v20090714_35x,"org.eclipse.ui.forms",1291102709890
+started,bundle,org.eclipse.ui.ide,3.5.1.M20090826-0800,"org.eclipse.ui.ide",1291102709921
+started,bundle,org.eclipse.ui.navigator,3.4.1.M20090911-1550,"org.eclipse.ui.navigator",1291102709921
+started,bundle,org.eclipse.ui.net,1.2.1.r35x_20090812-1200,"org.eclipse.ui.net",1291102709921
+started,bundle,org.eclipse.ui.views,3.4.1.M20090826-0800,"org.eclipse.ui.views",1291102709921
+started,bundle,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"org.eclipse.ui.workbench",1291102709921
+started,bundle,org.eclipse.ui.workbench.texteditor,3.5.0.v20090603,"org.eclipse.ui.workbench.texteditor",1291102709921
+started,bundle,org.eclipse.update.configurator,3.3.0.v20090312,"org.eclipse.update.configurator",1291102709921
+os,sysinfo,,,"win32",1291102709921
+arch,sysinfo,,,"x86",1291102709921
+ws,sysinfo,,,"win32",1291102709921
+locale,sysinfo,,,"bg_BG",1291102709921
+processors,sysinfo,,,"2",1291102709921
+java.runtime.name,sysinfo,,,"Java(TM) SE Runtime Environment",1291102709921
+java.runtime.version,sysinfo,,,"1.6.0_02-b05",1291102709921
+java.specification.name,sysinfo,,,"Java Platform API Specification",1291102709921
+java.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1291102709921
+java.specification.version,sysinfo,,,"1.6",1291102709921

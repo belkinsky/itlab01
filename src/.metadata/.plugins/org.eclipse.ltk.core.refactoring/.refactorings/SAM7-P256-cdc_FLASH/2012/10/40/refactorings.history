@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;SAM7P256-FLASH-USB/readme.txt&apos; to &apos;_README&apos;" description="Rename resource &apos;readme.txt&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="readme.txt" name="_README" stamp="1349420329812" updateReferences="true"/>
+</session>

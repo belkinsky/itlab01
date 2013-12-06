@@ -1,0 +1,5 @@
+# Find the target board file in the /scripts/board/ directory of openocd
+
+source [find /scripts/board/olimex_sam9_l9260.cfg]
+
+jtag_khz 10000

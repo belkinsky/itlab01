@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="FileSystemImportWizard">
+		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID"/>
+		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_CREATE_CONTAINER_STRUCTURE_ID"/>
+		<list key="WizardFileSystemResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="C:\gccfd\projects\lpc2148"/>
+			<item value="D:\Documents and Settings\Ivan\Desktop\lpc"/>
+			<item value="C:\Documents and Settings\user\Desktop\sam7docs\at91sam7s_usart_usb_20061027\at91sam7s_usart_usb\AT91SAM7S-USART_USB_SAM7S"/>
+			<item value="C:\Documents and Settings\user\Desktop"/>
+			<item value="C:\Documents and Settings\user\Desktop\sam7docs\at91sam7s_usart_usb_20061027\at91sam7s_usart_usb"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.views.task">
+		<section name="sorter">
+			<item value="6" key="priority6"/>
+			<item value="4" key="priority4"/>
+			<item value="5" key="priority5"/>
+			<item value="0" key="defaultPriority0"/>
+			<item value="2" key="defaultPriority2"/>
+			<item value="1" key="defaultPriority1"/>
+			<item value="4" key="defaultPriority4"/>
+			<item value="3" key="defaultPriority3"/>
+			<item value="5" key="defaultPriority5"/>
+			<item value="6" key="defaultPriority6"/>
+			<item value="1" key="direction0"/>
+			<item value="1" key="direction1"/>
+			<item value="1" key="direction2"/>
+			<item value="1" key="direction3"/>
+			<item value="1" key="direction4"/>
+			<item value="1" key="direction5"/>
+			<item value="1" key="direction6"/>
+			<item value="3" key="priority3"/>
+			<item value="2" key="priority2"/>
+			<item value="1" key="priority1"/>
+			<item value="0" key="priority0"/>
+			<item value="1" key="defaultDirection5"/>
+			<item value="1" key="defaultDirection4"/>
+			<item value="1" key="defaultDirection3"/>
+			<item value="1" key="defaultDirection2"/>
+			<item value="1" key="defaultDirection1"/>
+			<item value="1" key="defaultDirection0"/>
+			<item value="1" key="defaultDirection6"/>
+		</section>
+		<section name="filter">
+			<item value="false" key="selectByDone"/>
+			<item value="true" key="enabled"/>
+			<item value="100" key="markerLimit"/>
+			<item value="true" key="filterOnMarkerLimit"/>
+			<item value="" key="description"/>
+			<item value="0" key="priority"/>
+			<item value="false" key="done"/>
+			<item value="true" key="contains"/>
+			<item value="org.eclipse.core.resources.taskmarker:true:org.eclipse.jdt.junit.junit_task:true:org.eclipse.compare.rejectedPatchMarker:true:org.eclipse.cdt.core.task:true:org.eclipse.jdt.core.task:true:" key="selectionStatus"/>
+			<item value="false" key="selectByPriority"/>
+			<item value="0" key="onResource"/>
+		</section>
+	</section>
+	<section name="org.eclipse.ui.views.problem">
+		<section name="sorter">
+			<item value="1" key="priority4"/>
+			<item value="5" key="priority5"/>
+			<item value="0" key="defaultPriority0"/>
+			<item value="2" key="defaultPriority2"/>
+			<item value="3" key="defaultPriority1"/>
+			<item value="1" key="defaultPriority4"/>
+			<item value="4" key="defaultPriority3"/>
+			<item value="5" key="defaultPriority5"/>
+			<item value="1" key="defaultDirection5"/>
+			<item value="-1" key="direction0"/>
+			<item value="1" key="defaultDirection4"/>
+			<item value="1" key="defaultDirection3"/>
+			<item value="1" key="direction1"/>
+			<item value="1" key="direction2"/>
+			<item value="1" key="defaultDirection2"/>
+			<item value="1" key="defaultDirection1"/>
+			<item value="1" key="direction3"/>
+			<item value="1" key="direction4"/>
+			<item value="-1" key="defaultDirection0"/>
+			<item value="1" key="direction5"/>
+			<item value="4" key="priority3"/>
+			<item value="2" key="priority2"/>
+			<item value="3" key="priority1"/>
+			<item value="0" key="priority0"/>
+		</section>
+		<section name="filter">
+			<item value="false" key="selectBySeverity"/>
+			<item value="true" key="enabled"/>
+			<item value="100" key="markerLimit"/>
+			<item value="true" key="filterOnMarkerLimit"/>
+			<item value="" key="description"/>
+			<item value="true" key="contains"/>
+			<item value="org.eclipse.core.resources.problemmarker:true:org.eclipse.pde.validation-marker:true:org.eclipse.jdt.core.buildpath_problem:true:org.eclipse.ant.ui.buildFileProblem:true:org.eclipse.jdt.core.problem:true:org.eclipse.cdt.core.pathentry_problem:true:org.eclipse.cdt.core.problem:true:org.eclipse.cdt.core.indexermarker:true:" key="selectionStatus"/>
+			<item value="0" key="severity"/>
+			<item value="0" key="onResource"/>
+		</section>
+	</section>
+</section>

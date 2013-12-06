@@ -1,0 +1,5 @@
+
+**** Clean-only build of configuration Default for project STM32-H103_blink_RAM ****
+
+make clean 
+rm -f obj/*.o ./*.out ./*.bin ./*.dmp ./*.map

@@ -1,0 +1,16 @@
+
+**** Build of configuration Debug for project STM32-P103_flash ****
+
+make all 
+".compiling"
+arm-none-eabi-gcc -I./ -c -fno-common -O0 -g -mcpu=cortex-m3 -mthumb  main.c
+".compiling"
+arm-none-eabi-gcc -I./ -c -fno-common -O0 -g -mcpu=cortex-m3 -mthumb  lib\stm32f10x_rcc.c 
+".compiling"
+arm-none-eabi-gcc -I./ -c -fno-common -O0 -g -mcpu=cortex-m3 -mthumb  lib\stm32f10x_gpio.c 
+"..linking"
+arm-none-eabi-ld -v -Tstm_h103_blink_rom.cmd -nostartfiles -o main.out main.o stm32f10x_rcc.o stm32f10x_gpio.o
+GNU ld (GNU Binutils) 2.20.1.20100303
+"...copying"
+arm-none-eabi-objcopy -Obinary main.out main.bin
+arm-none-eabi-objdump -S main.out > main.list 

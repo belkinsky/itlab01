@@ -1,0 +1,10 @@
+make -k clean 
+
+OLIMEX OpenOCD projects (Eclipse Helios)
+------ begin (proj:LPC-H2294)------
+
+Cleaning project...
+
+rm -f crt.lst main.lst crt.o main.o main.out main.hex main.map main.dmp main.bin
+
+------ end ------

@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1290512160171
+error,log,,,"Failed command: continue",1290512170000
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1290512170046
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1290512175531
+activated,view,org.eclipse.ui.console,3.4.0.v20090513,"org.eclipse.ui.console.ConsoleView",1290512192625
+activated,editor,org.eclipse.cdt.ui,5.1.1.200909110608,"org.eclipse.cdt.ui.editor.CEditor",1290512193937
+activated,view,org.eclipse.ui.console,3.4.0.v20090513,"org.eclipse.ui.console.ConsoleView",1290512194750
+activated,editor,org.eclipse.cdt.ui,5.1.1.200909110608,"org.eclipse.cdt.ui.editor.CEditor",1290512195125
+activated,view,org.eclipse.debug.ui,3.5.1.v20090811_r351,"org.eclipse.debug.ui.DebugView",1290512198328
+executed,command,org.eclipse.debug.ui,3.5.1.v20090811_r351,"org.eclipse.debug.ui.commands.Terminate",1290512198406
+error,log,,,"Variable references empty selection: ${project_loc}",1290512201437
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1290512201453
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1290512202265
+activated,editor,org.eclipse.cdt.ui,5.1.1.200909110608,"org.eclipse.cdt.ui.editor.CEditor",1290512202390
+activated,view,org.eclipse.ui.console,3.4.0.v20090513,"org.eclipse.ui.console.ConsoleView",1290512211718
+activated,editor,org.eclipse.cdt.ui,5.1.1.200909110608,"org.eclipse.cdt.ui.editor.CEditor",1290512212859
+activated,view,org.eclipse.ui.console,3.4.0.v20090513,"org.eclipse.ui.console.ConsoleView",1290512218781
+activated,editor,org.eclipse.cdt.ui,5.1.1.200909110608,"org.eclipse.cdt.ui.editor.CEditor",1290512219328
+activated,view,org.eclipse.ui.console,3.4.0.v20090513,"org.eclipse.ui.console.ConsoleView",1290512231375
+closed,view,org.eclipse.debug.ui,3.5.1.v20090811_r351,"org.eclipse.debug.ui.MemoryView",1290512237828
+closed,view,org.eclipse.debug.ui,3.5.1.v20090811_r351,"org.eclipse.debug.ui.RegisterView",1290512237843
+closed,view,org.eclipse.debug.ui,3.5.1.v20090811_r351,"org.eclipse.debug.ui.ModuleView",1290512237843
+activated,perspective,org.eclipse.cdt.ui,5.1.1.200909110608,"org.eclipse.cdt.ui.CPerspective",1290512237875
+opened,editor,org.eclipse.cdt.ui,5.1.1.200909110608,"org.eclipse.cdt.ui.editor.CEditor",1290512239890
+activated,editor,org.eclipse.cdt.ui,5.1.1.200909110608,"org.eclipse.cdt.ui.editor.CEditor",1290512239953

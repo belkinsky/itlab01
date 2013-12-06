@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+java.vm.specification.version,sysinfo,,,"1.0",1271678209578
+java.vm.vendor,sysinfo,,,"Sun Microsystems Inc.",1271678209578
+java.vm.version,sysinfo,,,"1.6.0_02-b05",1271678209578
+activated,view,org.eclipse.debug.ui,3.5.1.v20090811_r351,"org.eclipse.debug.ui.ExpressionView",1271678221421
+opened,view,org.eclipse.cdt.ui,5.1.1.200909110608,"org.eclipse.cdt.ui.CView",1271678224562
+opened,view,org.eclipse.ui.views,3.4.1.M20090826-0800,"org.eclipse.ui.views.ContentOutline",1271678224687
+activated,perspective,org.eclipse.cdt.ui,5.1.1.200909110608,"org.eclipse.cdt.ui.CPerspective",1271678224718
+activated,view,org.eclipse.ui.console,3.4.0.v20090513,"org.eclipse.ui.console.ConsoleView",1271678224718
+activated,view,org.eclipse.cdt.ui,5.1.1.200909110608,"org.eclipse.cdt.ui.CView",1271678227843
+started,bundle,org.eclipse.compare,3.5.0.I20090514-0808,"org.eclipse.compare",1271678228265
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271678231765
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271678233640
+started,bundle,org.eclipse.ui.externaltools,3.2.0.v20090504,"org.eclipse.ui.externaltools",1271678236937
+started,bundle,org.eclipse.cdt.debug.mi.ui,6.0.0.200909110608,"org.eclipse.cdt.debug.mi.ui",1271678238500
+started,bundle,org.eclipse.cdt.debug.mi.core,6.0.0.200909110608,"org.eclipse.cdt.debug.mi.core",1271678238546
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271678376921
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271678377031
+activated,perspective,org.eclipse.debug.ui,3.5.1.v20090811_r351,"org.eclipse.debug.ui.DebugPerspective",1271678379765
+activated,view,org.eclipse.ui.console,3.4.0.v20090513,"org.eclipse.ui.console.ConsoleView",1271678379781
+started,bundle,org.eclipse.cdt.launch,6.0.0.200909110608,"org.eclipse.cdt.launch",1271678381546
+started,bundle,com.zylin.embeddedcdt,4.9.1,"com.zylin.embeddedcdt",1271678381546
+opened,view,org.eclipse.debug.ui,3.5.1.v20090811_r351,"org.eclipse.debug.ui.VariableView",1271678384578
+opened,view,org.eclipse.debug.ui,3.5.1.v20090811_r351,"org.eclipse.debug.ui.MemoryView",1271678384671
+opened,view,org.eclipse.debug.ui,3.5.1.v20090811_r351,"org.eclipse.debug.ui.RegisterView",1271678384703
+opened,view,org.eclipse.debug.ui,3.5.1.v20090811_r351,"org.eclipse.debug.ui.ModuleView",1271678384718

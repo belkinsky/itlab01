@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;SAM9-L9261_blink_RAM&apos; to &apos;SAM9261-LCD_blink_RAM&apos;" description="Rename resource &apos;SAM9-L9261_blink_RAM&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/SAM9-L9261_blink_RAM" name="SAM9261-LCD_blink_RAM" stamp="1292338994546" updateReferences="true"/>
+</session>

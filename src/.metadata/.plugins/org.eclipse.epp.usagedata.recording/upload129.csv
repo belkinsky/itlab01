@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+opened,view,org.eclipse.debug.ui,3.5.1.v20090811_r351,"org.eclipse.debug.ui.RegisterView",1271680596218
+opened,view,org.eclipse.debug.ui,3.5.1.v20090811_r351,"org.eclipse.debug.ui.ModuleView",1271680596250
+activated,view,org.eclipse.debug.ui,3.5.1.v20090811_r351,"org.eclipse.debug.ui.DebugView",1271680597687
+executed,command,org.eclipse.debug.ui,3.5.1.v20090811_r351,"org.eclipse.debug.ui.commands.Resume",1271680597734
+executed,command,org.eclipse.debug.ui,3.5.1.v20090811_r351,"org.eclipse.debug.ui.commands.Terminate",1271680599718
+closed,view,org.eclipse.debug.ui,3.5.1.v20090811_r351,"org.eclipse.debug.ui.MemoryView",1271680605078
+closed,view,org.eclipse.debug.ui,3.5.1.v20090811_r351,"org.eclipse.debug.ui.RegisterView",1271680605078
+closed,view,org.eclipse.debug.ui,3.5.1.v20090811_r351,"org.eclipse.debug.ui.ModuleView",1271680605078
+activated,perspective,org.eclipse.cdt.ui,5.1.1.200909110608,"org.eclipse.cdt.ui.CPerspective",1271680605125
+activated,view,org.eclipse.ui.console,3.4.0.v20090513,"org.eclipse.ui.console.ConsoleView",1271680605125
+activated,editor,org.eclipse.cdt.ui,5.1.1.200909110608,"org.eclipse.cdt.ui.editor.CEditor",1271680605562
+activated,view,org.eclipse.ui.console,3.4.0.v20090513,"org.eclipse.ui.console.ConsoleView",1271680608140
+error,log,,,"Launch configuration OpenOCD Tiny TEST at file:/C:/gccfd_new/project_LPC2129/.metadata/.plugins/org.eclipse.debug.core/.launches/OpenOCD%20Tiny%20TEST.launch does not exist.",1271680630140
+error,log,,,"Launch configuration OpenOCD Tiny TEST at file:/C:/gccfd_new/project_LPC2129/.metadata/.plugins/org.eclipse.debug.core/.launches/OpenOCD%20Tiny%20TEST.launch does not exist.",1271680630140
+error,log,,,"Variable references empty selection: ${project_loc}",1271680630890
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271680630921
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271680631968
+activated,editor,org.eclipse.cdt.ui,5.1.1.200909110608,"org.eclipse.cdt.ui.editor.CEditor",1271680632125
+error,log,,,"Launch configuration OpenOCD Tiny TEST at file:/C:/gccfd_new/project_LPC2129/.metadata/.plugins/org.eclipse.debug.core/.launches/OpenOCD%20Tiny%20TEST.launch does not exist.",1271680632937
+error,log,,,"Launch configuration OpenOCD Tiny TEST at file:/C:/gccfd_new/project_LPC2129/.metadata/.plugins/org.eclipse.debug.core/.launches/OpenOCD%20Tiny%20TEST.launch does not exist.",1271680632953
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271680640093
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1271680642328
+activated,perspective,org.eclipse.debug.ui,3.5.1.v20090811_r351,"org.eclipse.debug.ui.DebugPerspective",1271680645125
+opened,view,org.eclipse.debug.ui,3.5.1.v20090811_r351,"org.eclipse.debug.ui.MemoryView",1271680645218
+opened,view,org.eclipse.debug.ui,3.5.1.v20090811_r351,"org.eclipse.debug.ui.RegisterView",1271680645234

@@ -1,0 +1,5 @@
+
+**** Clean-only build of configuration Default for project STM-P103_GPIO ****
+
+make clean 
+rm -f obj/*.o ./*.out ./*.bin ./*.dmp ./*.map

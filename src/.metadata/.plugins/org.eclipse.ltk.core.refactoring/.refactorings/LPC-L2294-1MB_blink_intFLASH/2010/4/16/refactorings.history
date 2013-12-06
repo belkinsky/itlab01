@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;demo2106_blink_flash/lpc2129__.cfg&apos; to &apos;lpc2129.cfg&apos;" description="Rename resource &apos;lpc2129__.cfg&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="lpc2129__.cfg" name="lpc2129.cfg" stamp="1271327039468" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;demo2106_blink_flash/test.txt&apos; to &apos;test.cfg&apos;" description="Rename resource &apos;test.txt&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="test.txt" name="test.cfg" stamp="1271327869390" updateReferences="true"/>
+</session>

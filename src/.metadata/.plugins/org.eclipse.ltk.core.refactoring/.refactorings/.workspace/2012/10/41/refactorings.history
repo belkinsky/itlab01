@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;LPC-P2378&apos; to &apos;LPC-P2378_blink_FLASH&apos;" description="Rename resource &apos;LPC-P2378&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/LPC-P2378" name="LPC-P2378_blink_FLASH" stamp="1349937137125" updateReferences="true"/>
+</session>

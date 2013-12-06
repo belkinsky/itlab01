@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;SAM7_p256_testcopy&apos;" deleteContents="true" description="Delete resource &apos;SAM7_p256_testcopy&apos;" element1="/SAM7_p256_testcopy" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1348060182343"/>&#x0A;<refactoring comment="Delete resource &apos;LPC-2378_blink_FLASH&apos;" deleteContents="false" description="Delete resource &apos;LPC-2378_blink_FLASH&apos;" element1="/LPC-2378_blink_FLASH" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1348062299453"/>
+</session>

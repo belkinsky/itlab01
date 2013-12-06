@@ -1,0 +1,103 @@
+# 	Makefile for compiling the Getting Started project
+
+#-------------------------------------------------------------------------------
+#		User-modifiable options
+#-------------------------------------------------------------------------------
+
+# Trace level used for compilation
+# (can be overriden by adding TRACE_LEVEL=#number to the command-line)
+# TRACE_LEVEL_DEBUG      5
+# TRACE_LEVEL_INFO       4
+# TRACE_LEVEL_WARNING    3
+# TRACE_LEVEL_ERROR      2
+# TRACE_LEVEL_FATAL      1
+# TRACE_LEVEL_NO_TRACE   0
+TRACE_LEVEL = 4
+
+# Optimization level
+OPTIMIZATION = -O0
+
+# Output file basename
+OUTPUT = GPIO
+
+# Output directories
+BIN = .
+OBJ = obj
+
+# library dirs
+LIBRARYSRC = ../../STM32F10x_StdPeriph_Lib_V3.5.0/Libraries/CMSIS/CM3/CoreSupport/src
+
+STARTUPFILE = ../../STM32F10x_StdPeriph_Lib_V3.5.0/Libraries/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/TrueSTUDIO/startup_stm32f10x_md.s
+
+#-------------------------------------------------------------------------------
+#		Tools
+#-------------------------------------------------------------------------------
+
+# Tool suffix when cross-compiling
+CROSS_COMPILE = arm-none-eabi-
+
+CC = $(CROSS_COMPILE)gcc
+SIZE = $(CROSS_COMPILE)size
+STRIP = $(CROSS_COMPILE)strip
+OBJCOPY = $(CROSS_COMPILE)objcopy
+OBJDUMP = $(CROSS_COMPILE)objdump
+LD = $(CROSS_COMPILE)ld
+AS = $(CROSS_COMPILE)as
+
+#-------------------------------------------------------------------------------
+#		Files
+#-------------------------------------------------------------------------------
+
+# include folders
+INCLUDES = -I./
+INCLUDES += -I../../STM32F10x_StdPeriph_Lib_V3.5.0/Libraries/STM32F10x_StdPeriph_Driver/inc/
+INCLUDES += -I../../STM32F10x_StdPeriph_Lib_V3.5.0/Libraries/CMSIS/CM3/CoreSupport/
+INCLUDES += -I../../STM32F10x_StdPeriph_Lib_V3.5.0/Libraries/CMSIS/CM3/DeviceSupport/ST/STM32F10x/
+
+# Objects built from C source files
+C_OBJECTS = $(OBJ)/main.o
+
+# Objects built from Assembly source files
+ASM_OBJECTS = $(OBJ)/startup.o
+
+LINKER_SCRIPT = ../../stm32_flash.ld
+
+# Append OBJ and BIN directories to output filename
+OUTPUT := $(BIN)/$(OUTPUT)
+
+#-------------------------------------------------------------------------------
+#		Rules
+#-------------------------------------------------------------------------------
+
+# Flags
+CFLAGS = -Wall -fno-common -c
+CFLAGS += -g $(OPTIMIZATION) $(INCLUDES) -DTRACE_LEVEL=$(TRACE_LEVEL)
+ASFLAGS = -g -mapcs-32
+LDFLAGS = -g -v
+OBJCOPYFLAGS = -O binary
+OBJDUMPFLAGS = -x --syms
+
+all: $(BIN) $(OBJ) $(OUTPUT).out
+
+$(BIN) $(OBJ):
+	mkdir $@
+
+$(OUTPUT).out: $(C_OBJECTS) $(ASM_OBJECTS) $(LINKER_SCRIPT)
+	@ echo "..linking"
+	$(LD) $(LDFLAGS) -Map $(OUTPUT).map -T$(LINKER_SCRIPT) -o $(OUTPUT).out $(C_OBJECTS) $(ASM_OBJECTS) 
+	$(OBJCOPY) $(OBJCOPYFLAGS) $(OUTPUT).out $(OUTPUT).bin
+	$(OBJDUMP) $(OBJDUMPFLAGS) $(OUTPUT).out
+	@ echo "...completed."
+	
+$(C_OBJECTS): main.c $(LIBRARYSRC)/stm32f10x_gpio.c
+	@ echo ".compiling"
+	$(CC) $(CFLAGS) -o $(OBJ)/main.o main.c
+	$(CC) $(CFLAGS) -o $(OBJ)/stm32f10x_gpio.o $(LIBRARYSRC)/stm32f10x_gpio.c 
+
+	
+$(ASM_OBJECTS): $(STARTUPFILE)
+	@ echo ".assembling"
+	$(AS) $(ASFLAGS) -o $(OBJ)/startup.o $(STARTUPFILE)
+
+clean:
+	-rm -f $(OBJ)/*.o $(BIN)/*.out $(BIN)/*.bin $(BIN)/*.dmp $(BIN)/*.map

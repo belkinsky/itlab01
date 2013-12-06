@@ -1,0 +1,109 @@
+
+**** Build of configuration Default for project SAM9-L9261_blink_RAM ****
+
+make all 
+arm-none-eabi-gcc -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -D__ASSEMBLY__ -Dsdram -c -o obj/sdram_board_cstartup.o at91lib/boards/SAM99261-LCD/board_cstartup.S
+arm-none-eabi-gcc -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -D__ASSEMBLY__ -Dsdram -c -o obj/sdram_cp15_asm_gcc.o at91lib/peripherals/cp15/cp15_asm_gcc.S
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dsdram -c -o obj/sdram_main.o main.c
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dsdram -c -o obj/sdram_led.o at91lib/utility/led.c
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dsdram -c -o obj/sdram_stdio.o at91lib/utility/stdio.c
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dsdram -c -o obj/sdram_dbgu.o at91lib/peripherals/dbgu/dbgu.c
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dsdram -c -o obj/sdram_pio.o at91lib/peripherals/pio/pio.c
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dsdram -c -o obj/sdram_aic.o at91lib/peripherals/irq/aic.c
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dsdram -c -o obj/sdram_pio_it.o at91lib/peripherals/pio/pio_it.c
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dsdram -c -o obj/sdram_pit.o at91lib/peripherals/pit/pit.c
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dsdram -c -o obj/sdram_tc.o at91lib/peripherals/tc/tc.c
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dsdram -c -o obj/sdram_pmc.o at91lib/peripherals/pmc/pmc.c
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dsdram -c -o obj/sdram_cp15.o at91lib/peripherals/cp15/cp15.c
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dsdram -c -o obj/sdram_board_memories.o at91lib/boards/SAM99261-LCD/board_memories.c
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dsdram -c -o obj/sdram_board_lowlevel.o at91lib/boards/SAM99261-LCD/board_lowlevel.c
+arm-none-eabi-gcc -g -Os -nostartfiles -Wl,--gc-sections -T"at91lib/boards/SAM99261-LCD/at91sam9261/sdram.lds" -o ./getting-started-project-SAM99261-LCD-at91sam9261-sdram.elf obj/sdram_board_cstartup.o obj/sdram_cp15_asm_gcc.o obj/sdram_main.o obj/sdram_led.o obj/sdram_stdio.o obj/sdram_dbgu.o obj/sdram_pio.o obj/sdram_aic.o obj/sdram_pio_it.o obj/sdram_pit.o obj/sdram_tc.o obj/sdram_pmc.o obj/sdram_cp15.o obj/sdram_board_memories.o obj/sdram_board_lowlevel.o
+arm-none-eabi-objcopy -O binary ./getting-started-project-SAM99261-LCD-at91sam9261-sdram.elf ./getting-started-project-SAM99261-LCD-at91sam9261-sdram.bin
+arm-none-eabi-size obj/sdram_board_cstartup.o obj/sdram_cp15_asm_gcc.o obj/sdram_main.o obj/sdram_led.o obj/sdram_stdio.o obj/sdram_dbgu.o obj/sdram_pio.o obj/sdram_aic.o obj/sdram_pio_it.o obj/sdram_pit.o obj/sdram_tc.o obj/sdram_pmc.o obj/sdram_cp15.o obj/sdram_board_memories.o obj/sdram_board_lowlevel.o ./getting-started-project-SAM99261-LCD-at91sam9261-sdram.elf
+   text	   data	    bss	    dec	    hex	filename
+    300	      0	      0	    300	    12c	obj/sdram_board_cstartup.o
+      0	      0	      0	      0	      0	obj/sdram_cp15_asm_gcc.o
+   1537	      4	     12	   1553	    611	obj/sdram_main.o
+    348	      0	      0	    348	    15c	obj/sdram_led.o
+   1584	   1072	      0	   2656	    a60	obj/sdram_stdio.o
+    384	      0	      0	    384	    180	obj/sdram_dbgu.o
+    388	      0	      0	    388	    184	obj/sdram_pio.o
+     92	      0	      0	     92	     5c	obj/sdram_aic.o
+    640	      0	     60	    700	    2bc	obj/sdram_pio_it.o
+    180	      0	      0	    180	     b4	obj/sdram_pit.o
+    288	      0	      0	    288	    120	obj/sdram_tc.o
+    766	      0	      0	    766	    2fe	obj/sdram_pmc.o
+   1278	      0	      0	   1278	    4fe	obj/sdram_cp15.o
+   1264	      0	      0	   1264	    4f0	obj/sdram_board_memories.o
+    188	      0	      0	    188	     bc	obj/sdram_board_lowlevel.o
+   7220	      0	     72	   7292	   1c7c	./getting-started-project-SAM99261-LCD-at91sam9261-sdram.elf
+arm-none-eabi-gcc -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -D__ASSEMBLY__ -Dnorflash -c -o obj/norflash_board_cstartup.o at91lib/boards/SAM99261-LCD/board_cstartup.S
+arm-none-eabi-gcc -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -D__ASSEMBLY__ -Dnorflash -c -o obj/norflash_cp15_asm_gcc.o at91lib/peripherals/cp15/cp15_asm_gcc.S
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dnorflash -c -o obj/norflash_main.o main.c
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dnorflash -c -o obj/norflash_led.o at91lib/utility/led.c
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dnorflash -c -o obj/norflash_stdio.o at91lib/utility/stdio.c
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dnorflash -c -o obj/norflash_dbgu.o at91lib/peripherals/dbgu/dbgu.c
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dnorflash -c -o obj/norflash_pio.o at91lib/peripherals/pio/pio.c
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dnorflash -c -o obj/norflash_aic.o at91lib/peripherals/irq/aic.c
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dnorflash -c -o obj/norflash_pio_it.o at91lib/peripherals/pio/pio_it.c
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dnorflash -c -o obj/norflash_pit.o at91lib/peripherals/pit/pit.c
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dnorflash -c -o obj/norflash_tc.o at91lib/peripherals/tc/tc.c
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dnorflash -c -o obj/norflash_pmc.o at91lib/peripherals/pmc/pmc.c
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dnorflash -c -o obj/norflash_cp15.o at91lib/peripherals/cp15/cp15.c
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dnorflash -c -o obj/norflash_board_memories.o at91lib/boards/SAM99261-LCD/board_memories.c
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dnorflash -c -o obj/norflash_board_lowlevel.o at91lib/boards/SAM99261-LCD/board_lowlevel.c
+arm-none-eabi-gcc -g -Os -nostartfiles -Wl,--gc-sections -T"at91lib/boards/SAM99261-LCD/at91sam9261/norflash.lds" -o ./getting-started-project-SAM99261-LCD-at91sam9261-norflash.elf obj/norflash_board_cstartup.o obj/norflash_cp15_asm_gcc.o obj/norflash_main.o obj/norflash_led.o obj/norflash_stdio.o obj/norflash_dbgu.o obj/norflash_pio.o obj/norflash_aic.o obj/norflash_pio_it.o obj/norflash_pit.o obj/norflash_tc.o obj/norflash_pmc.o obj/norflash_cp15.o obj/norflash_board_memories.o obj/norflash_board_lowlevel.o
+arm-none-eabi-objcopy -O binary ./getting-started-project-SAM99261-LCD-at91sam9261-norflash.elf ./getting-started-project-SAM99261-LCD-at91sam9261-norflash.bin
+arm-none-eabi-size obj/norflash_board_cstartup.o obj/norflash_cp15_asm_gcc.o obj/norflash_main.o obj/norflash_led.o obj/norflash_stdio.o obj/norflash_dbgu.o obj/norflash_pio.o obj/norflash_aic.o obj/norflash_pio_it.o obj/norflash_pit.o obj/norflash_tc.o obj/norflash_pmc.o obj/norflash_cp15.o obj/norflash_board_memories.o obj/norflash_board_lowlevel.o ./getting-started-project-SAM99261-LCD-at91sam9261-norflash.elf
+   text	   data	    bss	    dec	    hex	filename
+    300	      0	      0	    300	    12c	obj/norflash_board_cstartup.o
+      0	      0	      0	      0	      0	obj/norflash_cp15_asm_gcc.o
+   1537	      4	     12	   1553	    611	obj/norflash_main.o
+    348	      0	      0	    348	    15c	obj/norflash_led.o
+   1584	   1072	      0	   2656	    a60	obj/norflash_stdio.o
+    384	      0	      0	    384	    180	obj/norflash_dbgu.o
+    388	      0	      0	    388	    184	obj/norflash_pio.o
+     92	      0	      0	     92	     5c	obj/norflash_aic.o
+    640	      0	     60	    700	    2bc	obj/norflash_pio_it.o
+    180	      0	      0	    180	     b4	obj/norflash_pit.o
+    288	      0	      0	    288	    120	obj/norflash_tc.o
+    766	      0	      0	    766	    2fe	obj/norflash_pmc.o
+   1278	      0	      0	   1278	    4fe	obj/norflash_cp15.o
+   1264	      0	      0	   1264	    4f0	obj/norflash_board_memories.o
+    384	      0	      0	    384	    180	obj/norflash_board_lowlevel.o
+   6328	   1184	     72	   7584	   1da0	./getting-started-project-SAM99261-LCD-at91sam9261-norflash.elf
+arm-none-eabi-gcc -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -D__ASSEMBLY__ -Dsram -c -o obj/sram_board_cstartup.o at91lib/boards/SAM99261-LCD/board_cstartup.S
+arm-none-eabi-gcc -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -D__ASSEMBLY__ -Dsram -c -o obj/sram_cp15_asm_gcc.o at91lib/peripherals/cp15/cp15_asm_gcc.S
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dsram -c -o obj/sram_main.o main.c
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dsram -c -o obj/sram_led.o at91lib/utility/led.c
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dsram -c -o obj/sram_stdio.o at91lib/utility/stdio.c
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dsram -c -o obj/sram_dbgu.o at91lib/peripherals/dbgu/dbgu.c
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dsram -c -o obj/sram_pio.o at91lib/peripherals/pio/pio.c
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dsram -c -o obj/sram_aic.o at91lib/peripherals/irq/aic.c
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dsram -c -o obj/sram_pio_it.o at91lib/peripherals/pio/pio_it.c
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dsram -c -o obj/sram_pit.o at91lib/peripherals/pit/pit.c
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dsram -c -o obj/sram_tc.o at91lib/peripherals/tc/tc.c
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dsram -c -o obj/sram_pmc.o at91lib/peripherals/pmc/pmc.c
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dsram -c -o obj/sram_cp15.o at91lib/peripherals/cp15/cp15.c
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dsram -c -o obj/sram_board_memories.o at91lib/boards/SAM99261-LCD/board_memories.c
+arm-none-eabi-gcc -Wall -mlong-calls -ffunction-sections -g -Os -Iat91lib/boards/SAM99261-LCD -Iat91lib/peripherals  -Iat91lib/components -Iat91lib -Dat91sam9261 -DTRACE_LEVEL=4 -Dsram -c -o obj/sram_board_lowlevel.o at91lib/boards/SAM99261-LCD/board_lowlevel.c
+arm-none-eabi-gcc -g -Os -nostartfiles -Wl,--gc-sections -T"at91lib/boards/SAM99261-LCD/at91sam9261/sram.lds" -o ./getting-started-project-SAM99261-LCD-at91sam9261-sram.elf obj/sram_board_cstartup.o obj/sram_cp15_asm_gcc.o obj/sram_main.o obj/sram_led.o obj/sram_stdio.o obj/sram_dbgu.o obj/sram_pio.o obj/sram_aic.o obj/sram_pio_it.o obj/sram_pit.o obj/sram_tc.o obj/sram_pmc.o obj/sram_cp15.o obj/sram_board_memories.o obj/sram_board_lowlevel.o
+arm-none-eabi-objcopy -O binary ./getting-started-project-SAM99261-LCD-at91sam9261-sram.elf ./getting-started-project-SAM99261-LCD-at91sam9261-sram.bin
+arm-none-eabi-size obj/sram_board_cstartup.o obj/sram_cp15_asm_gcc.o obj/sram_main.o obj/sram_led.o obj/sram_stdio.o obj/sram_dbgu.o obj/sram_pio.o obj/sram_aic.o obj/sram_pio_it.o obj/sram_pit.o obj/sram_tc.o obj/sram_pmc.o obj/sram_cp15.o obj/sram_board_memories.o obj/sram_board_lowlevel.o ./getting-started-project-SAM99261-LCD-at91sam9261-sram.elf
+   text	   data	    bss	    dec	    hex	filename
+    300	      0	      0	    300	    12c	obj/sram_board_cstartup.o
+      0	      0	      0	      0	      0	obj/sram_cp15_asm_gcc.o
+   1537	      4	     12	   1553	    611	obj/sram_main.o
+    348	      0	      0	    348	    15c	obj/sram_led.o
+   1584	   1072	      0	   2656	    a60	obj/sram_stdio.o
+    384	      0	      0	    384	    180	obj/sram_dbgu.o
+    388	      0	      0	    388	    184	obj/sram_pio.o
+     92	      0	      0	     92	     5c	obj/sram_aic.o
+    640	      0	     60	    700	    2bc	obj/sram_pio_it.o
+    180	      0	      0	    180	     b4	obj/sram_pit.o
+    288	      0	      0	    288	    120	obj/sram_tc.o
+    766	      0	      0	    766	    2fe	obj/sram_pmc.o
+   1278	      0	      0	   1278	    4fe	obj/sram_cp15.o
+   1264	      0	      0	   1264	    4f0	obj/sram_board_memories.o
+    364	      0	      0	    364	    16c	obj/sram_board_lowlevel.o
+   6072	   1328	     72	   7472	   1d30	./getting-started-project-SAM99261-LCD-at91sam9261-sram.elf

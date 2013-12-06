@@ -1,0 +1,123 @@
+/* *********************************************************
+               Function declarations
+  ********************************************************* */
+
+void Initialize(void);
+void feed(void);
+
+void IRQ_Routine (void)   __attribute__ ((interrupt("IRQ")));
+void FIQ_Routine (void)   __attribute__ ((interrupt("FIQ")));
+void SWI_Routine (void)   __attribute__ ((interrupt("SWI")));
+void UNDEF_Routine (void) __attribute__ ((interrupt("UNDEF")));
+
+/**********************************************************
+                  Header files
+ **********************************************************/
+#include "LPC22xx.h"
+
+/**********************************************************
+                       MAIN
+**********************************************************/
+
+int	main (void) {
+	
+	int		j;										// loop counter (stack variable)
+	
+	// Initialize the system
+	Initialize();		
+	
+	// set io pins for led P0.7
+	IO1DIR |= 0x00800000;	// pin P1.23 is an output, everything else is input after reset
+	IO1SET =  0x00800000;	// led off
+	IO1CLR =  0x00800000;	// led on
+ 
+	// endless loop to toggle the red  LED P1.23
+	while (1) 
+	{
+
+			
+			{
+				IO1CLR = 0x00800000;
+				for (j = 0; j < 500000; j++ );
+				IO1SET = 0x00800000;
+				for (j = 0; j < 2000000; j++ );
+			} 
+	}
+}
+
+
+
+/**********************************************************
+                      Initialize
+**********************************************************/
+
+#define PLOCK 0x400
+
+void Initialize(void)  {
+   
+	// Setting Multiplier and Divider values
+  	PLLCFG=0x23;
+  	feed();
+  
+	// Enabling the PLL */	
+	PLLCON=0x1;
+	feed();
+  
+	// Wait for the PLL to lock to set frequency
+	while(!(PLLSTAT & PLOCK)) ;
+  
+	// Connect the PLL as the clock source
+	PLLCON=0x3;
+	feed();
+  
+	// Enabling MAM and setting number of clocks used for Flash memory fetch (4 cclks in this case)
+	MAMCR=0x2;
+	MAMTIM=0x4;
+  
+	// Setting peripheral Clock (pclk) to System Clock (cclk)
+	VPBDIV=0x1;
+
+}
+
+
+void feed(void)
+{
+  PLLFEED=0xAA;
+  PLLFEED=0x55;
+}
+
+
+
+
+
+
+/*  Stubs for various interrupts (may be replaced later)  */
+/*  ----------------------------------------------------  */
+
+void IRQ_Routine (void) {
+	while (1) ;	
+}
+
+void FIQ_Routine (void)  {
+	while (1) ;	
+}
+
+
+void SWI_Routine (void)  {
+	while (1) ;	
+}
+
+
+void UNDEF_Routine (void) {
+	while (1) ;	
+}
+
+
+
+
+
+
+
+
+
+

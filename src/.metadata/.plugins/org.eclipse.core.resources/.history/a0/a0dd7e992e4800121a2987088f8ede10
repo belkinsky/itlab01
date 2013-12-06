@@ -1,0 +1,7 @@
+# Find the board cfg file
+
+gdb_memory_map enable 
+gdb_flash_program enable
+
+source [find board/olimex_lpc_h2294.cfg]
+

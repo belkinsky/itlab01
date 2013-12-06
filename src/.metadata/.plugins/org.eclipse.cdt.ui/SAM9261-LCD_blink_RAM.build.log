@@ -1,0 +1,11 @@
+
+**** Clean-only build of configuration Default for project SAM9261-LCD_blink_RAM ****
+
+make clean 
+rm -f obj/*.o ./*.bin ./*.elf
+cygwin warning:
+  MS-DOS style path detected: D:\OpenOCD_Olimex\examples\SAM9261-LCD_blink_RAM
+  Preferred POSIX equivalent is: /cygdrive/d/OpenOCD_Olimex/examples/SAM9261-LCD_blink_RAM
+  CYGWIN environment variable option "nodosfilewarning" turns off this warning.
+  Consult the user's guide for more details about POSIX paths:
+    http://cygwin.com/cygwin-ug-net/using.html#using-pathnames

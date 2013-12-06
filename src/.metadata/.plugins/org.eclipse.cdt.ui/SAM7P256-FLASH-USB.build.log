@@ -1,0 +1,48 @@
+make -k all 
+
+-------- begin (mode: ROM_RUN) --------
+arm-none-eabi-gcc (GCC) 4.5.1
+Copyright (C) 2010 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+
+Assembling (ARM-only): Compil/srcWinARM/Cstartup.S
+arm-none-eabi-gcc -c -mcpu=arm7tdmi  -I. -x assembler-with-cpp -DROM_RUN -DVECTORS_IN_RAM -D__WinARM__ -D__WINARMSUBMDL_AT91SAM7S256__ -Wa,-adhlns=Compil/srcWinARM/Cstartup.lst,--gdwarf-2 Compil/srcWinARM/Cstartup.S -o Compil/srcWinARM/Cstartup.o
+ROM_MODE enabled
+remapping enabled
+Vectors at start of RAM
+Vectors in section .vectmapped -> .data
+RCR setting for remapping enabled
+IRQ_Handler_Entry in section .fastrun -> .data
+
+Assembling (ARM-only): Compil/srcWinARM/swi_handler.S
+arm-none-eabi-gcc -c -mcpu=arm7tdmi  -I. -x assembler-with-cpp -DROM_RUN -DVECTORS_IN_RAM -D__WinARM__ -D__WINARMSUBMDL_AT91SAM7S256__ -Wa,-adhlns=Compil/srcWinARM/swi_handler.lst,--gdwarf-2 Compil/srcWinARM/swi_handler.S -o Compil/srcWinARM/swi_handler.o
+SWI-Handler in section .fastrun -> .data
+
+Compiling C: Compil/srcWinARM/Cstartup_SAM7.c
+arm-none-eabi-gcc -c  -mcpu=arm7tdmi  -I. -gdwarf-2 -DROM_RUN -DVECTORS_IN_RAM -D__WinARM__ -D__WINARMSUBMDL_AT91SAM7S256__  -O0 -ffunction-sections -fdata-sections -Wall -Wcast-align -Wimplicit  -Wpointer-arith -Wswitch -Wredundant-decls -Wreturn-type -Wshadow -Wunused -Wa,-adhlns=Compil/srcWinARM/Cstartup_SAM7.lst  -Iinclude -ICompil/srcWinARM -MD -MP -MF .dep/Cstartup_SAM7.o.d -Wnested-externs  -std=gnu99 Compil/srcWinARM/Cstartup_SAM7.c -o Compil/srcWinARM/Cstartup_SAM7.o 
+
+Compiling C: swi_handler_user.c
+arm-none-eabi-gcc -c  -mcpu=arm7tdmi  -I. -gdwarf-2 -DROM_RUN -DVECTORS_IN_RAM -D__WinARM__ -D__WINARMSUBMDL_AT91SAM7S256__  -O0 -ffunction-sections -fdata-sections -Wall -Wcast-align -Wimplicit  -Wpointer-arith -Wswitch -Wredundant-decls -Wreturn-type -Wshadow -Wunused -Wa,-adhlns=swi_handler_user.lst  -Iinclude -ICompil/srcWinARM -MD -MP -MF .dep/swi_handler_user.o.d -Wnested-externs  -std=gnu99 swi_handler_user.c -o swi_handler_user.o 
+
+Compiling C: main.c
+arm-none-eabi-gcc -c  -mcpu=arm7tdmi  -I. -gdwarf-2 -DROM_RUN -DVECTORS_IN_RAM -D__WinARM__ -D__WINARMSUBMDL_AT91SAM7S256__  -O0 -ffunction-sections -fdata-sections -Wall -Wcast-align -Wimplicit  -Wpointer-arith -Wswitch -Wredundant-decls -Wreturn-type -Wshadow -Wunused -Wa,-adhlns=main.lst  -Iinclude -ICompil/srcWinARM -MD -MP -MF .dep/main.o.d -Wnested-externs  -std=gnu99 main.c -o main.o 
+
+Compiling C: cdc_enumerate.c
+arm-none-eabi-gcc -c  -mcpu=arm7tdmi  -I. -gdwarf-2 -DROM_RUN -DVECTORS_IN_RAM -D__WinARM__ -D__WINARMSUBMDL_AT91SAM7S256__  -O0 -ffunction-sections -fdata-sections -Wall -Wcast-align -Wimplicit  -Wpointer-arith -Wswitch -Wredundant-decls -Wreturn-type -Wshadow -Wunused -Wa,-adhlns=cdc_enumerate.lst  -Iinclude -ICompil/srcWinARM -MD -MP -MF .dep/cdc_enumerate.o.d -Wnested-externs  -std=gnu99 cdc_enumerate.c -o cdc_enumerate.o 
+
+Compiling C: interrupt_Usart.c
+arm-none-eabi-gcc -c  -mcpu=arm7tdmi  -I. -gdwarf-2 -DROM_RUN -DVECTORS_IN_RAM -D__WinARM__ -D__WINARMSUBMDL_AT91SAM7S256__  -O0 -ffunction-sections -fdata-sections -Wall -Wcast-align -Wimplicit  -Wpointer-arith -Wswitch -Wredundant-decls -Wreturn-type -Wshadow -Wunused -Wa,-adhlns=interrupt_Usart.lst  -Iinclude -ICompil/srcWinARM -MD -MP -MF .dep/interrupt_Usart.o.d -Wnested-externs  -std=gnu99 interrupt_Usart.c -o interrupt_Usart.o 
+
+Linking: main.elf
+arm-none-eabi-gcc  -mcpu=arm7tdmi  -I. -gdwarf-2 -DROM_RUN -DVECTORS_IN_RAM -D__WinARM__ -D__WINARMSUBMDL_AT91SAM7S256__  -O0 -ffunction-sections -fdata-sections -Wall -Wcast-align -Wimplicit  -Wpointer-arith -Wswitch -Wredundant-decls -Wreturn-type -Wshadow -Wunused -Wa,-adhlns=Compil/srcWinARM/Cstartup.lst  -Iinclude -ICompil/srcWinARM -MD -MP -MF .dep/main.elf.d Compil/srcWinARM/Cstartup.o Compil/srcWinARM/swi_handler.o   Compil/srcWinARM/Cstartup_SAM7.o swi_handler_user.o main.o cdc_enumerate.o interrupt_Usart.o     --output main.elf -nostartfiles -Wl,-Map=main.map,--cref,--gc-sections -lc  -lm -lc -lgcc   -LCompil/srcWinARM  -TCompil/srcWinARM/AT91SAM7S256-ROM.ld
+copying...
+`cp main.elf main.out`
+
+Size after:
+d:\olimexods82\yagarto\bin\arm-none-eabi-size.exe: 'a.out': No such file
+
+Errors: none
+-------- end --------
+
