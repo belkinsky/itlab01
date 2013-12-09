@@ -6,6 +6,6 @@
 </listAttribute>
 <stringAttribute key="org.eclipse.ui.externaltools.ATTR_LAUNCH_CONFIGURATION_BUILD_SCOPE" value="${none}"/>
 <stringAttribute key="org.eclipse.ui.externaltools.ATTR_LOCATION" value="${eclipse_home}\..\openocd-0.6.1\bin\openocd-0.6.1.exe"/>
-<stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="-f ${eclipse_home}../openocd-0.6.1/scripts/interface/jlink.cfg -f project.cfg"/>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="-f &quot;${eclipse_home}../openocd-0.6.1/scripts/interface/jlink.cfg&quot; -f project.cfg"/>
 <stringAttribute key="org.eclipse.ui.externaltools.ATTR_WORKING_DIRECTORY" value="${project_loc}"/>
 </launchConfiguration>

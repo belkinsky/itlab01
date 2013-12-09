@@ -1,5 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="BugzillaSearchPage">
+		<item value="false" key="BugzillaSearchPage.EMAIL2ATTR1.https://bugs.eclipse.org/bugs"/>
+		<item value="false" key="BugzillaSearchPage.EMAILATTR0.https://bugs.eclipse.org/bugs"/>
+		<item value="0" key="BugzillaSearchPage.EMAIL2MATCH.https://bugs.eclipse.org/bugs"/>
+		<item value="false" key="BugzillaSearchPage.EMAILATTR4.https://bugs.eclipse.org/bugs"/>
+		<item value="false" key="BugzillaSearchPage.EMAILATTR3.https://bugs.eclipse.org/bugs"/>
+		<item value="" key="BugzillaSearchPage.EMAIL2ADDRESS.https://bugs.eclipse.org/bugs"/>
+		<item value="0" key="BugzillaSearchPage.EMAILMATCH.https://bugs.eclipse.org/bugs"/>
+		<item value="0" key="BugzillaSearchPage.KEYWORDSMATCH.https://bugs.eclipse.org/bugs"/>
+		<item value="false" key="BugzillaSearchPage.EMAIL2ATTR4.https://bugs.eclipse.org/bugs"/>
+		<item value="false" key="BugzillaSearchPage.EMAILATTR1.https://bugs.eclipse.org/bugs"/>
+		<item value="" key="BugzillaSearchPage.EMAILADDRESS.https://bugs.eclipse.org/bugs"/>
+		<item value="pin_13" key="BugzillaSearchPage.SUMMARYTEXT.https://bugs.eclipse.org/bugs"/>
+		<item value="" key="BugzillaSearchPage.KEYWORDS.https://bugs.eclipse.org/bugs"/>
+		<item value="false" key="BugzillaSearchPage.EMAIL2ATTR3.https://bugs.eclipse.org/bugs"/>
+		<item value="false" key="BugzillaSearchPage.EMAIL2ATTR2.https://bugs.eclipse.org/bugs"/>
+		<item value="false" key="BugzillaSearchPage.EMAILATTR2.https://bugs.eclipse.org/bugs"/>
+		<item value="" key="BugzillaSearchPage.COMMENTTEXT.https://bugs.eclipse.org/bugs"/>
+		<item value="0" key="BugzillaSearchPage.SUMMARYMATCH.https://bugs.eclipse.org/bugs"/>
+		<item value="0" key="BugzillaSearchPage.COMMENTMATCH.https://bugs.eclipse.org/bugs"/>
+		<item value="false" key="BugzillaSearchPage.EMAIL2ATTR0.https://bugs.eclipse.org/bugs"/>
+		<list key="BugzillaSearchPage.COMPONENT.https://bugs.eclipse.org/bugs">
+		</list>
+		<list key="BugzillaSearchPage.PRIORITY.https://bugs.eclipse.org/bugs">
+		</list>
+		<list key="BugzillaSearchPage.SEVERITY.https://bugs.eclipse.org/bugs">
+		</list>
+		<list key="BugzillaSearchPage.RESOLUTION.https://bugs.eclipse.org/bugs">
+		</list>
+		<list key="BugzillaSearchPage.PRODUCT.https://bugs.eclipse.org/bugs">
+		</list>
+		<list key="BugzillaSearchPage.STATUS.https://bugs.eclipse.org/bugs">
+		</list>
+		<list key="BugzillaSearchPage.OS.https://bugs.eclipse.org/bugs">
+		</list>
+		<list key="BugzillaSearchPage.VERSION.https://bugs.eclipse.org/bugs">
+		</list>
+		<list key="BugzillaSearchPage.HARDWARE.https://bugs.eclipse.org/bugs">
+		</list>
+		<list key="BugzillaSearchPage.MILESTONE.https://bugs.eclipse.org/bugs">
+		</list>
 	</section>
 </section>

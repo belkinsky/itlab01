@@ -88,7 +88,7 @@ int main(void)
 	  /* Turn ON the green LED on the H407 board */
 
 	  GPIOC->BSRRH = GPIO_Pin_13;
-	  Delay(1000000);
+	  Delay(10000000);
 
 	  /* Turn OFF the green LED on the H407 board */
 	  GPIOC->BSRRL = GPIO_Pin_13;

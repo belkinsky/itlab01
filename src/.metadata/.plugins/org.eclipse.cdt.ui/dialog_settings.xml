@@ -17,6 +17,13 @@
 		<item value="227191" key="searchFlags"/>
 		<item value="false" key="caseSensitive"/>
 		<list key="previousPatterns">
+			<item value="wkup"/>
+			<item value="pin_12"/>
+			<item value="pin_34"/>
+			<item value="wakeup"/>
+			<item value="Button"/>
+			<item value="Reset"/>
+			<item value="ADC_DeInit"/>
 			<item value="Reset_Handler"/>
 			<item value="STM32F10X_MD"/>
 			<item value="STM32F10X_CL"/>
