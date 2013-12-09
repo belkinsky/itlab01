@@ -75,6 +75,16 @@ int main(void)
 	 
 	/* GPIOG Periph clock enable */
   RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE);
+  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
+
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
+  GPIO_InitStructure.GPIO_OType = GPIO_OType_OD;
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+
+  GPIO_Init(GPIOA, &GPIO_InitStructure);
+
 
   /* Configure PG6 and PG8 in output pushpull mode */
   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13;
@@ -84,15 +94,16 @@ int main(void)
   GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
   GPIO_Init(GPIOC, &GPIO_InitStructure);
 
+
+
   while(1){
-	  /* Turn ON the green LED on the H407 board */
 
-	  GPIOC->BSRRH = GPIO_Pin_13;
-	  Delay(10000000);
+	  if(GPIOA->IDR & GPIO_IDR_IDR_5)
+		  GPIOC->BSRRH = GPIO_Pin_13;
+	  else
+		  GPIOC->BSRRL = GPIO_Pin_13;
 
-	  /* Turn OFF the green LED on the H407 board */
-	  GPIOC->BSRRL = GPIO_Pin_13;
-	  Delay(1000000);
+	  Delay(10000);
 
   
   }
