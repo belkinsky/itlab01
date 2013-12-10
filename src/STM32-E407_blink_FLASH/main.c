@@ -51,7 +51,9 @@ GPIO_InitTypeDef  GPIO_InitStructure;
 /* Private define ------------------------------------------------------------*/
 #define MESSAGE1   "     STM32F4xx      " 
 #define MESSAGE2   " Device running on  " 
-#define MESSAGE3   " STM3240_41_G-EVAL  " 
+#define MESSAGE3   " STM3240_41_G-EVAL  "
+#define SERVO_180 8200
+#define SERVO_0 1800
 
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
@@ -108,6 +110,49 @@ int main(void)
   
   }
 
+}
+
+void set_pos(uint8_t pos) {
+uint32_t tmp=(SERVO_180 - SERVO_0) /180 ;
+TIM2->CCR2 = SERVO_0 + tmp * pos;
+}
+// Функция задержки
+void delay(void)
+{
+volatile uint32_t i;
+for (i=1; i != 0xFFFF; i++)
+;
+}
+
+int Servo(void)
+{
+//Включем порт B
+RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB , ENABLE);
+//Включаем Таймер 2
+RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2,ENABLE);
+GPIO_InitTypeDef PORT;
+// Настроим ногу (PA1) к которой подключен сервопривод
+PORT.GPIO_Pin = (GPIO_Pin_1);
+//Будем использовать альтернативный режим а не обычный GPIO
+PORT.GPIO_Mode = GPIO_Mode_AF_PP;
+PORT.GPIO_Speed = GPIO_Speed_2MHz;
+GPIO_Init(GPIOB, &PORT);
+//Разрешаем таймеру использовать ногу PA1 для ШИМа
+TIM2->CCER |= (TIM_CCER_CC2E);
+TIM2->CCMR1|= (TIM_CCMR1_OC2M_1 | TIM_CCMR1_OC2M_2);
+//Настраиваем предделитель чтоб частота ШИМа была в районе 50 Гц
+TIM2->PSC = 6;
+//Запускаем таймер
+TIM2->CR1 |= TIM_CR1_CEN;
+uint8_t i;
+//Начинаем крутить сервой от 0 до 180 градусов.
+while(1)
+{
+for (i=0;i<=180;i++) {
+delay();
+set_pos(i);
+}
+}
 }
 
 /**

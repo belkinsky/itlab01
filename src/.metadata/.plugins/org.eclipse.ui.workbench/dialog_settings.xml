@@ -4,9 +4,6 @@
 		<list key="search">
 		</list>
 	</section>
-	<section name="ImportResourcesAction">
-		<item value="org.eclipse.ui.wizards.import.FileSystem" key="WizardListSelectionPage.STORE_SELECTED_WIZARD_ID"/>
-	</section>
 	<section name="FileSystemImportWizard">
 		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID"/>
 		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_CREATE_CONTAINER_STRUCTURE_ID"/>
@@ -14,11 +11,19 @@
 			<item value="C:\Documents and Settings\Dance\Desktop\OpenOCD-projects 1.00\sam7p256-flash-usb"/>
 		</list>
 	</section>
+	<section name="ImportResourcesAction">
+		<item value="org.eclipse.ui.wizards.import.FileSystem" key="WizardListSelectionPage.STORE_SELECTED_WIZARD_ID"/>
+	</section>
 	<section name="WorkbenchPreferenceDialogSettings">
 		<item value="57" key="DIALOG_Y_ORIGIN"/>
 		<item value="223" key="DIALOG_X_ORIGIN"/>
 	</section>
-	<section name="NewWizardAction">
+	<section name="InstallationDialogSettings">
+		<item value="1052" key="DIALOG_WIDTH"/>
+		<item value="0" key="DIALOG_Y_ORIGIN"/>
+		<item value="647" key="DIALOG_HEIGHT"/>
+		<item value="-86" key="DIALOG_X_ORIGIN"/>
+		<item value="1|Microsoft Sans Serif|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft Sans Serif" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="ZipFileExportWizard">
 		<item value="true" key="WizardZipFileResourceExportPage1.STORE_CREATE_STRUCTURE_ID"/>
@@ -31,24 +36,26 @@
 			<item value="D:\ProgramsandDocuments\Eclipse_OpenOCD\_develop_todo\_backup\sam7ex256-cdc-FLASH.zip"/>
 		</list>
 	</section>
-	<section name="InstallationDialogSettings">
-		<item value="1052" key="DIALOG_WIDTH"/>
-		<item value="0" key="DIALOG_Y_ORIGIN"/>
-		<item value="-86" key="DIALOG_X_ORIGIN"/>
-		<item value="647" key="DIALOG_HEIGHT"/>
-		<item value="1|Microsoft Sans Serif|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft Sans Serif" key="DIALOG_FONT_NAME"/>
+	<section name="NewWizardAction">
 	</section>
 	<section name="ShowViewDialog">
 		<item value="311" key="DIALOG_WIDTH"/>
 		<item value="org.eclipse.debug.ui.DebugView" key="ShowViewDialog.STORE_SELECTED_VIEW_ID"/>
 		<item value="78" key="DIALOG_Y_ORIGIN"/>
-		<item value="546" key="DIALOG_X_ORIGIN"/>
 		<item value="438" key="DIALOG_HEIGHT"/>
+		<item value="546" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 		<list key="ShowViewDialog.STORE_EXPANDED_CATEGORIES_ID">
 			<item value="org.eclipse.ui"/>
 			<item value="org.eclipse.debug.ui"/>
 		</list>
+	</section>
+	<section name="org.eclipse.ui.preferences.keysPreferencePage">
+		<item value="true" key="uncategorizedFilter"/>
+		<item value="true" key="internalFilter"/>
+		<item value="true" key="actionSetFilter"/>
+	</section>
+	<section name="EditorSelectionDialog">
 	</section>
 	<section name="FileSystemExportWizard">
 		<item value="false" key="WizardFileSystemResourceExportPage1.STORE_OVERWRITE_EXISTING_FILES_ID"/>
@@ -60,13 +67,6 @@
 			<item value="D:\ProgramsandDocuments\Eclipse_OpenOCD\_develop_todo\_ready_for_next_release"/>
 			<item value="C:\Documents and Settings\Dance\Desktop\sam7-mt256\FORWEB\SAM7-MT256_project_and_settings_ODS_9.0J"/>
 		</list>
-	</section>
-	<section name="EditorSelectionDialog">
-	</section>
-	<section name="org.eclipse.ui.preferences.keysPreferencePage">
-		<item value="true" key="uncategorizedFilter"/>
-		<item value="true" key="internalFilter"/>
-		<item value="true" key="actionSetFilter"/>
 	</section>
 	<section name="ImportExportAction">
 		<item value="org.eclipse.ui.wizards.import.ExternalProject" key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID"/>
