@@ -1,9 +1,0 @@
-# Find the board config file in the scripts/board/  directory
-# This is a RAM project, so we set IS_RAM_PROJECT and the 
-# board & target cfg files take care of the rest
-
-# set IS_RAM_PROJECT 1
-
-gdb_memory_map enable
-
-source [find scripts/board/olimex_stm32_h107.cfg]

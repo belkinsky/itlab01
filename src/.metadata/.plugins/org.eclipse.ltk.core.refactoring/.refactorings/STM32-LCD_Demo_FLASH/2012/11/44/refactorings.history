@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;STM32-LCD_Demo_FLASH/main-demo.c&apos; to &apos;main.c&apos;" description="Rename resource &apos;main-demo.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="main-demo.c" name="main.c" stamp="1351778252906" updateReferences="true"/>
-</session>

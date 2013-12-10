@@ -1,5 +1,0 @@
-
-**** Clean-only build of configuration Default for project SAM9-L9260_blink_RAM ****
-
-make clean 
-rm -f obj/*.o ./*.bin ./*.elf

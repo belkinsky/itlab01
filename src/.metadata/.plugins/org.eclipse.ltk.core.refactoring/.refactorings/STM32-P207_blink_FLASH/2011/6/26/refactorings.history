@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;STM32-P207_blink_FLASH/stm32.cfg&apos; to &apos;stm32f207ZG.cfg&apos;" description="Rename resource &apos;stm32.cfg&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="stm32.cfg" name="stm32f207ZG.cfg" stamp="1309330486888" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;STM32-P207_blink_FLASH/stm32f207ZG.cfg&apos; to &apos;stm32f207zg.cfg&apos;" description="Rename resource &apos;stm32f207ZG.cfg&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="stm32f207ZG.cfg" name="stm32f207zg.cfg" stamp="1309330521509" updateReferences="true"/>
-</session>

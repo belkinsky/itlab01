@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;LPC-P2106_blink_FLASH/lpc2106.cfg&apos; to &apos;_____lpc2106.cfg&apos;" description="Rename resource &apos;lpc2106.cfg&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="lpc2106.cfg" name="_____lpc2106.cfg" stamp="1349329791468" updateReferences="true"/>
-</session>

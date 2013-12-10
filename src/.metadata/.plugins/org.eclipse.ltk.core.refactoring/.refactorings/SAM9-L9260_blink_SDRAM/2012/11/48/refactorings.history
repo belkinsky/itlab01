@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;SAM9-L9260_blink_FLASH/olimex_sam9_l9260.cfg&apos; to &apos;___old___olimex_sam9_l9260.cfg&apos;" description="Rename resource &apos;olimex_sam9_l9260.cfg&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="olimex_sam9_l9260.cfg" name="___old___olimex_sam9_l9260.cfg" stamp="1354087957968" updateReferences="true"/>
-</session>

@@ -1,5 +1,0 @@
-
-**** Clean-only build of configuration Default for project STM32-P107_blink_FLASH ****
-
-make clean 
-rm -f obj/*.o ./*.out ./*.bin ./*.dmp ./*.map ./*.lss

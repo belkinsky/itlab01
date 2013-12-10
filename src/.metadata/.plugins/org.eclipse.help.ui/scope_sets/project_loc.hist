@@ -1,6 +1,0 @@
-#Fri Sep 14 11:27:31 EEST 2007
-__DEFAULT__=false
-org.eclipse.sdk.Eclipse.master=true
-org.eclipse.sdk.Google.master=true
-org.eclipse.help.ui.localSearch.master=true
-expression=project_loc

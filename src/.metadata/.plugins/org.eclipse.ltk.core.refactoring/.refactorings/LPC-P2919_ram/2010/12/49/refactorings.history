@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;LPC-P2919_ram/olimex_lpc2919.cfg&apos; to &apos;project.cfg&apos;" description="Rename resource &apos;olimex_lpc2919.cfg&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="olimex_lpc2919.cfg" name="project.cfg" stamp="1291302930265" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;LPC-P2919_ram/project.cfg&apos; to &apos;project.cfg.old&apos;" description="Rename resource &apos;project.cfg&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="project.cfg" name="project.cfg.old" stamp="1291303688406" updateReferences="true"/>
-</session>
