@@ -6,5 +6,5 @@
 </listAttribute>
 <stringAttribute key="org.eclipse.ui.externaltools.ATTR_LOCATION" value="${eclipse_home}\..\openocd-0.6.1\bin\openocd-0.6.1.exe"/>
 <stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="-f &quot;${eclipse_home}../openocd-0.6.1/scripts/interface/jlink.cfg&quot; -f project.cfg"/>
-<stringAttribute key="org.eclipse.ui.externaltools.ATTR_WORKING_DIRECTORY" value="${project_loc}"/>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_WORKING_DIRECTORY" value="${workspace_loc}\STM32-E407_blink_FLASH\"/>
 </launchConfiguration>
