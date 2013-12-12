@@ -40,127 +40,153 @@
 
 
 #include "main.h"
+#include "inc/mx_gpio.h"
 
 /** @addtogroup Template_Project
   * @{
   */
 
 /* Private typedef -----------------------------------------------------------*/
-GPIO_InitTypeDef  GPIO_InitStructure;
 
 /* Private define ------------------------------------------------------------*/
 #define MESSAGE1   "     STM32F4xx      " 
 #define MESSAGE2   " Device running on  " 
 #define MESSAGE3   " STM3240_41_G-EVAL  "
-#define SERVO_180 8200
-#define SERVO_0 1800
+
+// Will declare constant with name like GPIOA_ to easy use in debugger
+#define MAKE_IO_CONST(ioPointerName) const typeof(ioPointerName) ioPointerName##_ = ioPointerName;
+
+// Declare IO constants to use in debugger instead of macro
+MAKE_IO_CONST(GPIOA);
+MAKE_IO_CONST(GPIOB);
+MAKE_IO_CONST(GPIOC);
+MAKE_IO_CONST(GPIOG);
+MAKE_IO_CONST(TIM3);
 
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
 
-/**
-  * @brief  Main program.
-  * @param  None
-  * @retval None
-  */
+/** Pin config notice:
+ * | Name | type |Arduino| MCU pin
+ * |------|------|-------|--------
+ * |gerkon|    In| D13   | PA5 41
+ * |servo |outPWM| D11   | PB5 135 (Manual says '43' incorrectly)
+ * |motion|    In| D7    | PG8 93
+ * |Tx BT |   Out| D1    | PB6 136
+ * |Rx BT |    In| D0    | PB7 137
+ * |led   |   Out|       | PC13 7
+ */
+
+static void init()
+{
+  mx_pinout_config();
+  
+  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);
+
+  TIM_TimeBaseInitTypeDef tim3Init;
+  TIM_TimeBaseStructInit(&tim3Init);  // Инициализация структуры TIM_TimeBaseInitTypeDef
+  tim3Init.TIM_Prescaler = 8;       // freq = 2 000 000 Hz / Prescaler
+  tim3Init.TIM_Period=20000 - 1;  // 50 Hz (для серво)
+  tim3Init.TIM_ClockDivision = TIM_CKD_DIV1;
+  tim3Init.TIM_CounterMode=TIM_CounterMode_Up;
+  TIM_TimeBaseInit(TIM3_,&tim3Init);
+
+  TIM_OCInitTypeDef tim3Chan2Init;
+  TIM_OCStructInit(&tim3Chan2Init);  // Инициализация структуры TIM_OCInitTypeDef
+  tim3Chan2Init.TIM_OCMode = TIM_OCMode_PWM1;   // работаем в режиме ШИМ (PWM)
+  tim3Chan2Init.TIM_OutputState = TIM_OutputState_Enable;
+  tim3Chan2Init.TIM_Pulse = 5000; //1500;  // Коэф. заполнения?
+  tim3Chan2Init.TIM_OCPolarity = TIM_OCPolarity_High;  // положительная полярность
+  TIM_OC2Init(TIM3_,&tim3Chan2Init);  /// заносим данные в 2й канал
+  TIM_OC2PreloadConfig(TIM3_,TIM_OCPreload_Enable);
+
+  /*TIM3->CCER |= TIM_CCER_CC2E;
+  TIM3->CCMR2|= (TIM_CCMR2_OC3M_1 | TIM_CCMR2_OC3M_2);
+  TIM3->CCMR2 &= ~TIM_CCMR2_OC3M_0;
+  //Настраиваем предделитель чтоб частота ШИМа была в районе 50 Гц
+  TIM3->PSC = 6;*/
+  //Запускаем таймер
+  //TIM3->CR2 |= TIM_CR1_CEN;
+  TIM_Cmd(TIM3_, ENABLE);
+
+}
+
+#define MAX(expr1, expr2) \
+({\
+		typeof(expr1) a = (expr1);\
+		typeof(expr2) b = (expr2);\
+		(a > b)? a : b;\
+})
+
+#define MIN(expr1, expr2) \
+({\
+		typeof(expr1) a = (expr1);\
+		typeof(expr2) b = (expr2);\
+		(a < b)? a : b;\
+})
+
+#define CLIP_BETWEEN(value, min, max) \
+({\
+	typeof(value) min_ = MIN(min, max);\
+	typeof(value) max_ = MAX(max, min);\
+	(value > max_)? max_ : ((value < min_) ? min_: (value));\
+})
+
+#define SERVO_180 12500
+#define SERVO_0 2500
+void servoSetPos(int pos)
+{
+	const uint32_t tmp = (SERVO_180 - SERVO_0) / 180;
+	uint32_t regVal = SERVO_0 + tmp * pos;
+	regVal = CLIP_BETWEEN(regVal, SERVO_0, SERVO_180);
+	TIM_SetCompare2(TIM3_, regVal);
+}
+
+
 int main(void)
 {
 
-  /*!< At this stage the microcontroller clock setting is already configured, 
-       this is done through SystemInit() function which is called from startup
-       file (startup_stm32f4xx.s) before to branch to application main.
-       To reconfigure the default setting of SystemInit() function, refer to
-       system_stm32f4xx.c file
-     */
-	 
-	/* GPIOG Periph clock enable */
-  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE);
-  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
+	init();
 
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5;
-  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
-  GPIO_InitStructure.GPIO_OType = GPIO_OType_OD;
-  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+	int servoPos = 0;
+	int increment = 1;
+	while (1)
+	{
 
-  GPIO_Init(GPIOA, &GPIO_InitStructure);
+		//gerkon
+		if (GPIO_ReadInputDataBit(GPIOA_, GPIO_IDR_IDR_5) != Bit_SET)
+		{
+			if((servoPos > 180) || (servoPos < 0))
+				increment = -increment;
 
+			servoPos+= increment;
+			servoSetPos(servoPos);
+		}
 
-  /* Configure PG6 and PG8 in output pushpull mode */
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13;
-  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
-  GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
-  GPIO_Init(GPIOC, &GPIO_InitStructure);
+		//motion
+		if(GPIO_ReadInputDataBit(GPIOG_, GPIO_IDR_IDR_8) == Bit_SET)
+		{
+			GPIO_SetBits(GPIOC_, GPIO_Pin_13);
+		}
+		else
+		{
+			GPIO_ResetBits(GPIOC_, GPIO_Pin_13);
+		}
 
-
-
-  while(1){
-
-	  if(GPIOA->IDR & GPIO_IDR_IDR_5)
-		  GPIOC->BSRRH = GPIO_Pin_13;
-	  else
-		  GPIOC->BSRRL = GPIO_Pin_13;
-
-	  Delay(10000);
-
-  
-  }
+		Delay(100000);
+	}
 
 }
 
-void set_pos(uint8_t pos) {
-uint32_t tmp=(SERVO_180 - SERVO_0) /180 ;
-TIM2->CCR2 = SERVO_0 + tmp * pos;
-}
-// Функция задержки
-void delay(void)
-{
-volatile uint32_t i;
-for (i=1; i != 0xFFFF; i++)
-;
-}
-
-int Servo(void)
-{
-//Включем порт B
-RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB , ENABLE);
-//Включаем Таймер 2
-RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2,ENABLE);
-GPIO_InitTypeDef PORT;
-// Настроим ногу (PA1) к которой подключен сервопривод
-PORT.GPIO_Pin = (GPIO_Pin_1);
-//Будем использовать альтернативный режим а не обычный GPIO
-PORT.GPIO_Mode = GPIO_Mode_AF_PP;
-PORT.GPIO_Speed = GPIO_Speed_2MHz;
-GPIO_Init(GPIOB, &PORT);
-//Разрешаем таймеру использовать ногу PA1 для ШИМа
-TIM2->CCER |= (TIM_CCER_CC2E);
-TIM2->CCMR1|= (TIM_CCMR1_OC2M_1 | TIM_CCMR1_OC2M_2);
-//Настраиваем предделитель чтоб частота ШИМа была в районе 50 Гц
-TIM2->PSC = 6;
-//Запускаем таймер
-TIM2->CR1 |= TIM_CR1_CEN;
-uint8_t i;
-//Начинаем крутить сервой от 0 до 180 градусов.
-while(1)
-{
-for (i=0;i<=180;i++) {
-delay();
-set_pos(i);
-}
-}
-}
 
 /**
   * @brief  Inserts a delay time.
   * @param  nTime: specifies the delay time length, in 10 ms.
   * @retval None
   */
-void Delay(uint32_t nTime)
+void Delay(volatile uint32_t nTime)
 {
   while(nTime--);
 }

@@ -1,14 +1,12 @@
 /**
   ******************************************************************************
-  * @file    Project/STM32F4xx_StdPeriph_Templates/main.h 
-  * @author  MCD Application Team
-  * @version V1.0.1
-  * @date    13-April-2012
-  * @brief   Header for main.c module
+  * File Name          : mx_gpio.h
+  * Date               : 12/12/2013 23:36:11
+  * Description        : This file contains all the functions prototypes for 
+  *                      the mx_gpio  
   ******************************************************************************
-  * @attention
   *
-  * <h2><center>&copy; COPYRIGHT 2012 STMicroelectronics</center></h2>
+  * COPYRIGHT 2013 STMicroelectronics
   *
   * Licensed under MCD-ST Liberty SW License Agreement V2, (the "License");
   * You may not use this file except in compliance with the License.
@@ -24,22 +22,20 @@
   *
   ******************************************************************************
   */
-  
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __MAIN_H
-#define __MAIN_H
+#ifndef __mx_pinoutConfig_H
+#define __mx_pinoutConfig_H
+#ifdef __cplusplus
+ extern "C" {
+#endif
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx.h"
-#include "stm32f4xx_conf.h"
-
-/* Exported types ------------------------------------------------------------*/
-/* Exported constants --------------------------------------------------------*/
-/* Exported macro ------------------------------------------------------------*/
-/* Exported functions ------------------------------------------------------- */
-void TimingDelay_Decrement(void);
-void Delay(volatile uint32_t nTime);
-
-#endif /* __MAIN_H */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+#include "stm32f4xx_gpio.h"
+#include "stm32f4xx_rcc.h"
+#include "stm32f4xx_syscfg.h"
+void mx_pinout_config(void);
+#ifdef __cplusplus
+}
+#endif
+#endif /*__ mx_pinoutConfig_H */

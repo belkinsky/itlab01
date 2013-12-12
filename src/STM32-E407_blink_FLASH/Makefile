@@ -57,9 +57,14 @@ INCLUDES += -I./lib/inc/../../
 # Objects built from C source files
 C_OBJECTS = $(OBJ)/main.o
 C_OBJECTS += $(OBJ)/system_stm32f4xx.o
+C_OBJECTS += $(OBJ)/mx_main.o
+C_OBJECTS += $(OBJ)/mx_gpio.o
+# and libraries
 C_OBJECTS += $(OBJ)/stm32f4xx_gpio.o
 C_OBJECTS += $(OBJ)/stm32f4xx_rcc.o
 C_OBJECTS += $(OBJ)/stm32f4xx_it.o
+C_OBJECTS += $(OBJ)/stm32f4xx_tim.o
+
 
 # Objects built from Assembly source files
 ASM_OBJECTS = $(OBJ)/startup_stm32f4xx.o
@@ -99,9 +104,13 @@ $(C_OBJECTS): main.c system_stm32f4xx.c
 	$(CC) $(CFLAGS) -o $(OBJ)/main.o main.c
 	$(CC) $(CFLAGS) -o $(OBJ)/system_stm32f4xx.o system_stm32f4xx.c
 	$(CC) $(CFLAGS) -o $(OBJ)/stm32f4xx_it.o stm32f4xx_it.c
+	$(CC) $(CFLAGS) -o $(OBJ)/mx_main.o src/mx_main.c
+	$(CC) $(CFLAGS) -o $(OBJ)/mx_gpio.o src/mx_gpio.c
+
 	@ echo ".compiling libraries"
 	$(CC) $(CFLAGS) -o $(OBJ)/stm32f4xx_gpio.o $(LIBRARYSRC)/stm32f4xx_gpio.c 
 	$(CC) $(CFLAGS) -o $(OBJ)/stm32f4xx_rcc.o $(LIBRARYSRC)/stm32f4xx_rcc.c 
+	$(CC) $(CFLAGS) -o $(OBJ)/stm32f4xx_tim.o $(LIBRARYSRC)/stm32f4xx_tim.c 
 	
 $(ASM_OBJECTS): $(STARTUPFILE)
 	@ echo ".assembling"
