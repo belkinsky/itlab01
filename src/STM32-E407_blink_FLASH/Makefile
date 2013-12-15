@@ -111,6 +111,7 @@ $(C_OBJECTS): main.c system_stm32f4xx.c
 	$(CC) $(CFLAGS) -o $(OBJ)/stm32f4xx_gpio.o $(LIBRARYSRC)/stm32f4xx_gpio.c 
 	$(CC) $(CFLAGS) -o $(OBJ)/stm32f4xx_rcc.o $(LIBRARYSRC)/stm32f4xx_rcc.c 
 	$(CC) $(CFLAGS) -o $(OBJ)/stm32f4xx_tim.o $(LIBRARYSRC)/stm32f4xx_tim.c 
+	$(CC) $(CFLAGS) -o $(OBJ)/stm32f4xx_usart.o $(LIBRARYSRC)/stm32f4xx_usart.c
 	
 $(ASM_OBJECTS): $(STARTUPFILE)
 	@ echo ".assembling"
