@@ -64,6 +64,8 @@ C_OBJECTS += $(OBJ)/stm32f4xx_gpio.o
 C_OBJECTS += $(OBJ)/stm32f4xx_rcc.o
 C_OBJECTS += $(OBJ)/stm32f4xx_it.o
 C_OBJECTS += $(OBJ)/stm32f4xx_tim.o
+C_OBJECTS += $(OBJ)/stm32f4xx_usart.o
+C_OBJECTS += $(OBJ)/misc.o
 
 
 # Objects built from Assembly source files
@@ -112,6 +114,7 @@ $(C_OBJECTS): main.c system_stm32f4xx.c
 	$(CC) $(CFLAGS) -o $(OBJ)/stm32f4xx_rcc.o $(LIBRARYSRC)/stm32f4xx_rcc.c 
 	$(CC) $(CFLAGS) -o $(OBJ)/stm32f4xx_tim.o $(LIBRARYSRC)/stm32f4xx_tim.c 
 	$(CC) $(CFLAGS) -o $(OBJ)/stm32f4xx_usart.o $(LIBRARYSRC)/stm32f4xx_usart.c
+	$(CC) $(CFLAGS) -o $(OBJ)/misc.o $(LIBRARYSRC)/misc.c
 	
 $(ASM_OBJECTS): $(STARTUPFILE)
 	@ echo ".assembling"

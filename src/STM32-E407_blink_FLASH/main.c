@@ -41,6 +41,7 @@
 
 #include "main.h"
 #include "inc/mx_gpio.h"
+#include "stm32f4xx_usart.h"
 
 /** @addtogroup Template_Project
   * @{
@@ -145,6 +146,7 @@ void servoSetPos(int pos)
 	TIM_SetCompare2(TIM3_, regVal);
 }
 
+void UARTSend(const unsigned char *pucBuffer, unsigned long ulCount);
 /**
   * @brief  Функция обработчик прерывания USARTx.
   * @param  None
