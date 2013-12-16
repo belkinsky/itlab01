@@ -111,7 +111,7 @@ static void init()
   TIM3->PSC = 6;*/
   //Запускаем таймер
   //TIM3->CR2 |= TIM_CR1_CEN;
-  TIM_Cmd(TIM3_, ENABLE);
+  //  TIM_Cmd(TIM3_, ENABLE);
 
 }
 
@@ -270,7 +270,7 @@ int main(void)
 	while (1)
 	{
 
-		//gerkon
+	/*	//gerkon
 		if (GPIO_ReadInputDataBit(GPIOA_, GPIO_IDR_IDR_5) != Bit_SET)
 		{
 			if((servoPos > 180) || (servoPos < 0))
@@ -281,18 +281,28 @@ int main(void)
 
 			usartTest();
 		}
-
-		//motion
+     */
+		//motion and servo and led
 		if(GPIO_ReadInputDataBit(GPIOG_, GPIO_IDR_IDR_8) == Bit_SET)
 		{
 			GPIO_SetBits(GPIOC_, GPIO_Pin_13);
+			TIM_Cmd(TIM3_, ENABLE);
+			if((servoPos > 180) || (servoPos < 0))
+				increment = -increment;
+
+			servoPos+= increment;
+			servoSetPos(servoPos);
+
+			Delay(200000);
+
+			TIM_Cmd(TIM3_, DISABLE);
 		}
 		else
 		{
 			GPIO_ResetBits(GPIOC_, GPIO_Pin_13);
 		}
 
-		Delay(100000);
+		//Delay(100000);
 	}
 
 }
