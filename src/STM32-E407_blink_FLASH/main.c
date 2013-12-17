@@ -287,19 +287,20 @@ int main(void)
 		{
 			GPIO_SetBits(GPIOC_, GPIO_Pin_13);
 			TIM_Cmd(TIM3_, ENABLE);
-			if((servoPos > 180) || (servoPos < 0))
-				increment = -increment;
+		/*	if((servoPos > 180) || (servoPos < 0))
+				increment = -increment;*/
+			servoSetPos(180);
 
-			servoPos+= increment;
-			servoSetPos(servoPos);
+			//Delay(200000);
 
-			Delay(200000);
-
-			TIM_Cmd(TIM3_, DISABLE);
 		}
 		else
 		{
 			GPIO_ResetBits(GPIOC_, GPIO_Pin_13);
+			servoSetPos(0);
+			Delay(20000000);
+
+			TIM_Cmd(TIM3_, DISABLE);
 		}
 
 		//Delay(100000);
