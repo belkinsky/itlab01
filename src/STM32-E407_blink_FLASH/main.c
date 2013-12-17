@@ -81,7 +81,7 @@ MAKE_IO_CONST(USART1);
  * |led   |   Out|       | PC13 7
  */
 
-static void init()
+static void init(int HZ)
 {
   mx_pinout_config();
   
@@ -90,7 +90,7 @@ static void init()
   TIM_TimeBaseInitTypeDef tim3Init;
   TIM_TimeBaseStructInit(&tim3Init);  // Инициализация структуры TIM_TimeBaseInitTypeDef
   tim3Init.TIM_Prescaler = 8;       // freq = 2 000 000 Hz / Prescaler
-  tim3Init.TIM_Period=20000 - 1;  // 50 Hz (для серво)
+  tim3Init.TIM_Period=HZ - 1;  // 50 Hz (для серво)
   tim3Init.TIM_ClockDivision = TIM_CKD_DIV1;
   tim3Init.TIM_CounterMode=TIM_CounterMode_Up;
   TIM_TimeBaseInit(TIM3_,&tim3Init);
@@ -263,32 +263,69 @@ void usartTest(void)
 int main(void)
 {
 
-	init();
+
 
 	int servoPos = 0;
-	int increment = 1;
+	int i=0;
+	int de = 3500000;
 	while (1)
 	{
 
-	/*	//gerkon
+		//gerkon
 		if (GPIO_ReadInputDataBit(GPIOA_, GPIO_IDR_IDR_5) != Bit_SET)
 		{
-			if((servoPos > 180) || (servoPos < 0))
-				increment = -increment;
+			TIM_Cmd(TIM3_, ENABLE);
 
-			servoPos+= increment;
-			servoSetPos(servoPos);
+			servoSetPos(9);
+			init(15000);
 
-			usartTest();
+			Delay(4000000);
+
+			servoSetPos(11); //ла
+			init(20000);
+
+			Delay(de);
+
+			servoSetPos(9); //ла
+			init(15000);
+
+			Delay(de);
+
+			servoSetPos(11);
+			init(20000);//ла
+
+			Delay(de);
+
+			servoSetPos(11);
+			init(10000);//пи
+
+			Delay(de);
+
+
+
+		/*	servoSetPos(0);
+			init(10000);
+
+			Delay(10000);
+
+			servoSetPos(10);
+			init(20000);
+
+			Delay(20000);
+
+			servoSetPos(00);
+			init(20000);*/
+
+			TIM_Cmd(TIM3_, DISABLE);
 		}
-     */
-		//motion and servo and led
+
+		}
+
+	/*	//motion and servo and led
 		if(GPIO_ReadInputDataBit(GPIOG_, GPIO_IDR_IDR_8) == Bit_SET)
 		{
+		    TIM_Cmd(TIM3_, ENABLE);
 			GPIO_SetBits(GPIOC_, GPIO_Pin_13);
-			TIM_Cmd(TIM3_, ENABLE);
-		/*	if((servoPos > 180) || (servoPos < 0))
-				increment = -increment;*/
 			servoSetPos(180);
 
 			//Delay(200000);
@@ -304,7 +341,7 @@ int main(void)
 		}
 
 		//Delay(100000);
-	}
+	}*/
 
 }
 
