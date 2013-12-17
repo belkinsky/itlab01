@@ -68,6 +68,9 @@ MAKE_IO_CONST(USART1);
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
+void NVIC_Configuration(void);
+void USART_Configuration(void);
+
 /* Private functions ---------------------------------------------------------*/
 
 /** Pin config notice:
@@ -104,15 +107,21 @@ static void init()
   TIM_OC2Init(TIM3_,&tim3Chan2Init);  /// заносим данные в 2й канал
   TIM_OC2PreloadConfig(TIM3_,TIM_OCPreload_Enable);
 
-  /*TIM3->CCER |= TIM_CCER_CC2E;
-  TIM3->CCMR2|= (TIM_CCMR2_OC3M_1 | TIM_CCMR2_OC3M_2);
-  TIM3->CCMR2 &= ~TIM_CCMR2_OC3M_0;
-  //Настраиваем предделитель чтоб частота ШИМа была в районе 50 Гц
-  TIM3->PSC = 6;*/
-  //Запускаем таймер
-  //TIM3->CR2 |= TIM_CR1_CEN;
-  //  TIM_Cmd(TIM3_, ENABLE);
 
+
+  //TIM_Cmd(TIM3_, ENABLE);
+
+
+
+  /* NVIC Configuration */
+  NVIC_Configuration();
+
+  /* Configure the USART1 */
+  USART_Configuration();
+
+  /* Enable the USART1 Receive interrupt: this interrupt is generated when the
+       USART1 receive data register is not empty */
+  USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);
 }
 
 #define MAX(expr1, expr2) \
@@ -154,7 +163,7 @@ void UARTSend(const unsigned char *pucBuffer, unsigned long ulCount);
   */
 void USART1_IRQHandler(void)
 {
-    if ((USART1->SR & USART_FLAG_RXNE) != (u16)RESET)
+    if ((USART1_->SR & USART_FLAG_RXNE) != (u16)RESET)
     {
     		uint16_t receivedByte = USART_ReceiveData(USART1);
         if(receivedByte == '1'){
@@ -182,9 +191,9 @@ void UARTSend(const unsigned char *pucBuffer, unsigned long ulCount)
     //
     while(ulCount--)
     {
-        USART_SendData(USART1, (uint16_t) *pucBuffer++);
+        USART_SendData(USART1_, (uint16_t) *pucBuffer++);
         /* Loop until the end of transmission */
-        while(USART_GetFlagStatus(USART1, USART_FLAG_TC) == RESET)
+        while(USART_GetFlagStatus(USART1_, USART_FLAG_TC) == RESET)
         {
         }
     }
@@ -229,6 +238,7 @@ void USART_Configuration(void)
         - USART LastBit: The clock pulse of the last data bit is not output to
                          the SCLK pin
   */
+
   USART_InitStructure.USART_BaudRate = 19200;        // Скорость передачи
   USART_InitStructure.USART_WordLength = USART_WordLength_8b;
   USART_InitStructure.USART_StopBits = USART_StopBits_1;
@@ -236,25 +246,15 @@ void USART_Configuration(void)
   USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
   USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
 
-  USART_Init(USART1, &USART_InitStructure);
+  USART_Init(USART1_, &USART_InitStructure);
 
   /* Включаем USART1 */
-  USART_Cmd(USART1, ENABLE);
+  USART_Cmd(USART1_, ENABLE);
 }
 
 void usartTest(void)
 {
-    const unsigned char welcome_str[] = " Welcome to Bluetooth!\r\n";
-
-    /* NVIC Configuration */
-    NVIC_Configuration();
-
-    /* Configure the USART1 */
-    USART_Configuration();
-
-    /* Enable the USART1 Receive interrupt: this interrupt is generated when the
-         USART1 receive data register is not empty */
-    USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);
+    const unsigned char welcome_str[] = "Welcome to Bluetooth!\r\n";
 
     /* print welcome information */
     UARTSend(welcome_str, sizeof(welcome_str));
@@ -270,19 +270,18 @@ int main(void)
 	while (1)
 	{
 
-	/*	//gerkon
+		/*
+		//gerkon
 		if (GPIO_ReadInputDataBit(GPIOA_, GPIO_IDR_IDR_5) != Bit_SET)
 		{
-			if((servoPos > 180) || (servoPos < 0))
-				increment = -increment;
-
-			servoPos+= increment;
-			servoSetPos(servoPos);
-
+			GPIO_SetBits(GPIOC_, GPIO_Pin_13);
 			usartTest();
+			GPIO_ResetBits(GPIOC_, GPIO_Pin_13);
+			Delay(200000);
 		}
-     */
+		*/
 		//motion and servo and led
+
 		if(GPIO_ReadInputDataBit(GPIOG_, GPIO_IDR_IDR_8) == Bit_SET)
 		{
 			GPIO_SetBits(GPIOC_, GPIO_Pin_13);
@@ -302,6 +301,7 @@ int main(void)
 
 			TIM_Cmd(TIM3_, DISABLE);
 		}
+
 
 		//Delay(100000);
 	}
