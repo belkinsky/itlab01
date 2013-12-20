@@ -1,0 +1,1069 @@
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccaFdmMw.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m4
+   3              		.eabi_attribute 27, 3
+   4              		.fpu fpv4-sp-d16
+   5              		.eabi_attribute 20, 1
+   6              		.eabi_attribute 21, 1
+   7              		.eabi_attribute 23, 3
+   8              		.eabi_attribute 24, 1
+   9              		.eabi_attribute 25, 1
+  10              		.eabi_attribute 26, 1
+  11              		.eabi_attribute 30, 2
+  12              		.eabi_attribute 34, 1
+  13              		.eabi_attribute 18, 4
+  14              		.thumb
+  15              		.file	"stats.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.stats_init,"ax",%progbits
+  20              		.align	2
+  21              		.p2align 4,,15
+  22              		.global	stats_init
+  23              		.thumb
+  24              		.thumb_func
+  25              		.type	stats_init, %function
+  26              	stats_init:
+  27              	.LFB7:
+  28              		.file 1 "../../ext/lwip/src/core/stats.c"
+  29              		.loc 1 52 0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+  34 0000 7047     		bx	lr
+  35              		.cfi_endproc
+  36              	.LFE7:
+  37              		.size	stats_init, .-stats_init
+  38              		.global	lwip_stats
+  39 0002 00BFAFF3 		.section	.bss.lwip_stats,"aw",%nobits
+  39      0080AFF3 
+  39      0080AFF3 
+  39      0080
+  40              		.align	2
+  41              		.type	lwip_stats, %object
+  42              		.size	lwip_stats, 336
+  43              	lwip_stats:
+  44 0000 00000000 		.space	336
+  44      00000000 
+  44      00000000 
+  44      00000000 
+  44      00000000 
+  45              		.text
+  46              	.Letext0:
+  47              		.file 2 "c:\\fbin\\yagarto\\bin\\../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/include/
+  48              		.file 3 "../../os/various/lwip_bindings/arch/cc.h"
+  49              		.file 4 "../../ext/lwip/src/include/lwip/mem.h"
+  50              		.file 5 "../../ext/lwip/src/include/lwip/stats.h"
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccaFdmMw.s 			page 2
+
+
+  51              		.file 6 "../../ext/lwip/src/include/lwip/memp.h"
+  52              		.section	.debug_info,"",%progbits
+  53              	.Ldebug_info0:
+  54 0000 4E030000 		.4byte	0x34e
+  55 0004 0200     		.2byte	0x2
+  56 0006 00000000 		.4byte	.Ldebug_abbrev0
+  57 000a 04       		.byte	0x4
+  58 000b 01       		.uleb128 0x1
+  59 000c 74010000 		.4byte	.LASF55
+  60 0010 01       		.byte	0x1
+  61 0011 E5020000 		.4byte	.LASF56
+  62 0015 F9000000 		.4byte	.LASF57
+  63 0019 00000000 		.4byte	.Ldebug_ranges0+0
+  64 001d 00000000 		.4byte	0
+  65 0021 00000000 		.4byte	0
+  66 0025 00000000 		.4byte	.Ldebug_line0
+  67 0029 02       		.uleb128 0x2
+  68 002a 04       		.byte	0x4
+  69 002b 05       		.byte	0x5
+  70 002c 696E7400 		.ascii	"int\000"
+  71 0030 03       		.uleb128 0x3
+  72 0031 04       		.byte	0x4
+  73 0032 07       		.byte	0x7
+  74 0033 D3020000 		.4byte	.LASF0
+  75 0037 03       		.uleb128 0x3
+  76 0038 01       		.byte	0x1
+  77 0039 06       		.byte	0x6
+  78 003a 07000000 		.4byte	.LASF1
+  79 003e 03       		.uleb128 0x3
+  80 003f 01       		.byte	0x1
+  81 0040 08       		.byte	0x8
+  82 0041 E2000000 		.4byte	.LASF2
+  83 0045 03       		.uleb128 0x3
+  84 0046 02       		.byte	0x2
+  85 0047 05       		.byte	0x5
+  86 0048 1B000000 		.4byte	.LASF3
+  87 004c 04       		.uleb128 0x4
+  88 004d F1010000 		.4byte	.LASF12
+  89 0051 02       		.byte	0x2
+  90 0052 36       		.byte	0x36
+  91 0053 57000000 		.4byte	0x57
+  92 0057 03       		.uleb128 0x3
+  93 0058 02       		.byte	0x2
+  94 0059 07       		.byte	0x7
+  95 005a CA010000 		.4byte	.LASF4
+  96 005e 03       		.uleb128 0x3
+  97 005f 04       		.byte	0x4
+  98 0060 05       		.byte	0x5
+  99 0061 C2000000 		.4byte	.LASF5
+ 100 0065 03       		.uleb128 0x3
+ 101 0066 04       		.byte	0x4
+ 102 0067 07       		.byte	0x7
+ 103 0068 5B020000 		.4byte	.LASF6
+ 104 006c 03       		.uleb128 0x3
+ 105 006d 08       		.byte	0x8
+ 106 006e 05       		.byte	0x5
+ 107 006f B4000000 		.4byte	.LASF7
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccaFdmMw.s 			page 3
+
+
+ 108 0073 03       		.uleb128 0x3
+ 109 0074 08       		.byte	0x8
+ 110 0075 07       		.byte	0x7
+ 111 0076 56010000 		.4byte	.LASF8
+ 112 007a 03       		.uleb128 0x3
+ 113 007b 01       		.byte	0x1
+ 114 007c 02       		.byte	0x2
+ 115 007d 25020000 		.4byte	.LASF9
+ 116 0081 03       		.uleb128 0x3
+ 117 0082 04       		.byte	0x4
+ 118 0083 07       		.byte	0x7
+ 119 0084 3E000000 		.4byte	.LASF10
+ 120 0088 03       		.uleb128 0x3
+ 121 0089 01       		.byte	0x1
+ 122 008a 08       		.byte	0x8
+ 123 008b EC010000 		.4byte	.LASF11
+ 124 008f 04       		.uleb128 0x4
+ 125 0090 85020000 		.4byte	.LASF13
+ 126 0094 03       		.byte	0x3
+ 127 0095 3A       		.byte	0x3a
+ 128 0096 4C000000 		.4byte	0x4c
+ 129 009a 04       		.uleb128 0x4
+ 130 009b CB000000 		.4byte	.LASF14
+ 131 009f 04       		.byte	0x4
+ 132 00a0 4C       		.byte	0x4c
+ 133 00a1 8F000000 		.4byte	0x8f
+ 134 00a5 05       		.uleb128 0x5
+ 135 00a6 01       		.byte	0x1
+ 136 00a7 06       		.byte	0x6
+ 137 00a8 2B       		.byte	0x2b
+ 138 00a9 08010000 		.4byte	0x108
+ 139 00ad 06       		.uleb128 0x6
+ 140 00ae 72020000 		.4byte	.LASF15
+ 141 00b2 00       		.sleb128 0
+ 142 00b3 06       		.uleb128 0x6
+ 143 00b4 C6020000 		.4byte	.LASF16
+ 144 00b8 01       		.sleb128 1
+ 145 00b9 06       		.uleb128 0x6
+ 146 00ba B2020000 		.4byte	.LASF17
+ 147 00be 02       		.sleb128 2
+ 148 00bf 06       		.uleb128 0x6
+ 149 00c0 9B000000 		.4byte	.LASF18
+ 150 00c4 03       		.sleb128 3
+ 151 00c5 06       		.uleb128 0x6
+ 152 00c6 25000000 		.4byte	.LASF19
+ 153 00ca 04       		.sleb128 4
+ 154 00cb 06       		.uleb128 0x6
+ 155 00cc DD010000 		.4byte	.LASF20
+ 156 00d0 05       		.sleb128 5
+ 157 00d1 06       		.uleb128 0x6
+ 158 00d2 83000000 		.4byte	.LASF21
+ 159 00d6 06       		.sleb128 6
+ 160 00d7 06       		.uleb128 0x6
+ 161 00d8 05030000 		.4byte	.LASF22
+ 162 00dc 07       		.sleb128 7
+ 163 00dd 06       		.uleb128 0x6
+ 164 00de A5020000 		.4byte	.LASF23
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccaFdmMw.s 			page 4
+
+
+ 165 00e2 08       		.sleb128 8
+ 166 00e3 06       		.uleb128 0x6
+ 167 00e4 FA010000 		.4byte	.LASF24
+ 168 00e8 09       		.sleb128 9
+ 169 00e9 06       		.uleb128 0x6
+ 170 00ea 4C000000 		.4byte	.LASF25
+ 171 00ee 0A       		.sleb128 10
+ 172 00ef 06       		.uleb128 0x6
+ 173 00f0 72000000 		.4byte	.LASF26
+ 174 00f4 0B       		.sleb128 11
+ 175 00f5 06       		.uleb128 0x6
+ 176 00f6 33020000 		.4byte	.LASF27
+ 177 00fa 0C       		.sleb128 12
+ 178 00fb 06       		.uleb128 0x6
+ 179 00fc 8B020000 		.4byte	.LASF28
+ 180 0100 0D       		.sleb128 13
+ 181 0101 06       		.uleb128 0x6
+ 182 0102 F0000000 		.4byte	.LASF29
+ 183 0106 0E       		.sleb128 14
+ 184 0107 00       		.byte	0
+ 185 0108 07       		.uleb128 0x7
+ 186 0109 32000000 		.4byte	.LASF40
+ 187 010d 18       		.byte	0x18
+ 188 010e 05       		.byte	0x5
+ 189 010f 3A       		.byte	0x3a
+ 190 0110 BC010000 		.4byte	0x1bc
+ 191 0114 08       		.uleb128 0x8
+ 192 0115 47000000 		.4byte	.LASF30
+ 193 0119 05       		.byte	0x5
+ 194 011a 3B       		.byte	0x3b
+ 195 011b 8F000000 		.4byte	0x8f
+ 196 011f 02       		.byte	0x2
+ 197 0120 23       		.byte	0x23
+ 198 0121 00       		.uleb128 0
+ 199 0122 08       		.uleb128 0x8
+ 200 0123 3D020000 		.4byte	.LASF31
+ 201 0127 05       		.byte	0x5
+ 202 0128 3C       		.byte	0x3c
+ 203 0129 8F000000 		.4byte	0x8f
+ 204 012d 02       		.byte	0x2
+ 205 012e 23       		.byte	0x23
+ 206 012f 02       		.uleb128 0x2
+ 207 0130 09       		.uleb128 0x9
+ 208 0131 667700   		.ascii	"fw\000"
+ 209 0134 05       		.byte	0x5
+ 210 0135 3D       		.byte	0x3d
+ 211 0136 8F000000 		.4byte	0x8f
+ 212 013a 02       		.byte	0x2
+ 213 013b 23       		.byte	0x23
+ 214 013c 04       		.uleb128 0x4
+ 215 013d 08       		.uleb128 0x8
+ 216 013e DD000000 		.4byte	.LASF32
+ 217 0142 05       		.byte	0x5
+ 218 0143 3E       		.byte	0x3e
+ 219 0144 8F000000 		.4byte	0x8f
+ 220 0148 02       		.byte	0x2
+ 221 0149 23       		.byte	0x23
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccaFdmMw.s 			page 5
+
+
+ 222 014a 06       		.uleb128 0x6
+ 223 014b 08       		.uleb128 0x8
+ 224 014c 6D010000 		.4byte	.LASF33
+ 225 0150 05       		.byte	0x5
+ 226 0151 3F       		.byte	0x3f
+ 227 0152 8F000000 		.4byte	0x8f
+ 228 0156 02       		.byte	0x2
+ 229 0157 23       		.byte	0x23
+ 230 0158 08       		.uleb128 0x8
+ 231 0159 08       		.uleb128 0x8
+ 232 015a 6B000000 		.4byte	.LASF34
+ 233 015e 05       		.byte	0x5
+ 234 015f 40       		.byte	0x40
+ 235 0160 8F000000 		.4byte	0x8f
+ 236 0164 02       		.byte	0x2
+ 237 0165 23       		.byte	0x23
+ 238 0166 0A       		.uleb128 0xa
+ 239 0167 08       		.uleb128 0x8
+ 240 0168 D6000000 		.4byte	.LASF35
+ 241 016c 05       		.byte	0x5
+ 242 016d 41       		.byte	0x41
+ 243 016e 8F000000 		.4byte	0x8f
+ 244 0172 02       		.byte	0x2
+ 245 0173 23       		.byte	0x23
+ 246 0174 0C       		.uleb128 0xc
+ 247 0175 08       		.uleb128 0x8
+ 248 0176 7F020000 		.4byte	.LASF36
+ 249 017a 05       		.byte	0x5
+ 250 017b 42       		.byte	0x42
+ 251 017c 8F000000 		.4byte	0x8f
+ 252 0180 02       		.byte	0x2
+ 253 0181 23       		.byte	0x23
+ 254 0182 0E       		.uleb128 0xe
+ 255 0183 08       		.uleb128 0x8
+ 256 0184 18020000 		.4byte	.LASF37
+ 257 0188 05       		.byte	0x5
+ 258 0189 43       		.byte	0x43
+ 259 018a 8F000000 		.4byte	0x8f
+ 260 018e 02       		.byte	0x2
+ 261 018f 23       		.byte	0x23
+ 262 0190 10       		.uleb128 0x10
+ 263 0191 08       		.uleb128 0x8
+ 264 0192 BD010000 		.4byte	.LASF38
+ 265 0196 05       		.byte	0x5
+ 266 0197 44       		.byte	0x44
+ 267 0198 8F000000 		.4byte	0x8f
+ 268 019c 02       		.byte	0x2
+ 269 019d 23       		.byte	0x23
+ 270 019e 12       		.uleb128 0x12
+ 271 019f 09       		.uleb128 0x9
+ 272 01a0 65727200 		.ascii	"err\000"
+ 273 01a4 05       		.byte	0x5
+ 274 01a5 45       		.byte	0x45
+ 275 01a6 8F000000 		.4byte	0x8f
+ 276 01aa 02       		.byte	0x2
+ 277 01ab 23       		.byte	0x23
+ 278 01ac 14       		.uleb128 0x14
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccaFdmMw.s 			page 6
+
+
+ 279 01ad 08       		.uleb128 0x8
+ 280 01ae 92000000 		.4byte	.LASF39
+ 281 01b2 05       		.byte	0x5
+ 282 01b3 46       		.byte	0x46
+ 283 01b4 8F000000 		.4byte	0x8f
+ 284 01b8 02       		.byte	0x2
+ 285 01b9 23       		.byte	0x23
+ 286 01ba 16       		.uleb128 0x16
+ 287 01bb 00       		.byte	0
+ 288 01bc 07       		.uleb128 0x7
+ 289 01bd 61000000 		.4byte	.LASF41
+ 290 01c1 0A       		.byte	0xa
+ 291 01c2 05       		.byte	0x5
+ 292 01c3 5A       		.byte	0x5a
+ 293 01c4 0F020000 		.4byte	0x20f
+ 294 01c8 08       		.uleb128 0x8
+ 295 01c9 9F020000 		.4byte	.LASF42
+ 296 01cd 05       		.byte	0x5
+ 297 01ce 5E       		.byte	0x5e
+ 298 01cf 9A000000 		.4byte	0x9a
+ 299 01d3 02       		.byte	0x2
+ 300 01d4 23       		.byte	0x23
+ 301 01d5 00       		.uleb128 0
+ 302 01d6 08       		.uleb128 0x8
+ 303 01d7 9A020000 		.4byte	.LASF43
+ 304 01db 05       		.byte	0x5
+ 305 01dc 5F       		.byte	0x5f
+ 306 01dd 9A000000 		.4byte	0x9a
+ 307 01e1 02       		.byte	0x2
+ 308 01e2 23       		.byte	0x23
+ 309 01e3 02       		.uleb128 0x2
+ 310 01e4 09       		.uleb128 0x9
+ 311 01e5 6D617800 		.ascii	"max\000"
+ 312 01e9 05       		.byte	0x5
+ 313 01ea 60       		.byte	0x60
+ 314 01eb 9A000000 		.4byte	0x9a
+ 315 01ef 02       		.byte	0x2
+ 316 01f0 23       		.byte	0x23
+ 317 01f1 04       		.uleb128 0x4
+ 318 01f2 09       		.uleb128 0x9
+ 319 01f3 65727200 		.ascii	"err\000"
+ 320 01f7 05       		.byte	0x5
+ 321 01f8 61       		.byte	0x61
+ 322 01f9 8F000000 		.4byte	0x8f
+ 323 01fd 02       		.byte	0x2
+ 324 01fe 23       		.byte	0x23
+ 325 01ff 06       		.uleb128 0x6
+ 326 0200 08       		.uleb128 0x8
+ 327 0201 2B020000 		.4byte	.LASF44
+ 328 0205 05       		.byte	0x5
+ 329 0206 62       		.byte	0x62
+ 330 0207 8F000000 		.4byte	0x8f
+ 331 020b 02       		.byte	0x2
+ 332 020c 23       		.byte	0x23
+ 333 020d 08       		.uleb128 0x8
+ 334 020e 00       		.byte	0
+ 335 020f 07       		.uleb128 0x7
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccaFdmMw.s 			page 7
+
+
+ 336 0210 4D020000 		.4byte	.LASF45
+ 337 0214 06       		.byte	0x6
+ 338 0215 05       		.byte	0x5
+ 339 0216 65       		.byte	0x65
+ 340 0217 46020000 		.4byte	0x246
+ 341 021b 08       		.uleb128 0x8
+ 342 021c 9A020000 		.4byte	.LASF43
+ 343 0220 05       		.byte	0x5
+ 344 0221 66       		.byte	0x66
+ 345 0222 8F000000 		.4byte	0x8f
+ 346 0226 02       		.byte	0x2
+ 347 0227 23       		.byte	0x23
+ 348 0228 00       		.uleb128 0
+ 349 0229 09       		.uleb128 0x9
+ 350 022a 6D617800 		.ascii	"max\000"
+ 351 022e 05       		.byte	0x5
+ 352 022f 67       		.byte	0x67
+ 353 0230 8F000000 		.4byte	0x8f
+ 354 0234 02       		.byte	0x2
+ 355 0235 23       		.byte	0x23
+ 356 0236 02       		.uleb128 0x2
+ 357 0237 09       		.uleb128 0x9
+ 358 0238 65727200 		.ascii	"err\000"
+ 359 023c 05       		.byte	0x5
+ 360 023d 68       		.byte	0x68
+ 361 023e 8F000000 		.4byte	0x8f
+ 362 0242 02       		.byte	0x2
+ 363 0243 23       		.byte	0x23
+ 364 0244 04       		.uleb128 0x4
+ 365 0245 00       		.byte	0
+ 366 0246 07       		.uleb128 0x7
+ 367 0247 4C010000 		.4byte	.LASF46
+ 368 024b 12       		.byte	0x12
+ 369 024c 05       		.byte	0x5
+ 370 024d 6B       		.byte	0x6b
+ 371 024e 7D020000 		.4byte	0x27d
+ 372 0252 09       		.uleb128 0x9
+ 373 0253 73656D00 		.ascii	"sem\000"
+ 374 0257 05       		.byte	0x5
+ 375 0258 6C       		.byte	0x6c
+ 376 0259 0F020000 		.4byte	0x20f
+ 377 025d 02       		.byte	0x2
+ 378 025e 23       		.byte	0x23
+ 379 025f 00       		.uleb128 0
+ 380 0260 08       		.uleb128 0x8
+ 381 0261 C4010000 		.4byte	.LASF47
+ 382 0265 05       		.byte	0x5
+ 383 0266 6D       		.byte	0x6d
+ 384 0267 0F020000 		.4byte	0x20f
+ 385 026b 02       		.byte	0x2
+ 386 026c 23       		.byte	0x23
+ 387 026d 06       		.uleb128 0x6
+ 388 026e 08       		.uleb128 0x8
+ 389 026f 20020000 		.4byte	.LASF48
+ 390 0273 05       		.byte	0x5
+ 391 0274 6E       		.byte	0x6e
+ 392 0275 0F020000 		.4byte	0x20f
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccaFdmMw.s 			page 8
+
+
+ 393 0279 02       		.byte	0x2
+ 394 027a 23       		.byte	0x23
+ 395 027b 0C       		.uleb128 0xc
+ 396 027c 00       		.byte	0
+ 397 027d 0A       		.uleb128 0xa
+ 398 027e 00000000 		.4byte	.LASF49
+ 399 0282 5001     		.2byte	0x150
+ 400 0284 05       		.byte	0x5
+ 401 0285 71       		.byte	0x71
+ 402 0286 1A030000 		.4byte	0x31a
+ 403 028a 08       		.uleb128 0x8
+ 404 028b AF000000 		.4byte	.LASF50
+ 405 028f 05       		.byte	0x5
+ 406 0290 73       		.byte	0x73
+ 407 0291 08010000 		.4byte	0x108
+ 408 0295 02       		.byte	0x2
+ 409 0296 23       		.byte	0x23
+ 410 0297 00       		.uleb128 0
+ 411 0298 08       		.uleb128 0x8
+ 412 0299 BF020000 		.4byte	.LASF51
+ 413 029d 05       		.byte	0x5
+ 414 029e 76       		.byte	0x76
+ 415 029f 08010000 		.4byte	0x108
+ 416 02a3 02       		.byte	0x2
+ 417 02a4 23       		.byte	0x23
+ 418 02a5 18       		.uleb128 0x18
+ 419 02a6 08       		.uleb128 0x8
+ 420 02a7 13000000 		.4byte	.LASF52
+ 421 02ab 05       		.byte	0x5
+ 422 02ac 79       		.byte	0x79
+ 423 02ad 08010000 		.4byte	0x108
+ 424 02b1 02       		.byte	0x2
+ 425 02b2 23       		.byte	0x23
+ 426 02b3 30       		.uleb128 0x30
+ 427 02b4 09       		.uleb128 0x9
+ 428 02b5 697000   		.ascii	"ip\000"
+ 429 02b8 05       		.byte	0x5
+ 430 02b9 7C       		.byte	0x7c
+ 431 02ba 08010000 		.4byte	0x108
+ 432 02be 02       		.byte	0x2
+ 433 02bf 23       		.byte	0x23
+ 434 02c0 48       		.uleb128 0x48
+ 435 02c1 08       		.uleb128 0x8
+ 436 02c2 E0020000 		.4byte	.LASF53
+ 437 02c6 05       		.byte	0x5
+ 438 02c7 7F       		.byte	0x7f
+ 439 02c8 08010000 		.4byte	0x108
+ 440 02cc 02       		.byte	0x2
+ 441 02cd 23       		.byte	0x23
+ 442 02ce 60       		.uleb128 0x60
+ 443 02cf 09       		.uleb128 0x9
+ 444 02d0 75647000 		.ascii	"udp\000"
+ 445 02d4 05       		.byte	0x5
+ 446 02d5 85       		.byte	0x85
+ 447 02d6 08010000 		.4byte	0x108
+ 448 02da 02       		.byte	0x2
+ 449 02db 23       		.byte	0x23
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccaFdmMw.s 			page 9
+
+
+ 450 02dc 78       		.uleb128 0x78
+ 451 02dd 09       		.uleb128 0x9
+ 452 02de 74637000 		.ascii	"tcp\000"
+ 453 02e2 05       		.byte	0x5
+ 454 02e3 88       		.byte	0x88
+ 455 02e4 08010000 		.4byte	0x108
+ 456 02e8 03       		.byte	0x3
+ 457 02e9 23       		.byte	0x23
+ 458 02ea 9001     		.uleb128 0x90
+ 459 02ec 09       		.uleb128 0x9
+ 460 02ed 6D656D00 		.ascii	"mem\000"
+ 461 02f1 05       		.byte	0x5
+ 462 02f2 8B       		.byte	0x8b
+ 463 02f3 BC010000 		.4byte	0x1bc
+ 464 02f7 03       		.byte	0x3
+ 465 02f8 23       		.byte	0x23
+ 466 02f9 A801     		.uleb128 0xa8
+ 467 02fb 08       		.uleb128 0x8
+ 468 02fc 6D020000 		.4byte	.LASF54
+ 469 0300 05       		.byte	0x5
+ 470 0301 8E       		.byte	0x8e
+ 471 0302 1A030000 		.4byte	0x31a
+ 472 0306 03       		.byte	0x3
+ 473 0307 23       		.byte	0x23
+ 474 0308 B201     		.uleb128 0xb2
+ 475 030a 09       		.uleb128 0x9
+ 476 030b 73797300 		.ascii	"sys\000"
+ 477 030f 05       		.byte	0x5
+ 478 0310 91       		.byte	0x91
+ 479 0311 46020000 		.4byte	0x246
+ 480 0315 03       		.byte	0x3
+ 481 0316 23       		.byte	0x23
+ 482 0317 BE02     		.uleb128 0x13e
+ 483 0319 00       		.byte	0
+ 484 031a 0B       		.uleb128 0xb
+ 485 031b BC010000 		.4byte	0x1bc
+ 486 031f 2A030000 		.4byte	0x32a
+ 487 0323 0C       		.uleb128 0xc
+ 488 0324 81000000 		.4byte	0x81
+ 489 0328 0D       		.byte	0xd
+ 490 0329 00       		.byte	0
+ 491 032a 0D       		.uleb128 0xd
+ 492 032b 01       		.byte	0x1
+ 493 032c 42020000 		.4byte	.LASF58
+ 494 0330 01       		.byte	0x1
+ 495 0331 33       		.byte	0x33
+ 496 0332 01       		.byte	0x1
+ 497 0333 00000000 		.4byte	.LFB7
+ 498 0337 02000000 		.4byte	.LFE7
+ 499 033b 02       		.byte	0x2
+ 500 033c 7D       		.byte	0x7d
+ 501 033d 00       		.sleb128 0
+ 502 033e 01       		.byte	0x1
+ 503 033f 0E       		.uleb128 0xe
+ 504 0340 0D020000 		.4byte	.LASF59
+ 505 0344 01       		.byte	0x1
+ 506 0345 31       		.byte	0x31
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccaFdmMw.s 			page 10
+
+
+ 507 0346 7D020000 		.4byte	0x27d
+ 508 034a 01       		.byte	0x1
+ 509 034b 05       		.byte	0x5
+ 510 034c 03       		.byte	0x3
+ 511 034d 00000000 		.4byte	lwip_stats
+ 512 0351 00       		.byte	0
+ 513              		.section	.debug_abbrev,"",%progbits
+ 514              	.Ldebug_abbrev0:
+ 515 0000 01       		.uleb128 0x1
+ 516 0001 11       		.uleb128 0x11
+ 517 0002 01       		.byte	0x1
+ 518 0003 25       		.uleb128 0x25
+ 519 0004 0E       		.uleb128 0xe
+ 520 0005 13       		.uleb128 0x13
+ 521 0006 0B       		.uleb128 0xb
+ 522 0007 03       		.uleb128 0x3
+ 523 0008 0E       		.uleb128 0xe
+ 524 0009 1B       		.uleb128 0x1b
+ 525 000a 0E       		.uleb128 0xe
+ 526 000b 55       		.uleb128 0x55
+ 527 000c 06       		.uleb128 0x6
+ 528 000d 11       		.uleb128 0x11
+ 529 000e 01       		.uleb128 0x1
+ 530 000f 52       		.uleb128 0x52
+ 531 0010 01       		.uleb128 0x1
+ 532 0011 10       		.uleb128 0x10
+ 533 0012 06       		.uleb128 0x6
+ 534 0013 00       		.byte	0
+ 535 0014 00       		.byte	0
+ 536 0015 02       		.uleb128 0x2
+ 537 0016 24       		.uleb128 0x24
+ 538 0017 00       		.byte	0
+ 539 0018 0B       		.uleb128 0xb
+ 540 0019 0B       		.uleb128 0xb
+ 541 001a 3E       		.uleb128 0x3e
+ 542 001b 0B       		.uleb128 0xb
+ 543 001c 03       		.uleb128 0x3
+ 544 001d 08       		.uleb128 0x8
+ 545 001e 00       		.byte	0
+ 546 001f 00       		.byte	0
+ 547 0020 03       		.uleb128 0x3
+ 548 0021 24       		.uleb128 0x24
+ 549 0022 00       		.byte	0
+ 550 0023 0B       		.uleb128 0xb
+ 551 0024 0B       		.uleb128 0xb
+ 552 0025 3E       		.uleb128 0x3e
+ 553 0026 0B       		.uleb128 0xb
+ 554 0027 03       		.uleb128 0x3
+ 555 0028 0E       		.uleb128 0xe
+ 556 0029 00       		.byte	0
+ 557 002a 00       		.byte	0
+ 558 002b 04       		.uleb128 0x4
+ 559 002c 16       		.uleb128 0x16
+ 560 002d 00       		.byte	0
+ 561 002e 03       		.uleb128 0x3
+ 562 002f 0E       		.uleb128 0xe
+ 563 0030 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccaFdmMw.s 			page 11
+
+
+ 564 0031 0B       		.uleb128 0xb
+ 565 0032 3B       		.uleb128 0x3b
+ 566 0033 0B       		.uleb128 0xb
+ 567 0034 49       		.uleb128 0x49
+ 568 0035 13       		.uleb128 0x13
+ 569 0036 00       		.byte	0
+ 570 0037 00       		.byte	0
+ 571 0038 05       		.uleb128 0x5
+ 572 0039 04       		.uleb128 0x4
+ 573 003a 01       		.byte	0x1
+ 574 003b 0B       		.uleb128 0xb
+ 575 003c 0B       		.uleb128 0xb
+ 576 003d 3A       		.uleb128 0x3a
+ 577 003e 0B       		.uleb128 0xb
+ 578 003f 3B       		.uleb128 0x3b
+ 579 0040 0B       		.uleb128 0xb
+ 580 0041 01       		.uleb128 0x1
+ 581 0042 13       		.uleb128 0x13
+ 582 0043 00       		.byte	0
+ 583 0044 00       		.byte	0
+ 584 0045 06       		.uleb128 0x6
+ 585 0046 28       		.uleb128 0x28
+ 586 0047 00       		.byte	0
+ 587 0048 03       		.uleb128 0x3
+ 588 0049 0E       		.uleb128 0xe
+ 589 004a 1C       		.uleb128 0x1c
+ 590 004b 0D       		.uleb128 0xd
+ 591 004c 00       		.byte	0
+ 592 004d 00       		.byte	0
+ 593 004e 07       		.uleb128 0x7
+ 594 004f 13       		.uleb128 0x13
+ 595 0050 01       		.byte	0x1
+ 596 0051 03       		.uleb128 0x3
+ 597 0052 0E       		.uleb128 0xe
+ 598 0053 0B       		.uleb128 0xb
+ 599 0054 0B       		.uleb128 0xb
+ 600 0055 3A       		.uleb128 0x3a
+ 601 0056 0B       		.uleb128 0xb
+ 602 0057 3B       		.uleb128 0x3b
+ 603 0058 0B       		.uleb128 0xb
+ 604 0059 01       		.uleb128 0x1
+ 605 005a 13       		.uleb128 0x13
+ 606 005b 00       		.byte	0
+ 607 005c 00       		.byte	0
+ 608 005d 08       		.uleb128 0x8
+ 609 005e 0D       		.uleb128 0xd
+ 610 005f 00       		.byte	0
+ 611 0060 03       		.uleb128 0x3
+ 612 0061 0E       		.uleb128 0xe
+ 613 0062 3A       		.uleb128 0x3a
+ 614 0063 0B       		.uleb128 0xb
+ 615 0064 3B       		.uleb128 0x3b
+ 616 0065 0B       		.uleb128 0xb
+ 617 0066 49       		.uleb128 0x49
+ 618 0067 13       		.uleb128 0x13
+ 619 0068 38       		.uleb128 0x38
+ 620 0069 0A       		.uleb128 0xa
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccaFdmMw.s 			page 12
+
+
+ 621 006a 00       		.byte	0
+ 622 006b 00       		.byte	0
+ 623 006c 09       		.uleb128 0x9
+ 624 006d 0D       		.uleb128 0xd
+ 625 006e 00       		.byte	0
+ 626 006f 03       		.uleb128 0x3
+ 627 0070 08       		.uleb128 0x8
+ 628 0071 3A       		.uleb128 0x3a
+ 629 0072 0B       		.uleb128 0xb
+ 630 0073 3B       		.uleb128 0x3b
+ 631 0074 0B       		.uleb128 0xb
+ 632 0075 49       		.uleb128 0x49
+ 633 0076 13       		.uleb128 0x13
+ 634 0077 38       		.uleb128 0x38
+ 635 0078 0A       		.uleb128 0xa
+ 636 0079 00       		.byte	0
+ 637 007a 00       		.byte	0
+ 638 007b 0A       		.uleb128 0xa
+ 639 007c 13       		.uleb128 0x13
+ 640 007d 01       		.byte	0x1
+ 641 007e 03       		.uleb128 0x3
+ 642 007f 0E       		.uleb128 0xe
+ 643 0080 0B       		.uleb128 0xb
+ 644 0081 05       		.uleb128 0x5
+ 645 0082 3A       		.uleb128 0x3a
+ 646 0083 0B       		.uleb128 0xb
+ 647 0084 3B       		.uleb128 0x3b
+ 648 0085 0B       		.uleb128 0xb
+ 649 0086 01       		.uleb128 0x1
+ 650 0087 13       		.uleb128 0x13
+ 651 0088 00       		.byte	0
+ 652 0089 00       		.byte	0
+ 653 008a 0B       		.uleb128 0xb
+ 654 008b 01       		.uleb128 0x1
+ 655 008c 01       		.byte	0x1
+ 656 008d 49       		.uleb128 0x49
+ 657 008e 13       		.uleb128 0x13
+ 658 008f 01       		.uleb128 0x1
+ 659 0090 13       		.uleb128 0x13
+ 660 0091 00       		.byte	0
+ 661 0092 00       		.byte	0
+ 662 0093 0C       		.uleb128 0xc
+ 663 0094 21       		.uleb128 0x21
+ 664 0095 00       		.byte	0
+ 665 0096 49       		.uleb128 0x49
+ 666 0097 13       		.uleb128 0x13
+ 667 0098 2F       		.uleb128 0x2f
+ 668 0099 0B       		.uleb128 0xb
+ 669 009a 00       		.byte	0
+ 670 009b 00       		.byte	0
+ 671 009c 0D       		.uleb128 0xd
+ 672 009d 2E       		.uleb128 0x2e
+ 673 009e 00       		.byte	0
+ 674 009f 3F       		.uleb128 0x3f
+ 675 00a0 0C       		.uleb128 0xc
+ 676 00a1 03       		.uleb128 0x3
+ 677 00a2 0E       		.uleb128 0xe
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccaFdmMw.s 			page 13
+
+
+ 678 00a3 3A       		.uleb128 0x3a
+ 679 00a4 0B       		.uleb128 0xb
+ 680 00a5 3B       		.uleb128 0x3b
+ 681 00a6 0B       		.uleb128 0xb
+ 682 00a7 27       		.uleb128 0x27
+ 683 00a8 0C       		.uleb128 0xc
+ 684 00a9 11       		.uleb128 0x11
+ 685 00aa 01       		.uleb128 0x1
+ 686 00ab 12       		.uleb128 0x12
+ 687 00ac 01       		.uleb128 0x1
+ 688 00ad 40       		.uleb128 0x40
+ 689 00ae 0A       		.uleb128 0xa
+ 690 00af 9742     		.uleb128 0x2117
+ 691 00b1 0C       		.uleb128 0xc
+ 692 00b2 00       		.byte	0
+ 693 00b3 00       		.byte	0
+ 694 00b4 0E       		.uleb128 0xe
+ 695 00b5 34       		.uleb128 0x34
+ 696 00b6 00       		.byte	0
+ 697 00b7 03       		.uleb128 0x3
+ 698 00b8 0E       		.uleb128 0xe
+ 699 00b9 3A       		.uleb128 0x3a
+ 700 00ba 0B       		.uleb128 0xb
+ 701 00bb 3B       		.uleb128 0x3b
+ 702 00bc 0B       		.uleb128 0xb
+ 703 00bd 49       		.uleb128 0x49
+ 704 00be 13       		.uleb128 0x13
+ 705 00bf 3F       		.uleb128 0x3f
+ 706 00c0 0C       		.uleb128 0xc
+ 707 00c1 02       		.uleb128 0x2
+ 708 00c2 0A       		.uleb128 0xa
+ 709 00c3 00       		.byte	0
+ 710 00c4 00       		.byte	0
+ 711 00c5 00       		.byte	0
+ 712              		.section	.debug_aranges,"",%progbits
+ 713 0000 1C000000 		.4byte	0x1c
+ 714 0004 0200     		.2byte	0x2
+ 715 0006 00000000 		.4byte	.Ldebug_info0
+ 716 000a 04       		.byte	0x4
+ 717 000b 00       		.byte	0
+ 718 000c 0000     		.2byte	0
+ 719 000e 0000     		.2byte	0
+ 720 0010 00000000 		.4byte	.LFB7
+ 721 0014 02000000 		.4byte	.LFE7-.LFB7
+ 722 0018 00000000 		.4byte	0
+ 723 001c 00000000 		.4byte	0
+ 724              		.section	.debug_ranges,"",%progbits
+ 725              	.Ldebug_ranges0:
+ 726 0000 00000000 		.4byte	.LFB7
+ 727 0004 02000000 		.4byte	.LFE7
+ 728 0008 00000000 		.4byte	0
+ 729 000c 00000000 		.4byte	0
+ 730              		.section	.debug_line,"",%progbits
+ 731              	.Ldebug_line0:
+ 732 0000 16010000 		.section	.debug_str,"MS",%progbits,1
+ 732      02000101 
+ 732      00000201 
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccaFdmMw.s 			page 14
+
+
+ 732      FB0E0D00 
+ 732      01010101 
+ 733              	.LASF49:
+ 734 0000 73746174 		.ascii	"stats_\000"
+ 734      735F00
+ 735              	.LASF1:
+ 736 0007 7369676E 		.ascii	"signed char\000"
+ 736      65642063 
+ 736      68617200 
+ 737              	.LASF52:
+ 738 0013 69705F66 		.ascii	"ip_frag\000"
+ 738      72616700 
+ 739              	.LASF3:
+ 740 001b 73686F72 		.ascii	"short int\000"
+ 740      7420696E 
+ 740      7400
+ 741              	.LASF19:
+ 742 0025 4D454D50 		.ascii	"MEMP_TCP_SEG\000"
+ 742      5F544350 
+ 742      5F534547 
+ 742      00
+ 743              	.LASF40:
+ 744 0032 73746174 		.ascii	"stats_proto\000"
+ 744      735F7072 
+ 744      6F746F00 
+ 745              	.LASF10:
+ 746 003e 73697A65 		.ascii	"sizetype\000"
+ 746      74797065 
+ 746      00
+ 747              	.LASF30:
+ 748 0047 786D6974 		.ascii	"xmit\000"
+ 748      00
+ 749              	.LASF25:
+ 750 004c 4D454D50 		.ascii	"MEMP_TCPIP_MSG_INPKT\000"
+ 750      5F544350 
+ 750      49505F4D 
+ 750      53475F49 
+ 750      4E504B54 
+ 751              	.LASF41:
+ 752 0061 73746174 		.ascii	"stats_mem\000"
+ 752      735F6D65 
+ 752      6D00
+ 753              	.LASF34:
+ 754 006b 6C656E65 		.ascii	"lenerr\000"
+ 754      727200
+ 755              	.LASF26:
+ 756 0072 4D454D50 		.ascii	"MEMP_SYS_TIMEOUT\000"
+ 756      5F535953 
+ 756      5F54494D 
+ 756      454F5554 
+ 756      00
+ 757              	.LASF21:
+ 758 0083 4D454D50 		.ascii	"MEMP_FRAG_PBUF\000"
+ 758      5F465241 
+ 758      475F5042 
+ 758      554600
+ 759              	.LASF39:
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccaFdmMw.s 			page 15
+
+
+ 760 0092 63616368 		.ascii	"cachehit\000"
+ 760      65686974 
+ 760      00
+ 761              	.LASF18:
+ 762 009b 4D454D50 		.ascii	"MEMP_TCP_PCB_LISTEN\000"
+ 762      5F544350 
+ 762      5F504342 
+ 762      5F4C4953 
+ 762      54454E00 
+ 763              	.LASF50:
+ 764 00af 6C696E6B 		.ascii	"link\000"
+ 764      00
+ 765              	.LASF7:
+ 766 00b4 6C6F6E67 		.ascii	"long long int\000"
+ 766      206C6F6E 
+ 766      6720696E 
+ 766      7400
+ 767              	.LASF5:
+ 768 00c2 6C6F6E67 		.ascii	"long int\000"
+ 768      20696E74 
+ 768      00
+ 769              	.LASF14:
+ 770 00cb 6D656D5F 		.ascii	"mem_size_t\000"
+ 770      73697A65 
+ 770      5F7400
+ 771              	.LASF35:
+ 772 00d6 6D656D65 		.ascii	"memerr\000"
+ 772      727200
+ 773              	.LASF32:
+ 774 00dd 64726F70 		.ascii	"drop\000"
+ 774      00
+ 775              	.LASF2:
+ 776 00e2 756E7369 		.ascii	"unsigned char\000"
+ 776      676E6564 
+ 776      20636861 
+ 776      7200
+ 777              	.LASF29:
+ 778 00f0 4D454D50 		.ascii	"MEMP_MAX\000"
+ 778      5F4D4158 
+ 778      00
+ 779              	.LASF57:
+ 780 00f9 443A5C6A 		.ascii	"D:\\jenny\\dev\\probe\\chibios\\chibios.workspace\\"
+ 780      656E6E79 
+ 780      5C646576 
+ 780      5C70726F 
+ 780      62655C63 
+ 781 0126 64656D6F 		.ascii	"demos\\ARMCM4-STM32F407-LWIP-FATFS-USB\000"
+ 781      735C4152 
+ 781      4D434D34 
+ 781      2D53544D 
+ 781      33324634 
+ 782              	.LASF46:
+ 783 014c 73746174 		.ascii	"stats_sys\000"
+ 783      735F7379 
+ 783      7300
+ 784              	.LASF8:
+ 785 0156 6C6F6E67 		.ascii	"long long unsigned int\000"
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccaFdmMw.s 			page 16
+
+
+ 785      206C6F6E 
+ 785      6720756E 
+ 785      7369676E 
+ 785      65642069 
+ 786              	.LASF33:
+ 787 016d 63686B65 		.ascii	"chkerr\000"
+ 787      727200
+ 788              	.LASF55:
+ 789 0174 474E5520 		.ascii	"GNU C 4.7.4 20130913 (release) [ARM/embedded-4_7-br"
+ 789      4320342E 
+ 789      372E3420 
+ 789      32303133 
+ 789      30393133 
+ 790 01a7 616E6368 		.ascii	"anch revision 202601]\000"
+ 790      20726576 
+ 790      6973696F 
+ 790      6E203230 
+ 790      32363031 
+ 791              	.LASF38:
+ 792 01bd 6F707465 		.ascii	"opterr\000"
+ 792      727200
+ 793              	.LASF47:
+ 794 01c4 6D757465 		.ascii	"mutex\000"
+ 794      7800
+ 795              	.LASF4:
+ 796 01ca 73686F72 		.ascii	"short unsigned int\000"
+ 796      7420756E 
+ 796      7369676E 
+ 796      65642069 
+ 796      6E7400
+ 797              	.LASF20:
+ 798 01dd 4D454D50 		.ascii	"MEMP_REASSDATA\000"
+ 798      5F524541 
+ 798      53534441 
+ 798      544100
+ 799              	.LASF11:
+ 800 01ec 63686172 		.ascii	"char\000"
+ 800      00
+ 801              	.LASF12:
+ 802 01f1 75696E74 		.ascii	"uint16_t\000"
+ 802      31365F74 
+ 802      00
+ 803              	.LASF24:
+ 804 01fa 4D454D50 		.ascii	"MEMP_TCPIP_MSG_API\000"
+ 804      5F544350 
+ 804      49505F4D 
+ 804      53475F41 
+ 804      504900
+ 805              	.LASF59:
+ 806 020d 6C776970 		.ascii	"lwip_stats\000"
+ 806      5F737461 
+ 806      747300
+ 807              	.LASF37:
+ 808 0218 70726F74 		.ascii	"proterr\000"
+ 808      65727200 
+ 809              	.LASF48:
+ 810 0220 6D626F78 		.ascii	"mbox\000"
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccaFdmMw.s 			page 17
+
+
+ 810      00
+ 811              	.LASF9:
+ 812 0225 5F426F6F 		.ascii	"_Bool\000"
+ 812      6C00
+ 813              	.LASF44:
+ 814 022b 696C6C65 		.ascii	"illegal\000"
+ 814      67616C00 
+ 815              	.LASF27:
+ 816 0233 4D454D50 		.ascii	"MEMP_PBUF\000"
+ 816      5F504255 
+ 816      4600
+ 817              	.LASF31:
+ 818 023d 72656376 		.ascii	"recv\000"
+ 818      00
+ 819              	.LASF58:
+ 820 0242 73746174 		.ascii	"stats_init\000"
+ 820      735F696E 
+ 820      697400
+ 821              	.LASF45:
+ 822 024d 73746174 		.ascii	"stats_syselem\000"
+ 822      735F7379 
+ 822      73656C65 
+ 822      6D00
+ 823              	.LASF6:
+ 824 025b 6C6F6E67 		.ascii	"long unsigned int\000"
+ 824      20756E73 
+ 824      69676E65 
+ 824      6420696E 
+ 824      7400
+ 825              	.LASF54:
+ 826 026d 6D656D70 		.ascii	"memp\000"
+ 826      00
+ 827              	.LASF15:
+ 828 0272 4D454D50 		.ascii	"MEMP_RAW_PCB\000"
+ 828      5F524157 
+ 828      5F504342 
+ 828      00
+ 829              	.LASF36:
+ 830 027f 72746572 		.ascii	"rterr\000"
+ 830      7200
+ 831              	.LASF13:
+ 832 0285 7531365F 		.ascii	"u16_t\000"
+ 832      7400
+ 833              	.LASF28:
+ 834 028b 4D454D50 		.ascii	"MEMP_PBUF_POOL\000"
+ 834      5F504255 
+ 834      465F504F 
+ 834      4F4C00
+ 835              	.LASF43:
+ 836 029a 75736564 		.ascii	"used\000"
+ 836      00
+ 837              	.LASF42:
+ 838 029f 61766169 		.ascii	"avail\000"
+ 838      6C00
+ 839              	.LASF23:
+ 840 02a5 4D454D50 		.ascii	"MEMP_NETCONN\000"
+ 840      5F4E4554 
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccaFdmMw.s 			page 18
+
+
+ 840      434F4E4E 
+ 840      00
+ 841              	.LASF17:
+ 842 02b2 4D454D50 		.ascii	"MEMP_TCP_PCB\000"
+ 842      5F544350 
+ 842      5F504342 
+ 842      00
+ 843              	.LASF51:
+ 844 02bf 65746861 		.ascii	"etharp\000"
+ 844      727000
+ 845              	.LASF16:
+ 846 02c6 4D454D50 		.ascii	"MEMP_UDP_PCB\000"
+ 846      5F554450 
+ 846      5F504342 
+ 846      00
+ 847              	.LASF0:
+ 848 02d3 756E7369 		.ascii	"unsigned int\000"
+ 848      676E6564 
+ 848      20696E74 
+ 848      00
+ 849              	.LASF53:
+ 850 02e0 69636D70 		.ascii	"icmp\000"
+ 850      00
+ 851              	.LASF56:
+ 852 02e5 2E2E2F2E 		.ascii	"../../ext/lwip/src/core/stats.c\000"
+ 852      2E2F6578 
+ 852      742F6C77 
+ 852      69702F73 
+ 852      72632F63 
+ 853              	.LASF22:
+ 854 0305 4D454D50 		.ascii	"MEMP_NETBUF\000"
+ 854      5F4E4554 
+ 854      42554600 
+ 855              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.7.4 20130913 (release) [ARM/embedded-4_7-br
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccaFdmMw.s 			page 19
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 stats.c
+C:\Users\jenny\AppData\Local\Temp\ccaFdmMw.s:20     .text.stats_init:00000000 $t
+C:\Users\jenny\AppData\Local\Temp\ccaFdmMw.s:26     .text.stats_init:00000000 stats_init
+C:\Users\jenny\AppData\Local\Temp\ccaFdmMw.s:43     .bss.lwip_stats:00000000 lwip_stats
+C:\Users\jenny\AppData\Local\Temp\ccaFdmMw.s:40     .bss.lwip_stats:00000000 $d
+                     .debug_frame:00000010 $d
+
+NO UNDEFINED SYMBOLS

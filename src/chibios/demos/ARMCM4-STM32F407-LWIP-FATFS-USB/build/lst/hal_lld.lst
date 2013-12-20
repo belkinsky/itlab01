@@ -1,0 +1,1678 @@
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccR6EWto.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m4
+   3              		.eabi_attribute 27, 3
+   4              		.fpu fpv4-sp-d16
+   5              		.eabi_attribute 20, 1
+   6              		.eabi_attribute 21, 1
+   7              		.eabi_attribute 23, 3
+   8              		.eabi_attribute 24, 1
+   9              		.eabi_attribute 25, 1
+  10              		.eabi_attribute 26, 1
+  11              		.eabi_attribute 30, 2
+  12              		.eabi_attribute 34, 1
+  13              		.eabi_attribute 18, 4
+  14              		.thumb
+  15              		.file	"hal_lld.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.hal_lld_init,"ax",%progbits
+  20              		.align	2
+  21              		.p2align 4,,15
+  22              		.global	hal_lld_init
+  23              		.thumb
+  24              		.thumb_func
+  25              		.type	hal_lld_init, %function
+  26              	hal_lld_init:
+  27              	.LFB119:
+  28              		.file 1 "../../os/hal/platforms/STM32F4xx/hal_lld.c"
+  29              		.loc 1 105 0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+  34              		.loc 1 109 0
+  35 0000 4FF46053 		mov	r3, #14336
+  36 0004 C4F20203 		movt	r3, 16386
+  37              		.loc 1 105 0
+  38 0008 70B4     		push	{r4, r5, r6}
+  39              	.LCFI0:
+  40              		.cfi_def_cfa_offset 12
+  41              		.cfi_offset 4, -12
+  42              		.cfi_offset 5, -8
+  43              		.cfi_offset 6, -4
+  44              		.loc 1 109 0
+  45 000a 0022     		movs	r2, #0
+  46 000c 4FF0FF34 		mov	r4, #-1
+  47 0010 1969     		ldr	r1, [r3, #16]
+  48 0012 1C61     		str	r4, [r3, #16]
+  49 0014 1A61     		str	r2, [r3, #16]
+  50              		.loc 1 110 0
+  51 0016 5969     		ldr	r1, [r3, #20]
+  52 0018 5C61     		str	r4, [r3, #20]
+  53 001a 5A61     		str	r2, [r3, #20]
+  54              		.loc 1 111 0
+  55 001c 1E6A     		ldr	r6, [r3, #32]
+  56              		.loc 1 115 0
+  57 001e 4EF21001 		movw	r1, #57360
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccR6EWto.s 			page 2
+
+
+  58              		.loc 1 111 0
+  59 0022 66F08056 		orn	r6, r6, #268435456
+  60 0026 1E62     		str	r6, [r3, #32]
+  61              		.loc 1 115 0
+  62 0028 CEF20001 		movt	r1, 57344
+  63              		.loc 1 111 0
+  64 002c 1A62     		str	r2, [r3, #32]
+  65              		.loc 1 115 0
+  66 002e 49F23F05 		movw	r5, #36927
+  67              		.loc 1 122 0
+  68 0032 4EF6F050 		movw	r0, #60912
+  69              		.loc 1 112 0
+  70 0036 5E6A     		ldr	r6, [r3, #36]
+  71 0038 5C62     		str	r4, [r3, #36]
+  72              		.loc 1 122 0
+  73 003a CEF20000 		movt	r0, 57344
+  74              		.loc 1 117 0
+  75 003e 0724     		movs	r4, #7
+  76              		.loc 1 115 0
+  77 0040 C0F20205 		movt	r5, 2
+  78              		.loc 1 112 0
+  79 0044 5A62     		str	r2, [r3, #36]
+  80              		.loc 1 115 0
+  81 0046 4D60     		str	r5, [r1, #4]
+  82              		.loc 1 116 0
+  83 0048 8A60     		str	r2, [r1, #8]
+  84              		.loc 1 117 0
+  85 004a 0C60     		str	r4, [r1, #0]
+  86              		.loc 1 122 0
+  87 004c C468     		ldr	r4, [r0, #12]
+  88              		.loc 1 123 0
+  89 004e 4FF48051 		mov	r1, #4096
+  90 0052 CEF20001 		movt	r1, 57344
+  91              		.loc 1 122 0
+  92 0056 44F08074 		orr	r4, r4, #16777216
+  93 005a C460     		str	r4, [r0, #12]
+  94              		.loc 1 123 0
+  95 005c 0868     		ldr	r0, [r1, #0]
+  96 005e 40F00100 		orr	r0, r0, #1
+  97 0062 0860     		str	r0, [r1, #0]
+  98              		.loc 1 126 0
+  99 0064 186C     		ldr	r0, [r3, #64]
+ 100              	.LBB4:
+ 101              	.LBB5:
+ 102              		.loc 1 54 0
+ 103 0066 4FF4E041 		mov	r1, #28672
+ 104 006a C4F20001 		movt	r1, 16384
+ 105              	.LBE5:
+ 106              	.LBE4:
+ 107              		.loc 1 126 0
+ 108 006e 40F08050 		orr	r0, r0, #268435456
+ 109 0072 1864     		str	r0, [r3, #64]
+ 110              	.LBB7:
+ 111              	.LBB6:
+ 112              		.loc 1 54 0
+ 113 0074 0868     		ldr	r0, [r1, #0]
+ 114 0076 40F48070 		orr	r0, r0, #256
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccR6EWto.s 			page 3
+
+
+ 115 007a 0860     		str	r0, [r1, #0]
+ 116              		.loc 1 57 0
+ 117 007c 196F     		ldr	r1, [r3, #112]
+ 118 007e 01F44070 		and	r0, r1, #768
+ 119 0082 B0F5007F 		cmp	r0, #512
+ 120 0086 03D0     		beq	.L2
+ 121              		.loc 1 59 0
+ 122 0088 4FF48031 		mov	r1, #65536
+ 123 008c 1967     		str	r1, [r3, #112]
+ 124              		.loc 1 60 0
+ 125 008e 1A67     		str	r2, [r3, #112]
+ 126              	.L2:
+ 127              		.loc 1 88 0
+ 128 0090 4FF4E043 		mov	r3, #28672
+ 129 0094 C4F20003 		movt	r3, 16384
+ 130 0098 5A68     		ldr	r2, [r3, #4]
+ 131 009a 22F40070 		bic	r0, r2, #512
+ 132 009e 5860     		str	r0, [r3, #4]
+ 133              	.LBE6:
+ 134              	.LBE7:
+ 135              		.loc 1 139 0
+ 136 00a0 70BC     		pop	{r4, r5, r6}
+ 137              		.loc 1 132 0
+ 138 00a2 FFF7FEBF 		b	dmaInit
+ 139              	.LVL0:
+ 140              		.cfi_endproc
+ 141              	.LFE119:
+ 142              		.size	hal_lld_init, .-hal_lld_init
+ 143              		.section	.text.stm32_clock_init,"ax",%progbits
+ 144              		.align	2
+ 145              		.p2align 4,,15
+ 146              		.global	stm32_clock_init
+ 147              		.thumb
+ 148              		.thumb_func
+ 149              		.type	stm32_clock_init, %function
+ 150              	stm32_clock_init:
+ 151              	.LFB120:
+ 152              		.loc 1 148 0
+ 153              		.cfi_startproc
+ 154              		@ args = 0, pretend = 0, frame = 0
+ 155              		@ frame_needed = 0, uses_anonymous_args = 0
+ 156              		@ link register save eliminated.
+ 157              		.loc 1 152 0
+ 158 0000 4FF46052 		mov	r2, #14336
+ 159 0004 C4F20202 		movt	r2, 16386
+ 160              		.loc 1 156 0
+ 161 0008 4FF4E043 		mov	r3, #28672
+ 162 000c C4F20003 		movt	r3, 16384
+ 163              		.loc 1 152 0
+ 164 0010 4FF08051 		mov	r1, #268435456
+ 165 0014 1164     		str	r1, [r2, #64]
+ 166              		.loc 1 156 0
+ 167 0016 4FF48042 		mov	r2, #16384
+ 168              		.loc 1 157 0
+ 169 001a 1846     		mov	r0, r3
+ 170              		.loc 1 156 0
+ 171 001c 1A60     		str	r2, [r3, #0]
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccR6EWto.s 			page 4
+
+
+ 172              	.L8:
+ 173              		.loc 1 157 0 discriminator 1
+ 174 001e 4368     		ldr	r3, [r0, #4]
+ 175 0020 5B04     		lsls	r3, r3, #17
+ 176 0022 FCD5     		bpl	.L8
+ 177              		.loc 1 165 0
+ 178 0024 4FF46050 		mov	r0, #14336
+ 179 0028 C4F20200 		movt	r0, 16386
+ 180              		.loc 1 166 0
+ 181 002c 0146     		mov	r1, r0
+ 182              		.loc 1 165 0
+ 183 002e 0268     		ldr	r2, [r0, #0]
+ 184 0030 42F00103 		orr	r3, r2, #1
+ 185 0034 0360     		str	r3, [r0, #0]
+ 186              	.L9:
+ 187              		.loc 1 166 0 discriminator 1
+ 188 0036 0868     		ldr	r0, [r1, #0]
+ 189 0038 4FF46053 		mov	r3, #14336
+ 190 003c 8007     		lsls	r0, r0, #30
+ 191 003e C4F20203 		movt	r3, 16386
+ 192 0042 F8D5     		bpl	.L9
+ 193              		.loc 1 176 0
+ 194 0044 1968     		ldr	r1, [r3, #0]
+ 195 0046 41F48032 		orr	r2, r1, #65536
+ 196 004a 1A60     		str	r2, [r3, #0]
+ 197              		.loc 1 178 0
+ 198 004c 1846     		mov	r0, r3
+ 199              	.L10:
+ 200              		.loc 1 178 0 is_stmt 0 discriminator 1
+ 201 004e 0168     		ldr	r1, [r0, #0]
+ 202 0050 4FF46053 		mov	r3, #14336
+ 203 0054 8A03     		lsls	r2, r1, #14
+ 204 0056 C4F20203 		movt	r3, 16386
+ 205 005a F8D5     		bpl	.L10
+ 206              		.loc 1 184 0 is_stmt 1
+ 207 005c 5A6F     		ldr	r2, [r3, #116]
+ 208 005e 42F00100 		orr	r0, r2, #1
+ 209 0062 5867     		str	r0, [r3, #116]
+ 210              		.loc 1 185 0
+ 211 0064 1946     		mov	r1, r3
+ 212              	.L11:
+ 213              		.loc 1 185 0 is_stmt 0 discriminator 1
+ 214 0066 4A6F     		ldr	r2, [r1, #116]
+ 215 0068 4FF46053 		mov	r3, #14336
+ 216 006c 9007     		lsls	r0, r2, #30
+ 217 006e C4F20203 		movt	r3, 16386
+ 218 0072 F8D5     		bpl	.L11
+ 219              		.loc 1 191 0 is_stmt 1
+ 220 0074 45F20C40 		movw	r0, #21516
+ 221 0078 C0F24070 		movt	r0, 1856
+ 222 007c 5860     		str	r0, [r3, #4]
+ 223              		.loc 1 193 0
+ 224 007e 1968     		ldr	r1, [r3, #0]
+ 225 0080 41F08072 		orr	r2, r1, #16777216
+ 226 0084 1A60     		str	r2, [r3, #0]
+ 227              		.loc 1 194 0
+ 228 0086 1846     		mov	r0, r3
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccR6EWto.s 			page 5
+
+
+ 229              	.L12:
+ 230              		.loc 1 194 0 is_stmt 0 discriminator 1
+ 231 0088 0168     		ldr	r1, [r0, #0]
+ 232 008a 4FF46053 		mov	r3, #14336
+ 233 008e 8A01     		lsls	r2, r1, #6
+ 234 0090 C4F20203 		movt	r3, 16386
+ 235 0094 F8D5     		bpl	.L12
+ 236              		.loc 1 207 0 is_stmt 1
+ 237 0096 9868     		ldr	r0, [r3, #8]
+ 238 0098 4FF41442 		mov	r2, #37888
+ 239              		.loc 1 220 0
+ 240 009c 4FF47051 		mov	r1, #15360
+ 241              		.loc 1 207 0
+ 242 00a0 C3F60802 		movt	r2, 14344
+ 243              		.loc 1 220 0
+ 244 00a4 C4F20201 		movt	r1, 16386
+ 245              		.loc 1 207 0
+ 246 00a8 1043     		orrs	r0, r0, r2
+ 247              		.loc 1 220 0
+ 248 00aa 40F20572 		movw	r2, #1797
+ 249              		.loc 1 207 0
+ 250 00ae 9860     		str	r0, [r3, #8]
+ 251              		.loc 1 220 0
+ 252 00b0 0A60     		str	r2, [r1, #0]
+ 253              		.loc 1 226 0
+ 254 00b2 9968     		ldr	r1, [r3, #8]
+ 255 00b4 41F00200 		orr	r0, r1, #2
+ 256 00b8 9860     		str	r0, [r3, #8]
+ 257              	.L13:
+ 258              		.loc 1 227 0 discriminator 1
+ 259 00ba 9968     		ldr	r1, [r3, #8]
+ 260 00bc 01F00C00 		and	r0, r1, #12
+ 261 00c0 4FF46052 		mov	r2, #14336
+ 262 00c4 0828     		cmp	r0, #8
+ 263 00c6 C4F20202 		movt	r2, 16386
+ 264 00ca F6D1     		bne	.L13
+ 265              		.loc 1 234 0
+ 266 00cc 536C     		ldr	r3, [r2, #68]
+ 267 00ce 43F48041 		orr	r1, r3, #16384
+ 268 00d2 5164     		str	r1, [r2, #68]
+ 269 00d4 506E     		ldr	r0, [r2, #100]
+ 270 00d6 40F48043 		orr	r3, r0, #16384
+ 271 00da 5366     		str	r3, [r2, #100]
+ 272 00dc 7047     		bx	lr
+ 273              		.cfi_endproc
+ 274              	.LFE120:
+ 275              		.size	stm32_clock_init, .-stm32_clock_init
+ 276 00de 00BF     		.text
+ 277              	.Letext0:
+ 278              		.file 2 "c:\\fbin\\yagarto\\bin\\../lib/gcc/arm-none-eabi/4.7.4/../../../../arm-none-eabi/include/
+ 279              		.file 3 "../../os/ports/common/ARMCMx/nvic.h"
+ 280              		.file 4 "../../os/ports/common/ARMCMx/CMSIS/include/core_cm4.h"
+ 281              		.file 5 "../../os/hal/platforms/STM32F4xx/stm32f4xx.h"
+ 282              		.file 6 "../../os/hal/platforms/STM32F4xx/stm32_dma.h"
+ 283              		.section	.debug_info,"",%progbits
+ 284              	.Ldebug_info0:
+ 285 0000 DD040000 		.4byte	0x4dd
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccR6EWto.s 			page 6
+
+
+ 286 0004 0200     		.2byte	0x2
+ 287 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 288 000a 04       		.byte	0x4
+ 289 000b 01       		.uleb128 0x1
+ 290 000c 81010000 		.4byte	.LASF66
+ 291 0010 01       		.byte	0x1
+ 292 0011 A0020000 		.4byte	.LASF67
+ 293 0015 0C030000 		.4byte	.LASF68
+ 294 0019 18000000 		.4byte	.Ldebug_ranges0+0x18
+ 295 001d 00000000 		.4byte	0
+ 296 0021 00000000 		.4byte	0
+ 297 0025 00000000 		.4byte	.Ldebug_line0
+ 298 0029 02       		.uleb128 0x2
+ 299 002a 04       		.byte	0x4
+ 300 002b 05       		.byte	0x5
+ 301 002c 696E7400 		.ascii	"int\000"
+ 302 0030 03       		.uleb128 0x3
+ 303 0031 04       		.byte	0x4
+ 304 0032 07       		.byte	0x7
+ 305 0033 6B010000 		.4byte	.LASF0
+ 306 0037 03       		.uleb128 0x3
+ 307 0038 01       		.byte	0x1
+ 308 0039 06       		.byte	0x6
+ 309 003a 3F010000 		.4byte	.LASF1
+ 310 003e 03       		.uleb128 0x3
+ 311 003f 01       		.byte	0x1
+ 312 0040 08       		.byte	0x8
+ 313 0041 29010000 		.4byte	.LASF2
+ 314 0045 03       		.uleb128 0x3
+ 315 0046 02       		.byte	0x2
+ 316 0047 05       		.byte	0x5
+ 317 0048 21000000 		.4byte	.LASF3
+ 318 004c 04       		.uleb128 0x4
+ 319 004d 20020000 		.4byte	.LASF5
+ 320 0051 02       		.byte	0x2
+ 321 0052 36       		.byte	0x36
+ 322 0053 57000000 		.4byte	0x57
+ 323 0057 03       		.uleb128 0x3
+ 324 0058 02       		.byte	0x2
+ 325 0059 07       		.byte	0x7
+ 326 005a FE010000 		.4byte	.LASF4
+ 327 005e 04       		.uleb128 0x4
+ 328 005f 31020000 		.4byte	.LASF6
+ 329 0063 02       		.byte	0x2
+ 330 0064 4F       		.byte	0x4f
+ 331 0065 69000000 		.4byte	0x69
+ 332 0069 03       		.uleb128 0x3
+ 333 006a 04       		.byte	0x4
+ 334 006b 05       		.byte	0x5
+ 335 006c E6000000 		.4byte	.LASF7
+ 336 0070 04       		.uleb128 0x4
+ 337 0071 62010000 		.4byte	.LASF8
+ 338 0075 02       		.byte	0x2
+ 339 0076 50       		.byte	0x50
+ 340 0077 7B000000 		.4byte	0x7b
+ 341 007b 03       		.uleb128 0x3
+ 342 007c 04       		.byte	0x4
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccR6EWto.s 			page 7
+
+
+ 343 007d 07       		.byte	0x7
+ 344 007e CA010000 		.4byte	.LASF9
+ 345 0082 03       		.uleb128 0x3
+ 346 0083 08       		.byte	0x8
+ 347 0084 05       		.byte	0x5
+ 348 0085 C5000000 		.4byte	.LASF10
+ 349 0089 03       		.uleb128 0x3
+ 350 008a 08       		.byte	0x8
+ 351 008b 07       		.byte	0x7
+ 352 008c 4B010000 		.4byte	.LASF11
+ 353 0090 03       		.uleb128 0x3
+ 354 0091 01       		.byte	0x1
+ 355 0092 02       		.byte	0x2
+ 356 0093 39020000 		.4byte	.LASF12
+ 357 0097 04       		.uleb128 0x4
+ 358 0098 B5000000 		.4byte	.LASF13
+ 359 009c 03       		.byte	0x3
+ 360 009d 3A       		.byte	0x3a
+ 361 009e A2000000 		.4byte	0xa2
+ 362 00a2 05       		.uleb128 0x5
+ 363 00a3 70000000 		.4byte	0x70
+ 364 00a7 03       		.uleb128 0x3
+ 365 00a8 04       		.byte	0x4
+ 366 00a9 07       		.byte	0x7
+ 367 00aa 2B000000 		.4byte	.LASF14
+ 368 00ae 06       		.uleb128 0x6
+ 369 00af 10       		.byte	0x10
+ 370 00b0 03       		.byte	0x3
+ 371 00b1 F1       		.byte	0xf1
+ 372 00b2 EF000000 		.4byte	0xef
+ 373 00b6 07       		.uleb128 0x7
+ 374 00b7 E0000000 		.4byte	.LASF15
+ 375 00bb 03       		.byte	0x3
+ 376 00bc F2       		.byte	0xf2
+ 377 00bd 97000000 		.4byte	0x97
+ 378 00c1 02       		.byte	0x2
+ 379 00c2 23       		.byte	0x23
+ 380 00c3 00       		.uleb128 0
+ 381 00c4 07       		.uleb128 0x7
+ 382 00c5 8E000000 		.4byte	.LASF16
+ 383 00c9 03       		.byte	0x3
+ 384 00ca F3       		.byte	0xf3
+ 385 00cb 97000000 		.4byte	0x97
+ 386 00cf 02       		.byte	0x2
+ 387 00d0 23       		.byte	0x23
+ 388 00d1 04       		.uleb128 0x4
+ 389 00d2 07       		.uleb128 0x7
+ 390 00d3 AF000000 		.4byte	.LASF17
+ 391 00d7 03       		.byte	0x3
+ 392 00d8 F4       		.byte	0xf4
+ 393 00d9 97000000 		.4byte	0x97
+ 394 00dd 02       		.byte	0x2
+ 395 00de 23       		.byte	0x23
+ 396 00df 08       		.uleb128 0x8
+ 397 00e0 07       		.uleb128 0x7
+ 398 00e1 1B000000 		.4byte	.LASF18
+ 399 00e5 03       		.byte	0x3
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccR6EWto.s 			page 8
+
+
+ 400 00e6 F5       		.byte	0xf5
+ 401 00e7 97000000 		.4byte	0x97
+ 402 00eb 02       		.byte	0x2
+ 403 00ec 23       		.byte	0x23
+ 404 00ed 0C       		.uleb128 0xc
+ 405 00ee 00       		.byte	0
+ 406 00ef 04       		.uleb128 0x4
+ 407 00f0 29020000 		.4byte	.LASF19
+ 408 00f4 03       		.byte	0x3
+ 409 00f5 F6       		.byte	0xf6
+ 410 00f6 AE000000 		.4byte	0xae
+ 411 00fa 08       		.uleb128 0x8
+ 412 00fb 20       		.byte	0x20
+ 413 00fc 03       		.byte	0x3
+ 414 00fd 0601     		.2byte	0x106
+ 415 00ff 7C010000 		.4byte	0x17c
+ 416 0103 09       		.uleb128 0x9
+ 417 0104 6B000000 		.4byte	.LASF20
+ 418 0108 03       		.byte	0x3
+ 419 0109 0701     		.2byte	0x107
+ 420 010b 97000000 		.4byte	0x97
+ 421 010f 02       		.byte	0x2
+ 422 0110 23       		.byte	0x23
+ 423 0111 00       		.uleb128 0
+ 424 0112 09       		.uleb128 0x9
+ 425 0113 D3000000 		.4byte	.LASF21
+ 426 0117 03       		.byte	0x3
+ 427 0118 0801     		.2byte	0x108
+ 428 011a 97000000 		.4byte	0x97
+ 429 011e 02       		.byte	0x2
+ 430 011f 23       		.byte	0x23
+ 431 0120 04       		.uleb128 0x4
+ 432 0121 09       		.uleb128 0x9
+ 433 0122 7F000000 		.4byte	.LASF22
+ 434 0126 03       		.byte	0x3
+ 435 0127 0901     		.2byte	0x109
+ 436 0129 97000000 		.4byte	0x97
+ 437 012d 02       		.byte	0x2
+ 438 012e 23       		.byte	0x23
+ 439 012f 08       		.uleb128 0x8
+ 440 0130 09       		.uleb128 0x9
+ 441 0131 22010000 		.4byte	.LASF23
+ 442 0135 03       		.byte	0x3
+ 443 0136 0A01     		.2byte	0x10a
+ 444 0138 97000000 		.4byte	0x97
+ 445 013c 02       		.byte	0x2
+ 446 013d 23       		.byte	0x23
+ 447 013e 0C       		.uleb128 0xc
+ 448 013f 09       		.uleb128 0x9
+ 449 0140 97020000 		.4byte	.LASF24
+ 450 0144 03       		.byte	0x3
+ 451 0145 0B01     		.2byte	0x10b
+ 452 0147 97000000 		.4byte	0x97
+ 453 014b 02       		.byte	0x2
+ 454 014c 23       		.byte	0x23
+ 455 014d 10       		.uleb128 0x10
+ 456 014e 09       		.uleb128 0x9
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccR6EWto.s 			page 9
+
+
+ 457 014f CB020000 		.4byte	.LASF25
+ 458 0153 03       		.byte	0x3
+ 459 0154 0C01     		.2byte	0x10c
+ 460 0156 97000000 		.4byte	0x97
+ 461 015a 02       		.byte	0x2
+ 462 015b 23       		.byte	0x23
+ 463 015c 14       		.uleb128 0x14
+ 464 015d 09       		.uleb128 0x9
+ 465 015e 3E000000 		.4byte	.LASF26
+ 466 0162 03       		.byte	0x3
+ 467 0163 0D01     		.2byte	0x10d
+ 468 0165 97000000 		.4byte	0x97
+ 469 0169 02       		.byte	0x2
+ 470 016a 23       		.byte	0x23
+ 471 016b 18       		.uleb128 0x18
+ 472 016c 09       		.uleb128 0x9
+ 473 016d 39000000 		.4byte	.LASF27
+ 474 0171 03       		.byte	0x3
+ 475 0172 0E01     		.2byte	0x10e
+ 476 0174 97000000 		.4byte	0x97
+ 477 0178 02       		.byte	0x2
+ 478 0179 23       		.byte	0x23
+ 479 017a 1C       		.uleb128 0x1c
+ 480 017b 00       		.byte	0
+ 481 017c 0A       		.uleb128 0xa
+ 482 017d 5D000000 		.4byte	.LASF28
+ 483 0181 03       		.byte	0x3
+ 484 0182 0F01     		.2byte	0x10f
+ 485 0184 FA000000 		.4byte	0xfa
+ 486 0188 03       		.uleb128 0x3
+ 487 0189 01       		.byte	0x1
+ 488 018a 08       		.byte	0x8
+ 489 018b 1B020000 		.4byte	.LASF29
+ 490 018f 0B       		.uleb128 0xb
+ 491 0190 A2000000 		.4byte	0xa2
+ 492 0194 0C       		.uleb128 0xc
+ 493 0195 70000000 		.4byte	0x70
+ 494 0199 A4010000 		.4byte	0x1a4
+ 495 019d 0D       		.uleb128 0xd
+ 496 019e A7000000 		.4byte	0xa7
+ 497 01a2 01       		.byte	0x1
+ 498 01a3 00       		.byte	0
+ 499 01a4 08       		.uleb128 0x8
+ 500 01a5 10       		.byte	0x10
+ 501 01a6 04       		.byte	0x4
+ 502 01a7 6002     		.2byte	0x260
+ 503 01a9 EA010000 		.4byte	0x1ea
+ 504 01ad 09       		.uleb128 0x9
+ 505 01ae 6B000000 		.4byte	.LASF20
+ 506 01b2 04       		.byte	0x4
+ 507 01b3 6202     		.2byte	0x262
+ 508 01b5 A2000000 		.4byte	0xa2
+ 509 01b9 02       		.byte	0x2
+ 510 01ba 23       		.byte	0x23
+ 511 01bb 00       		.uleb128 0
+ 512 01bc 09       		.uleb128 0x9
+ 513 01bd D2020000 		.4byte	.LASF30
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccR6EWto.s 			page 10
+
+
+ 514 01c1 04       		.byte	0x4
+ 515 01c2 6302     		.2byte	0x263
+ 516 01c4 A2000000 		.4byte	0xa2
+ 517 01c8 02       		.byte	0x2
+ 518 01c9 23       		.byte	0x23
+ 519 01ca 04       		.uleb128 0x4
+ 520 01cb 0E       		.uleb128 0xe
+ 521 01cc 56414C00 		.ascii	"VAL\000"
+ 522 01d0 04       		.byte	0x4
+ 523 01d1 6402     		.2byte	0x264
+ 524 01d3 A2000000 		.4byte	0xa2
+ 525 01d7 02       		.byte	0x2
+ 526 01d8 23       		.byte	0x23
+ 527 01d9 08       		.uleb128 0x8
+ 528 01da 09       		.uleb128 0x9
+ 529 01db DA000000 		.4byte	.LASF31
+ 530 01df 04       		.byte	0x4
+ 531 01e0 6502     		.2byte	0x265
+ 532 01e2 8F010000 		.4byte	0x18f
+ 533 01e6 02       		.byte	0x2
+ 534 01e7 23       		.byte	0x23
+ 535 01e8 0C       		.uleb128 0xc
+ 536 01e9 00       		.byte	0
+ 537 01ea 0A       		.uleb128 0xa
+ 538 01eb F1010000 		.4byte	.LASF32
+ 539 01ef 04       		.byte	0x4
+ 540 01f0 6602     		.2byte	0x266
+ 541 01f2 A4010000 		.4byte	0x1a4
+ 542 01f6 05       		.uleb128 0x5
+ 543 01f7 5E000000 		.4byte	0x5e
+ 544 01fb 08       		.uleb128 0x8
+ 545 01fc 18       		.byte	0x18
+ 546 01fd 05       		.byte	0x5
+ 547 01fe 4102     		.2byte	0x241
+ 548 0200 5D020000 		.4byte	0x25d
+ 549 0204 0E       		.uleb128 0xe
+ 550 0205 41435200 		.ascii	"ACR\000"
+ 551 0209 05       		.byte	0x5
+ 552 020a 4302     		.2byte	0x243
+ 553 020c A2000000 		.4byte	0xa2
+ 554 0210 02       		.byte	0x2
+ 555 0211 23       		.byte	0x23
+ 556 0212 00       		.uleb128 0
+ 557 0213 09       		.uleb128 0x9
+ 558 0214 1D010000 		.4byte	.LASF33
+ 559 0218 05       		.byte	0x5
+ 560 0219 4402     		.2byte	0x244
+ 561 021b A2000000 		.4byte	0xa2
+ 562 021f 02       		.byte	0x2
+ 563 0220 23       		.byte	0x23
+ 564 0221 04       		.uleb128 0x4
+ 565 0222 09       		.uleb128 0x9
+ 566 0223 BD000000 		.4byte	.LASF34
+ 567 0227 05       		.byte	0x5
+ 568 0228 4502     		.2byte	0x245
+ 569 022a A2000000 		.4byte	0xa2
+ 570 022e 02       		.byte	0x2
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccR6EWto.s 			page 11
+
+
+ 571 022f 23       		.byte	0x23
+ 572 0230 08       		.uleb128 0x8
+ 573 0231 0E       		.uleb128 0xe
+ 574 0232 535200   		.ascii	"SR\000"
+ 575 0235 05       		.byte	0x5
+ 576 0236 4602     		.2byte	0x246
+ 577 0238 A2000000 		.4byte	0xa2
+ 578 023c 02       		.byte	0x2
+ 579 023d 23       		.byte	0x23
+ 580 023e 0C       		.uleb128 0xc
+ 581 023f 0E       		.uleb128 0xe
+ 582 0240 435200   		.ascii	"CR\000"
+ 583 0243 05       		.byte	0x5
+ 584 0244 4702     		.2byte	0x247
+ 585 0246 A2000000 		.4byte	0xa2
+ 586 024a 02       		.byte	0x2
+ 587 024b 23       		.byte	0x23
+ 588 024c 10       		.uleb128 0x10
+ 589 024d 09       		.uleb128 0x9
+ 590 024e 69030000 		.4byte	.LASF35
+ 591 0252 05       		.byte	0x5
+ 592 0253 4802     		.2byte	0x248
+ 593 0255 A2000000 		.4byte	0xa2
+ 594 0259 02       		.byte	0x2
+ 595 025a 23       		.byte	0x23
+ 596 025b 14       		.uleb128 0x14
+ 597 025c 00       		.byte	0
+ 598 025d 0A       		.uleb128 0xa
+ 599 025e F1020000 		.4byte	.LASF36
+ 600 0262 05       		.byte	0x5
+ 601 0263 4902     		.2byte	0x249
+ 602 0265 FB010000 		.4byte	0x1fb
+ 603 0269 08       		.uleb128 0x8
+ 604 026a 08       		.byte	0x8
+ 605 026b 05       		.byte	0x5
+ 606 026c D102     		.2byte	0x2d1
+ 607 026e 90020000 		.4byte	0x290
+ 608 0272 0E       		.uleb128 0xe
+ 609 0273 435200   		.ascii	"CR\000"
+ 610 0276 05       		.byte	0x5
+ 611 0277 D302     		.2byte	0x2d3
+ 612 0279 A2000000 		.4byte	0xa2
+ 613 027d 02       		.byte	0x2
+ 614 027e 23       		.byte	0x23
+ 615 027f 00       		.uleb128 0
+ 616 0280 0E       		.uleb128 0xe
+ 617 0281 43535200 		.ascii	"CSR\000"
+ 618 0285 05       		.byte	0x5
+ 619 0286 D402     		.2byte	0x2d4
+ 620 0288 A2000000 		.4byte	0xa2
+ 621 028c 02       		.byte	0x2
+ 622 028d 23       		.byte	0x23
+ 623 028e 04       		.uleb128 0x4
+ 624 028f 00       		.byte	0
+ 625 0290 0A       		.uleb128 0xa
+ 626 0291 51000000 		.4byte	.LASF37
+ 627 0295 05       		.byte	0x5
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccR6EWto.s 			page 12
+
+
+ 628 0296 D502     		.2byte	0x2d5
+ 629 0298 69020000 		.4byte	0x269
+ 630 029c 08       		.uleb128 0x8
+ 631 029d 88       		.byte	0x88
+ 632 029e 05       		.byte	0x5
+ 633 029f DB02     		.2byte	0x2db
+ 634 02a1 69040000 		.4byte	0x469
+ 635 02a5 0E       		.uleb128 0xe
+ 636 02a6 435200   		.ascii	"CR\000"
+ 637 02a9 05       		.byte	0x5
+ 638 02aa DD02     		.2byte	0x2dd
+ 639 02ac A2000000 		.4byte	0xa2
+ 640 02b0 02       		.byte	0x2
+ 641 02b1 23       		.byte	0x23
+ 642 02b2 00       		.uleb128 0
+ 643 02b3 09       		.uleb128 0x9
+ 644 02b4 E9010000 		.4byte	.LASF38
+ 645 02b8 05       		.byte	0x5
+ 646 02b9 DE02     		.2byte	0x2de
+ 647 02bb A2000000 		.4byte	0xa2
+ 648 02bf 02       		.byte	0x2
+ 649 02c0 23       		.byte	0x23
+ 650 02c1 04       		.uleb128 0x4
+ 651 02c2 09       		.uleb128 0x9
+ 652 02c3 7A000000 		.4byte	.LASF39
+ 653 02c7 05       		.byte	0x5
+ 654 02c8 DF02     		.2byte	0x2df
+ 655 02ca A2000000 		.4byte	0xa2
+ 656 02ce 02       		.byte	0x2
+ 657 02cf 23       		.byte	0x23
+ 658 02d0 08       		.uleb128 0x8
+ 659 02d1 0E       		.uleb128 0xe
+ 660 02d2 43495200 		.ascii	"CIR\000"
+ 661 02d6 05       		.byte	0x5
+ 662 02d7 E002     		.2byte	0x2e0
+ 663 02d9 A2000000 		.4byte	0xa2
+ 664 02dd 02       		.byte	0x2
+ 665 02de 23       		.byte	0x23
+ 666 02df 0C       		.uleb128 0xc
+ 667 02e0 09       		.uleb128 0x9
+ 668 02e1 D7020000 		.4byte	.LASF40
+ 669 02e5 05       		.byte	0x5
+ 670 02e6 E102     		.2byte	0x2e1
+ 671 02e8 A2000000 		.4byte	0xa2
+ 672 02ec 02       		.byte	0x2
+ 673 02ed 23       		.byte	0x23
+ 674 02ee 10       		.uleb128 0x10
+ 675 02ef 09       		.uleb128 0x9
+ 676 02f0 78010000 		.4byte	.LASF41
+ 677 02f4 05       		.byte	0x5
+ 678 02f5 E202     		.2byte	0x2e2
+ 679 02f7 A2000000 		.4byte	0xa2
+ 680 02fb 02       		.byte	0x2
+ 681 02fc 23       		.byte	0x23
+ 682 02fd 14       		.uleb128 0x14
+ 683 02fe 09       		.uleb128 0x9
+ 684 02ff E8020000 		.4byte	.LASF42
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccR6EWto.s 			page 13
+
+
+ 685 0303 05       		.byte	0x5
+ 686 0304 E302     		.2byte	0x2e3
+ 687 0306 A2000000 		.4byte	0xa2
+ 688 030a 02       		.byte	0x2
+ 689 030b 23       		.byte	0x23
+ 690 030c 18       		.uleb128 0x18
+ 691 030d 09       		.uleb128 0x9
+ 692 030e 51020000 		.4byte	.LASF43
+ 693 0312 05       		.byte	0x5
+ 694 0313 E402     		.2byte	0x2e4
+ 695 0315 70000000 		.4byte	0x70
+ 696 0319 02       		.byte	0x2
+ 697 031a 23       		.byte	0x23
+ 698 031b 1C       		.uleb128 0x1c
+ 699 031c 09       		.uleb128 0x9
+ 700 031d 0A000000 		.4byte	.LASF44
+ 701 0321 05       		.byte	0x5
+ 702 0322 E502     		.2byte	0x2e5
+ 703 0324 A2000000 		.4byte	0xa2
+ 704 0328 02       		.byte	0x2
+ 705 0329 23       		.byte	0x23
+ 706 032a 20       		.uleb128 0x20
+ 707 032b 09       		.uleb128 0x9
+ 708 032c FB000000 		.4byte	.LASF45
+ 709 0330 05       		.byte	0x5
+ 710 0331 E602     		.2byte	0x2e6
+ 711 0333 A2000000 		.4byte	0xa2
+ 712 0337 02       		.byte	0x2
+ 713 0338 23       		.byte	0x23
+ 714 0339 24       		.uleb128 0x24
+ 715 033a 09       		.uleb128 0x9
+ 716 033b 5B020000 		.4byte	.LASF46
+ 717 033f 05       		.byte	0x5
+ 718 0340 E702     		.2byte	0x2e7
+ 719 0342 94010000 		.4byte	0x194
+ 720 0346 02       		.byte	0x2
+ 721 0347 23       		.byte	0x23
+ 722 0348 28       		.uleb128 0x28
+ 723 0349 09       		.uleb128 0x9
+ 724 034a E0020000 		.4byte	.LASF47
+ 725 034e 05       		.byte	0x5
+ 726 034f E802     		.2byte	0x2e8
+ 727 0351 A2000000 		.4byte	0xa2
+ 728 0355 02       		.byte	0x2
+ 729 0356 23       		.byte	0x23
+ 730 0357 30       		.uleb128 0x30
+ 731 0358 09       		.uleb128 0x9
+ 732 0359 13000000 		.4byte	.LASF48
+ 733 035d 05       		.byte	0x5
+ 734 035e E902     		.2byte	0x2e9
+ 735 0360 A2000000 		.4byte	0xa2
+ 736 0364 02       		.byte	0x2
+ 737 0365 23       		.byte	0x23
+ 738 0366 34       		.uleb128 0x34
+ 739 0367 09       		.uleb128 0x9
+ 740 0368 15010000 		.4byte	.LASF49
+ 741 036c 05       		.byte	0x5
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccR6EWto.s 			page 14
+
+
+ 742 036d EA02     		.2byte	0x2ea
+ 743 036f A2000000 		.4byte	0xa2
+ 744 0373 02       		.byte	0x2
+ 745 0374 23       		.byte	0x23
+ 746 0375 38       		.uleb128 0x38
+ 747 0376 09       		.uleb128 0x9
+ 748 0377 65020000 		.4byte	.LASF50
+ 749 037b 05       		.byte	0x5
+ 750 037c EB02     		.2byte	0x2eb
+ 751 037e 70000000 		.4byte	0x70
+ 752 0382 02       		.byte	0x2
+ 753 0383 23       		.byte	0x23
+ 754 0384 3C       		.uleb128 0x3c
+ 755 0385 09       		.uleb128 0x9
+ 756 0386 86000000 		.4byte	.LASF51
+ 757 038a 05       		.byte	0x5
+ 758 038b EC02     		.2byte	0x2ec
+ 759 038d A2000000 		.4byte	0xa2
+ 760 0391 02       		.byte	0x2
+ 761 0392 23       		.byte	0x23
+ 762 0393 40       		.uleb128 0x40
+ 763 0394 09       		.uleb128 0x9
+ 764 0395 37010000 		.4byte	.LASF52
+ 765 0399 05       		.byte	0x5
+ 766 039a ED02     		.2byte	0x2ed
+ 767 039c A2000000 		.4byte	0xa2
+ 768 03a0 02       		.byte	0x2
+ 769 03a1 23       		.byte	0x23
+ 770 03a2 44       		.uleb128 0x44
+ 771 03a3 09       		.uleb128 0x9
+ 772 03a4 6F020000 		.4byte	.LASF53
+ 773 03a8 05       		.byte	0x5
+ 774 03a9 EE02     		.2byte	0x2ee
+ 775 03ab 94010000 		.4byte	0x194
+ 776 03af 02       		.byte	0x2
+ 777 03b0 23       		.byte	0x23
+ 778 03b1 48       		.uleb128 0x48
+ 779 03b2 09       		.uleb128 0x9
+ 780 03b3 00000000 		.4byte	.LASF54
+ 781 03b7 05       		.byte	0x5
+ 782 03b8 EF02     		.2byte	0x2ef
+ 783 03ba A2000000 		.4byte	0xa2
+ 784 03be 02       		.byte	0x2
+ 785 03bf 23       		.byte	0x23
+ 786 03c0 50       		.uleb128 0x50
+ 787 03c1 09       		.uleb128 0x9
+ 788 03c2 3F020000 		.4byte	.LASF55
+ 789 03c6 05       		.byte	0x5
+ 790 03c7 F002     		.2byte	0x2f0
+ 791 03c9 A2000000 		.4byte	0xa2
+ 792 03cd 02       		.byte	0x2
+ 793 03ce 23       		.byte	0x23
+ 794 03cf 54       		.uleb128 0x54
+ 795 03d0 09       		.uleb128 0x9
+ 796 03d1 70000000 		.4byte	.LASF56
+ 797 03d5 05       		.byte	0x5
+ 798 03d6 F102     		.2byte	0x2f1
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccR6EWto.s 			page 15
+
+
+ 799 03d8 A2000000 		.4byte	0xa2
+ 800 03dc 02       		.byte	0x2
+ 801 03dd 23       		.byte	0x23
+ 802 03de 58       		.uleb128 0x58
+ 803 03df 09       		.uleb128 0x9
+ 804 03e0 79020000 		.4byte	.LASF57
+ 805 03e4 05       		.byte	0x5
+ 806 03e5 F202     		.2byte	0x2f2
+ 807 03e7 70000000 		.4byte	0x70
+ 808 03eb 02       		.byte	0x2
+ 809 03ec 23       		.byte	0x23
+ 810 03ed 5C       		.uleb128 0x5c
+ 811 03ee 09       		.uleb128 0x9
+ 812 03ef 11020000 		.4byte	.LASF58
+ 813 03f3 05       		.byte	0x5
+ 814 03f4 F302     		.2byte	0x2f3
+ 815 03f6 A2000000 		.4byte	0xa2
+ 816 03fa 02       		.byte	0x2
+ 817 03fb 23       		.byte	0x23
+ 818 03fc 60       		.uleb128 0x60
+ 819 03fd 09       		.uleb128 0x9
+ 820 03fe 5F030000 		.4byte	.LASF59
+ 821 0402 05       		.byte	0x5
+ 822 0403 F402     		.2byte	0x2f4
+ 823 0405 A2000000 		.4byte	0xa2
+ 824 0409 02       		.byte	0x2
+ 825 040a 23       		.byte	0x23
+ 826 040b 64       		.uleb128 0x64
+ 827 040c 09       		.uleb128 0x9
+ 828 040d 83020000 		.4byte	.LASF60
+ 829 0411 05       		.byte	0x5
+ 830 0412 F502     		.2byte	0x2f5
+ 831 0414 94010000 		.4byte	0x194
+ 832 0418 02       		.byte	0x2
+ 833 0419 23       		.byte	0x23
+ 834 041a 68       		.uleb128 0x68
+ 835 041b 09       		.uleb128 0x9
+ 836 041c 34000000 		.4byte	.LASF61
+ 837 0420 05       		.byte	0x5
+ 838 0421 F602     		.2byte	0x2f6
+ 839 0423 A2000000 		.4byte	0xa2
+ 840 0427 02       		.byte	0x2
+ 841 0428 23       		.byte	0x23
+ 842 0429 70       		.uleb128 0x70
+ 843 042a 0E       		.uleb128 0xe
+ 844 042b 43535200 		.ascii	"CSR\000"
+ 845 042f 05       		.byte	0x5
+ 846 0430 F702     		.2byte	0x2f7
+ 847 0432 A2000000 		.4byte	0xa2
+ 848 0436 02       		.byte	0x2
+ 849 0437 23       		.byte	0x23
+ 850 0438 74       		.uleb128 0x74
+ 851 0439 09       		.uleb128 0x9
+ 852 043a 8D020000 		.4byte	.LASF62
+ 853 043e 05       		.byte	0x5
+ 854 043f F802     		.2byte	0x2f8
+ 855 0441 94010000 		.4byte	0x194
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccR6EWto.s 			page 16
+
+
+ 856 0445 02       		.byte	0x2
+ 857 0446 23       		.byte	0x23
+ 858 0447 78       		.uleb128 0x78
+ 859 0448 09       		.uleb128 0x9
+ 860 0449 65000000 		.4byte	.LASF63
+ 861 044d 05       		.byte	0x5
+ 862 044e F902     		.2byte	0x2f9
+ 863 0450 A2000000 		.4byte	0xa2
+ 864 0454 03       		.byte	0x3
+ 865 0455 23       		.byte	0x23
+ 866 0456 8001     		.uleb128 0x80
+ 867 0458 09       		.uleb128 0x9
+ 868 0459 46000000 		.4byte	.LASF64
+ 869 045d 05       		.byte	0x5
+ 870 045e FA02     		.2byte	0x2fa
+ 871 0460 A2000000 		.4byte	0xa2
+ 872 0464 03       		.byte	0x3
+ 873 0465 23       		.byte	0x23
+ 874 0466 8401     		.uleb128 0x84
+ 875 0468 00       		.byte	0
+ 876 0469 0A       		.uleb128 0xa
+ 877 046a EF000000 		.4byte	.LASF65
+ 878 046e 05       		.byte	0x5
+ 879 046f FB02     		.2byte	0x2fb
+ 880 0471 9C020000 		.4byte	0x29c
+ 881 0475 0F       		.uleb128 0xf
+ 882 0476 94000000 		.4byte	.LASF69
+ 883 047a 01       		.byte	0x1
+ 884 047b 33       		.byte	0x33
+ 885 047c 01       		.byte	0x1
+ 886 047d 01       		.byte	0x1
+ 887 047e 10       		.uleb128 0x10
+ 888 047f 01       		.byte	0x1
+ 889 0480 DC010000 		.4byte	.LASF70
+ 890 0484 01       		.byte	0x1
+ 891 0485 69       		.byte	0x69
+ 892 0486 01       		.byte	0x1
+ 893 0487 00000000 		.4byte	.LFB119
+ 894 048b A6000000 		.4byte	.LFE119
+ 895 048f 00000000 		.4byte	.LLST0
+ 896 0493 01       		.byte	0x1
+ 897 0494 B2040000 		.4byte	0x4b2
+ 898 0498 11       		.uleb128 0x11
+ 899 0499 75040000 		.4byte	0x475
+ 900 049d 66000000 		.4byte	.LBB4
+ 901 04a1 00000000 		.4byte	.Ldebug_ranges0+0
+ 902 04a5 01       		.byte	0x1
+ 903 04a6 81       		.byte	0x81
+ 904 04a7 12       		.uleb128 0x12
+ 905 04a8 A6000000 		.4byte	.LVL0
+ 906 04ac 01       		.byte	0x1
+ 907 04ad D5040000 		.4byte	0x4d5
+ 908 04b1 00       		.byte	0
+ 909 04b2 13       		.uleb128 0x13
+ 910 04b3 01       		.byte	0x1
+ 911 04b4 04010000 		.4byte	.LASF71
+ 912 04b8 01       		.byte	0x1
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccR6EWto.s 			page 17
+
+
+ 913 04b9 94       		.byte	0x94
+ 914 04ba 01       		.byte	0x1
+ 915 04bb 00000000 		.4byte	.LFB120
+ 916 04bf DE000000 		.4byte	.LFE120
+ 917 04c3 02       		.byte	0x2
+ 918 04c4 7D       		.byte	0x7d
+ 919 04c5 00       		.sleb128 0
+ 920 04c6 01       		.byte	0x1
+ 921 04c7 14       		.uleb128 0x14
+ 922 04c8 FF020000 		.4byte	.LASF72
+ 923 04cc 04       		.byte	0x4
+ 924 04cd 9806     		.2byte	0x698
+ 925 04cf F6010000 		.4byte	0x1f6
+ 926 04d3 01       		.byte	0x1
+ 927 04d4 01       		.byte	0x1
+ 928 04d5 15       		.uleb128 0x15
+ 929 04d6 01       		.byte	0x1
+ 930 04d7 49020000 		.4byte	.LASF73
+ 931 04db 06       		.byte	0x6
+ 932 04dc C101     		.2byte	0x1c1
+ 933 04de 01       		.byte	0x1
+ 934 04df 01       		.byte	0x1
+ 935 04e0 00       		.byte	0
+ 936              		.section	.debug_abbrev,"",%progbits
+ 937              	.Ldebug_abbrev0:
+ 938 0000 01       		.uleb128 0x1
+ 939 0001 11       		.uleb128 0x11
+ 940 0002 01       		.byte	0x1
+ 941 0003 25       		.uleb128 0x25
+ 942 0004 0E       		.uleb128 0xe
+ 943 0005 13       		.uleb128 0x13
+ 944 0006 0B       		.uleb128 0xb
+ 945 0007 03       		.uleb128 0x3
+ 946 0008 0E       		.uleb128 0xe
+ 947 0009 1B       		.uleb128 0x1b
+ 948 000a 0E       		.uleb128 0xe
+ 949 000b 55       		.uleb128 0x55
+ 950 000c 06       		.uleb128 0x6
+ 951 000d 11       		.uleb128 0x11
+ 952 000e 01       		.uleb128 0x1
+ 953 000f 52       		.uleb128 0x52
+ 954 0010 01       		.uleb128 0x1
+ 955 0011 10       		.uleb128 0x10
+ 956 0012 06       		.uleb128 0x6
+ 957 0013 00       		.byte	0
+ 958 0014 00       		.byte	0
+ 959 0015 02       		.uleb128 0x2
+ 960 0016 24       		.uleb128 0x24
+ 961 0017 00       		.byte	0
+ 962 0018 0B       		.uleb128 0xb
+ 963 0019 0B       		.uleb128 0xb
+ 964 001a 3E       		.uleb128 0x3e
+ 965 001b 0B       		.uleb128 0xb
+ 966 001c 03       		.uleb128 0x3
+ 967 001d 08       		.uleb128 0x8
+ 968 001e 00       		.byte	0
+ 969 001f 00       		.byte	0
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccR6EWto.s 			page 18
+
+
+ 970 0020 03       		.uleb128 0x3
+ 971 0021 24       		.uleb128 0x24
+ 972 0022 00       		.byte	0
+ 973 0023 0B       		.uleb128 0xb
+ 974 0024 0B       		.uleb128 0xb
+ 975 0025 3E       		.uleb128 0x3e
+ 976 0026 0B       		.uleb128 0xb
+ 977 0027 03       		.uleb128 0x3
+ 978 0028 0E       		.uleb128 0xe
+ 979 0029 00       		.byte	0
+ 980 002a 00       		.byte	0
+ 981 002b 04       		.uleb128 0x4
+ 982 002c 16       		.uleb128 0x16
+ 983 002d 00       		.byte	0
+ 984 002e 03       		.uleb128 0x3
+ 985 002f 0E       		.uleb128 0xe
+ 986 0030 3A       		.uleb128 0x3a
+ 987 0031 0B       		.uleb128 0xb
+ 988 0032 3B       		.uleb128 0x3b
+ 989 0033 0B       		.uleb128 0xb
+ 990 0034 49       		.uleb128 0x49
+ 991 0035 13       		.uleb128 0x13
+ 992 0036 00       		.byte	0
+ 993 0037 00       		.byte	0
+ 994 0038 05       		.uleb128 0x5
+ 995 0039 35       		.uleb128 0x35
+ 996 003a 00       		.byte	0
+ 997 003b 49       		.uleb128 0x49
+ 998 003c 13       		.uleb128 0x13
+ 999 003d 00       		.byte	0
+ 1000 003e 00       		.byte	0
+ 1001 003f 06       		.uleb128 0x6
+ 1002 0040 13       		.uleb128 0x13
+ 1003 0041 01       		.byte	0x1
+ 1004 0042 0B       		.uleb128 0xb
+ 1005 0043 0B       		.uleb128 0xb
+ 1006 0044 3A       		.uleb128 0x3a
+ 1007 0045 0B       		.uleb128 0xb
+ 1008 0046 3B       		.uleb128 0x3b
+ 1009 0047 0B       		.uleb128 0xb
+ 1010 0048 01       		.uleb128 0x1
+ 1011 0049 13       		.uleb128 0x13
+ 1012 004a 00       		.byte	0
+ 1013 004b 00       		.byte	0
+ 1014 004c 07       		.uleb128 0x7
+ 1015 004d 0D       		.uleb128 0xd
+ 1016 004e 00       		.byte	0
+ 1017 004f 03       		.uleb128 0x3
+ 1018 0050 0E       		.uleb128 0xe
+ 1019 0051 3A       		.uleb128 0x3a
+ 1020 0052 0B       		.uleb128 0xb
+ 1021 0053 3B       		.uleb128 0x3b
+ 1022 0054 0B       		.uleb128 0xb
+ 1023 0055 49       		.uleb128 0x49
+ 1024 0056 13       		.uleb128 0x13
+ 1025 0057 38       		.uleb128 0x38
+ 1026 0058 0A       		.uleb128 0xa
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccR6EWto.s 			page 19
+
+
+ 1027 0059 00       		.byte	0
+ 1028 005a 00       		.byte	0
+ 1029 005b 08       		.uleb128 0x8
+ 1030 005c 13       		.uleb128 0x13
+ 1031 005d 01       		.byte	0x1
+ 1032 005e 0B       		.uleb128 0xb
+ 1033 005f 0B       		.uleb128 0xb
+ 1034 0060 3A       		.uleb128 0x3a
+ 1035 0061 0B       		.uleb128 0xb
+ 1036 0062 3B       		.uleb128 0x3b
+ 1037 0063 05       		.uleb128 0x5
+ 1038 0064 01       		.uleb128 0x1
+ 1039 0065 13       		.uleb128 0x13
+ 1040 0066 00       		.byte	0
+ 1041 0067 00       		.byte	0
+ 1042 0068 09       		.uleb128 0x9
+ 1043 0069 0D       		.uleb128 0xd
+ 1044 006a 00       		.byte	0
+ 1045 006b 03       		.uleb128 0x3
+ 1046 006c 0E       		.uleb128 0xe
+ 1047 006d 3A       		.uleb128 0x3a
+ 1048 006e 0B       		.uleb128 0xb
+ 1049 006f 3B       		.uleb128 0x3b
+ 1050 0070 05       		.uleb128 0x5
+ 1051 0071 49       		.uleb128 0x49
+ 1052 0072 13       		.uleb128 0x13
+ 1053 0073 38       		.uleb128 0x38
+ 1054 0074 0A       		.uleb128 0xa
+ 1055 0075 00       		.byte	0
+ 1056 0076 00       		.byte	0
+ 1057 0077 0A       		.uleb128 0xa
+ 1058 0078 16       		.uleb128 0x16
+ 1059 0079 00       		.byte	0
+ 1060 007a 03       		.uleb128 0x3
+ 1061 007b 0E       		.uleb128 0xe
+ 1062 007c 3A       		.uleb128 0x3a
+ 1063 007d 0B       		.uleb128 0xb
+ 1064 007e 3B       		.uleb128 0x3b
+ 1065 007f 05       		.uleb128 0x5
+ 1066 0080 49       		.uleb128 0x49
+ 1067 0081 13       		.uleb128 0x13
+ 1068 0082 00       		.byte	0
+ 1069 0083 00       		.byte	0
+ 1070 0084 0B       		.uleb128 0xb
+ 1071 0085 26       		.uleb128 0x26
+ 1072 0086 00       		.byte	0
+ 1073 0087 49       		.uleb128 0x49
+ 1074 0088 13       		.uleb128 0x13
+ 1075 0089 00       		.byte	0
+ 1076 008a 00       		.byte	0
+ 1077 008b 0C       		.uleb128 0xc
+ 1078 008c 01       		.uleb128 0x1
+ 1079 008d 01       		.byte	0x1
+ 1080 008e 49       		.uleb128 0x49
+ 1081 008f 13       		.uleb128 0x13
+ 1082 0090 01       		.uleb128 0x1
+ 1083 0091 13       		.uleb128 0x13
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccR6EWto.s 			page 20
+
+
+ 1084 0092 00       		.byte	0
+ 1085 0093 00       		.byte	0
+ 1086 0094 0D       		.uleb128 0xd
+ 1087 0095 21       		.uleb128 0x21
+ 1088 0096 00       		.byte	0
+ 1089 0097 49       		.uleb128 0x49
+ 1090 0098 13       		.uleb128 0x13
+ 1091 0099 2F       		.uleb128 0x2f
+ 1092 009a 0B       		.uleb128 0xb
+ 1093 009b 00       		.byte	0
+ 1094 009c 00       		.byte	0
+ 1095 009d 0E       		.uleb128 0xe
+ 1096 009e 0D       		.uleb128 0xd
+ 1097 009f 00       		.byte	0
+ 1098 00a0 03       		.uleb128 0x3
+ 1099 00a1 08       		.uleb128 0x8
+ 1100 00a2 3A       		.uleb128 0x3a
+ 1101 00a3 0B       		.uleb128 0xb
+ 1102 00a4 3B       		.uleb128 0x3b
+ 1103 00a5 05       		.uleb128 0x5
+ 1104 00a6 49       		.uleb128 0x49
+ 1105 00a7 13       		.uleb128 0x13
+ 1106 00a8 38       		.uleb128 0x38
+ 1107 00a9 0A       		.uleb128 0xa
+ 1108 00aa 00       		.byte	0
+ 1109 00ab 00       		.byte	0
+ 1110 00ac 0F       		.uleb128 0xf
+ 1111 00ad 2E       		.uleb128 0x2e
+ 1112 00ae 00       		.byte	0
+ 1113 00af 03       		.uleb128 0x3
+ 1114 00b0 0E       		.uleb128 0xe
+ 1115 00b1 3A       		.uleb128 0x3a
+ 1116 00b2 0B       		.uleb128 0xb
+ 1117 00b3 3B       		.uleb128 0x3b
+ 1118 00b4 0B       		.uleb128 0xb
+ 1119 00b5 27       		.uleb128 0x27
+ 1120 00b6 0C       		.uleb128 0xc
+ 1121 00b7 20       		.uleb128 0x20
+ 1122 00b8 0B       		.uleb128 0xb
+ 1123 00b9 00       		.byte	0
+ 1124 00ba 00       		.byte	0
+ 1125 00bb 10       		.uleb128 0x10
+ 1126 00bc 2E       		.uleb128 0x2e
+ 1127 00bd 01       		.byte	0x1
+ 1128 00be 3F       		.uleb128 0x3f
+ 1129 00bf 0C       		.uleb128 0xc
+ 1130 00c0 03       		.uleb128 0x3
+ 1131 00c1 0E       		.uleb128 0xe
+ 1132 00c2 3A       		.uleb128 0x3a
+ 1133 00c3 0B       		.uleb128 0xb
+ 1134 00c4 3B       		.uleb128 0x3b
+ 1135 00c5 0B       		.uleb128 0xb
+ 1136 00c6 27       		.uleb128 0x27
+ 1137 00c7 0C       		.uleb128 0xc
+ 1138 00c8 11       		.uleb128 0x11
+ 1139 00c9 01       		.uleb128 0x1
+ 1140 00ca 12       		.uleb128 0x12
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccR6EWto.s 			page 21
+
+
+ 1141 00cb 01       		.uleb128 0x1
+ 1142 00cc 40       		.uleb128 0x40
+ 1143 00cd 06       		.uleb128 0x6
+ 1144 00ce 9742     		.uleb128 0x2117
+ 1145 00d0 0C       		.uleb128 0xc
+ 1146 00d1 01       		.uleb128 0x1
+ 1147 00d2 13       		.uleb128 0x13
+ 1148 00d3 00       		.byte	0
+ 1149 00d4 00       		.byte	0
+ 1150 00d5 11       		.uleb128 0x11
+ 1151 00d6 1D       		.uleb128 0x1d
+ 1152 00d7 00       		.byte	0
+ 1153 00d8 31       		.uleb128 0x31
+ 1154 00d9 13       		.uleb128 0x13
+ 1155 00da 52       		.uleb128 0x52
+ 1156 00db 01       		.uleb128 0x1
+ 1157 00dc 55       		.uleb128 0x55
+ 1158 00dd 06       		.uleb128 0x6
+ 1159 00de 58       		.uleb128 0x58
+ 1160 00df 0B       		.uleb128 0xb
+ 1161 00e0 59       		.uleb128 0x59
+ 1162 00e1 0B       		.uleb128 0xb
+ 1163 00e2 00       		.byte	0
+ 1164 00e3 00       		.byte	0
+ 1165 00e4 12       		.uleb128 0x12
+ 1166 00e5 898201   		.uleb128 0x4109
+ 1167 00e8 00       		.byte	0
+ 1168 00e9 11       		.uleb128 0x11
+ 1169 00ea 01       		.uleb128 0x1
+ 1170 00eb 9542     		.uleb128 0x2115
+ 1171 00ed 0C       		.uleb128 0xc
+ 1172 00ee 31       		.uleb128 0x31
+ 1173 00ef 13       		.uleb128 0x13
+ 1174 00f0 00       		.byte	0
+ 1175 00f1 00       		.byte	0
+ 1176 00f2 13       		.uleb128 0x13
+ 1177 00f3 2E       		.uleb128 0x2e
+ 1178 00f4 00       		.byte	0
+ 1179 00f5 3F       		.uleb128 0x3f
+ 1180 00f6 0C       		.uleb128 0xc
+ 1181 00f7 03       		.uleb128 0x3
+ 1182 00f8 0E       		.uleb128 0xe
+ 1183 00f9 3A       		.uleb128 0x3a
+ 1184 00fa 0B       		.uleb128 0xb
+ 1185 00fb 3B       		.uleb128 0x3b
+ 1186 00fc 0B       		.uleb128 0xb
+ 1187 00fd 27       		.uleb128 0x27
+ 1188 00fe 0C       		.uleb128 0xc
+ 1189 00ff 11       		.uleb128 0x11
+ 1190 0100 01       		.uleb128 0x1
+ 1191 0101 12       		.uleb128 0x12
+ 1192 0102 01       		.uleb128 0x1
+ 1193 0103 40       		.uleb128 0x40
+ 1194 0104 0A       		.uleb128 0xa
+ 1195 0105 9742     		.uleb128 0x2117
+ 1196 0107 0C       		.uleb128 0xc
+ 1197 0108 00       		.byte	0
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccR6EWto.s 			page 22
+
+
+ 1198 0109 00       		.byte	0
+ 1199 010a 14       		.uleb128 0x14
+ 1200 010b 34       		.uleb128 0x34
+ 1201 010c 00       		.byte	0
+ 1202 010d 03       		.uleb128 0x3
+ 1203 010e 0E       		.uleb128 0xe
+ 1204 010f 3A       		.uleb128 0x3a
+ 1205 0110 0B       		.uleb128 0xb
+ 1206 0111 3B       		.uleb128 0x3b
+ 1207 0112 05       		.uleb128 0x5
+ 1208 0113 49       		.uleb128 0x49
+ 1209 0114 13       		.uleb128 0x13
+ 1210 0115 3F       		.uleb128 0x3f
+ 1211 0116 0C       		.uleb128 0xc
+ 1212 0117 3C       		.uleb128 0x3c
+ 1213 0118 0C       		.uleb128 0xc
+ 1214 0119 00       		.byte	0
+ 1215 011a 00       		.byte	0
+ 1216 011b 15       		.uleb128 0x15
+ 1217 011c 2E       		.uleb128 0x2e
+ 1218 011d 00       		.byte	0
+ 1219 011e 3F       		.uleb128 0x3f
+ 1220 011f 0C       		.uleb128 0xc
+ 1221 0120 03       		.uleb128 0x3
+ 1222 0121 0E       		.uleb128 0xe
+ 1223 0122 3A       		.uleb128 0x3a
+ 1224 0123 0B       		.uleb128 0xb
+ 1225 0124 3B       		.uleb128 0x3b
+ 1226 0125 05       		.uleb128 0x5
+ 1227 0126 27       		.uleb128 0x27
+ 1228 0127 0C       		.uleb128 0xc
+ 1229 0128 3C       		.uleb128 0x3c
+ 1230 0129 0C       		.uleb128 0xc
+ 1231 012a 00       		.byte	0
+ 1232 012b 00       		.byte	0
+ 1233 012c 00       		.byte	0
+ 1234              		.section	.debug_loc,"",%progbits
+ 1235              	.Ldebug_loc0:
+ 1236              	.LLST0:
+ 1237 0000 00000000 		.4byte	.LFB119
+ 1238 0004 0A000000 		.4byte	.LCFI0
+ 1239 0008 0200     		.2byte	0x2
+ 1240 000a 7D       		.byte	0x7d
+ 1241 000b 00       		.sleb128 0
+ 1242 000c 0A000000 		.4byte	.LCFI0
+ 1243 0010 A6000000 		.4byte	.LFE119
+ 1244 0014 0200     		.2byte	0x2
+ 1245 0016 7D       		.byte	0x7d
+ 1246 0017 0C       		.sleb128 12
+ 1247 0018 00000000 		.4byte	0
+ 1248 001c 00000000 		.4byte	0
+ 1249              		.section	.debug_aranges,"",%progbits
+ 1250 0000 24000000 		.4byte	0x24
+ 1251 0004 0200     		.2byte	0x2
+ 1252 0006 00000000 		.4byte	.Ldebug_info0
+ 1253 000a 04       		.byte	0x4
+ 1254 000b 00       		.byte	0
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccR6EWto.s 			page 23
+
+
+ 1255 000c 0000     		.2byte	0
+ 1256 000e 0000     		.2byte	0
+ 1257 0010 00000000 		.4byte	.LFB119
+ 1258 0014 A6000000 		.4byte	.LFE119-.LFB119
+ 1259 0018 00000000 		.4byte	.LFB120
+ 1260 001c DE000000 		.4byte	.LFE120-.LFB120
+ 1261 0020 00000000 		.4byte	0
+ 1262 0024 00000000 		.4byte	0
+ 1263              		.section	.debug_ranges,"",%progbits
+ 1264              	.Ldebug_ranges0:
+ 1265 0000 66000000 		.4byte	.LBB4
+ 1266 0004 6E000000 		.4byte	.LBE4
+ 1267 0008 74000000 		.4byte	.LBB7
+ 1268 000c A0000000 		.4byte	.LBE7
+ 1269 0010 00000000 		.4byte	0
+ 1270 0014 00000000 		.4byte	0
+ 1271 0018 00000000 		.4byte	.LFB119
+ 1272 001c A6000000 		.4byte	.LFE119
+ 1273 0020 00000000 		.4byte	.LFB120
+ 1274 0024 DE000000 		.4byte	.LFE120
+ 1275 0028 00000000 		.4byte	0
+ 1276 002c 00000000 		.4byte	0
+ 1277              		.section	.debug_line,"",%progbits
+ 1278              	.Ldebug_line0:
+ 1279 0000 CA010000 		.section	.debug_str,"MS",%progbits,1
+ 1279      02002001 
+ 1279      00000201 
+ 1279      FB0E0D00 
+ 1279      01010101 
+ 1280              	.LASF54:
+ 1281 0000 41484231 		.ascii	"AHB1LPENR\000"
+ 1281      4C50454E 
+ 1281      5200
+ 1282              	.LASF44:
+ 1283 000a 41504231 		.ascii	"APB1RSTR\000"
+ 1283      52535452 
+ 1283      00
+ 1284              	.LASF48:
+ 1285 0013 41484232 		.ascii	"AHB2ENR\000"
+ 1285      454E5200 
+ 1286              	.LASF18:
+ 1287 001b 44454D43 		.ascii	"DEMCR\000"
+ 1287      5200
+ 1288              	.LASF3:
+ 1289 0021 73686F72 		.ascii	"short int\000"
+ 1289      7420696E 
+ 1289      7400
+ 1290              	.LASF14:
+ 1291 002b 73697A65 		.ascii	"sizetype\000"
+ 1291      74797065 
+ 1291      00
+ 1292              	.LASF61:
+ 1293 0034 42444352 		.ascii	"BDCR\000"
+ 1293      00
+ 1294              	.LASF27:
+ 1295 0039 50435352 		.ascii	"PCSR\000"
+ 1295      00
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccR6EWto.s 			page 24
+
+
+ 1296              	.LASF26:
+ 1297 003e 464F4C44 		.ascii	"FOLDCNT\000"
+ 1297      434E5400 
+ 1298              	.LASF64:
+ 1299 0046 504C4C49 		.ascii	"PLLI2SCFGR\000"
+ 1299      32534346 
+ 1299      475200
+ 1300              	.LASF37:
+ 1301 0051 5057525F 		.ascii	"PWR_TypeDef\000"
+ 1301      54797065 
+ 1301      44656600 
+ 1302              	.LASF28:
+ 1303 005d 434D785F 		.ascii	"CMx_DWT\000"
+ 1303      44575400 
+ 1304              	.LASF63:
+ 1305 0065 53534347 		.ascii	"SSCGR\000"
+ 1305      5200
+ 1306              	.LASF20:
+ 1307 006b 4354524C 		.ascii	"CTRL\000"
+ 1307      00
+ 1308              	.LASF56:
+ 1309 0070 41484233 		.ascii	"AHB3LPENR\000"
+ 1309      4C50454E 
+ 1309      5200
+ 1310              	.LASF39:
+ 1311 007a 43464752 		.ascii	"CFGR\000"
+ 1311      00
+ 1312              	.LASF22:
+ 1313 007f 43504943 		.ascii	"CPICNT\000"
+ 1313      4E5400
+ 1314              	.LASF51:
+ 1315 0086 41504231 		.ascii	"APB1ENR\000"
+ 1315      454E5200 
+ 1316              	.LASF16:
+ 1317 008e 44435253 		.ascii	"DCRSR\000"
+ 1317      5200
+ 1318              	.LASF69:
+ 1319 0094 68616C5F 		.ascii	"hal_lld_backup_domain_init\000"
+ 1319      6C6C645F 
+ 1319      6261636B 
+ 1319      75705F64 
+ 1319      6F6D6169 
+ 1320              	.LASF17:
+ 1321 00af 44435244 		.ascii	"DCRDR\000"
+ 1321      5200
+ 1322              	.LASF13:
+ 1323 00b5 494F5245 		.ascii	"IOREG32\000"
+ 1323      47333200 
+ 1324              	.LASF34:
+ 1325 00bd 4F50544B 		.ascii	"OPTKEYR\000"
+ 1325      45595200 
+ 1326              	.LASF10:
+ 1327 00c5 6C6F6E67 		.ascii	"long long int\000"
+ 1327      206C6F6E 
+ 1327      6720696E 
+ 1327      7400
+ 1328              	.LASF21:
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccR6EWto.s 			page 25
+
+
+ 1329 00d3 43594343 		.ascii	"CYCCNT\000"
+ 1329      4E5400
+ 1330              	.LASF31:
+ 1331 00da 43414C49 		.ascii	"CALIB\000"
+ 1331      4200
+ 1332              	.LASF15:
+ 1333 00e0 44484353 		.ascii	"DHCSR\000"
+ 1333      5200
+ 1334              	.LASF7:
+ 1335 00e6 6C6F6E67 		.ascii	"long int\000"
+ 1335      20696E74 
+ 1335      00
+ 1336              	.LASF65:
+ 1337 00ef 5243435F 		.ascii	"RCC_TypeDef\000"
+ 1337      54797065 
+ 1337      44656600 
+ 1338              	.LASF45:
+ 1339 00fb 41504232 		.ascii	"APB2RSTR\000"
+ 1339      52535452 
+ 1339      00
+ 1340              	.LASF71:
+ 1341 0104 73746D33 		.ascii	"stm32_clock_init\000"
+ 1341      325F636C 
+ 1341      6F636B5F 
+ 1341      696E6974 
+ 1341      00
+ 1342              	.LASF49:
+ 1343 0115 41484233 		.ascii	"AHB3ENR\000"
+ 1343      454E5200 
+ 1344              	.LASF33:
+ 1345 011d 4B455952 		.ascii	"KEYR\000"
+ 1345      00
+ 1346              	.LASF23:
+ 1347 0122 45584343 		.ascii	"EXCCNT\000"
+ 1347      4E5400
+ 1348              	.LASF2:
+ 1349 0129 756E7369 		.ascii	"unsigned char\000"
+ 1349      676E6564 
+ 1349      20636861 
+ 1349      7200
+ 1350              	.LASF52:
+ 1351 0137 41504232 		.ascii	"APB2ENR\000"
+ 1351      454E5200 
+ 1352              	.LASF1:
+ 1353 013f 7369676E 		.ascii	"signed char\000"
+ 1353      65642063 
+ 1353      68617200 
+ 1354              	.LASF11:
+ 1355 014b 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1355      206C6F6E 
+ 1355      6720756E 
+ 1355      7369676E 
+ 1355      65642069 
+ 1356              	.LASF8:
+ 1357 0162 75696E74 		.ascii	"uint32_t\000"
+ 1357      33325F74 
+ 1357      00
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccR6EWto.s 			page 26
+
+
+ 1358              	.LASF0:
+ 1359 016b 756E7369 		.ascii	"unsigned int\000"
+ 1359      676E6564 
+ 1359      20696E74 
+ 1359      00
+ 1360              	.LASF41:
+ 1361 0178 41484232 		.ascii	"AHB2RSTR\000"
+ 1361      52535452 
+ 1361      00
+ 1362              	.LASF66:
+ 1363 0181 474E5520 		.ascii	"GNU C 4.7.4 20130913 (release) [ARM/embedded-4_7-br"
+ 1363      4320342E 
+ 1363      372E3420 
+ 1363      32303133 
+ 1363      30393133 
+ 1364 01b4 616E6368 		.ascii	"anch revision 202601]\000"
+ 1364      20726576 
+ 1364      6973696F 
+ 1364      6E203230 
+ 1364      32363031 
+ 1365              	.LASF9:
+ 1366 01ca 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1366      20756E73 
+ 1366      69676E65 
+ 1366      6420696E 
+ 1366      7400
+ 1367              	.LASF70:
+ 1368 01dc 68616C5F 		.ascii	"hal_lld_init\000"
+ 1368      6C6C645F 
+ 1368      696E6974 
+ 1368      00
+ 1369              	.LASF38:
+ 1370 01e9 504C4C43 		.ascii	"PLLCFGR\000"
+ 1370      46475200 
+ 1371              	.LASF32:
+ 1372 01f1 53797354 		.ascii	"SysTick_Type\000"
+ 1372      69636B5F 
+ 1372      54797065 
+ 1372      00
+ 1373              	.LASF4:
+ 1374 01fe 73686F72 		.ascii	"short unsigned int\000"
+ 1374      7420756E 
+ 1374      7369676E 
+ 1374      65642069 
+ 1374      6E7400
+ 1375              	.LASF58:
+ 1376 0211 41504231 		.ascii	"APB1LPENR\000"
+ 1376      4C50454E 
+ 1376      5200
+ 1377              	.LASF29:
+ 1378 021b 63686172 		.ascii	"char\000"
+ 1378      00
+ 1379              	.LASF5:
+ 1380 0220 75696E74 		.ascii	"uint16_t\000"
+ 1380      31365F74 
+ 1380      00
+ 1381              	.LASF19:
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccR6EWto.s 			page 27
+
+
+ 1382 0229 434D785F 		.ascii	"CMx_SCS\000"
+ 1382      53435300 
+ 1383              	.LASF6:
+ 1384 0231 696E7433 		.ascii	"int32_t\000"
+ 1384      325F7400 
+ 1385              	.LASF12:
+ 1386 0239 5F426F6F 		.ascii	"_Bool\000"
+ 1386      6C00
+ 1387              	.LASF55:
+ 1388 023f 41484232 		.ascii	"AHB2LPENR\000"
+ 1388      4C50454E 
+ 1388      5200
+ 1389              	.LASF73:
+ 1390 0249 646D6149 		.ascii	"dmaInit\000"
+ 1390      6E697400 
+ 1391              	.LASF43:
+ 1392 0251 52455345 		.ascii	"RESERVED0\000"
+ 1392      52564544 
+ 1392      3000
+ 1393              	.LASF46:
+ 1394 025b 52455345 		.ascii	"RESERVED1\000"
+ 1394      52564544 
+ 1394      3100
+ 1395              	.LASF50:
+ 1396 0265 52455345 		.ascii	"RESERVED2\000"
+ 1396      52564544 
+ 1396      3200
+ 1397              	.LASF53:
+ 1398 026f 52455345 		.ascii	"RESERVED3\000"
+ 1398      52564544 
+ 1398      3300
+ 1399              	.LASF57:
+ 1400 0279 52455345 		.ascii	"RESERVED4\000"
+ 1400      52564544 
+ 1400      3400
+ 1401              	.LASF60:
+ 1402 0283 52455345 		.ascii	"RESERVED5\000"
+ 1402      52564544 
+ 1402      3500
+ 1403              	.LASF62:
+ 1404 028d 52455345 		.ascii	"RESERVED6\000"
+ 1404      52564544 
+ 1404      3600
+ 1405              	.LASF24:
+ 1406 0297 534C4545 		.ascii	"SLEEPCNT\000"
+ 1406      50434E54 
+ 1406      00
+ 1407              	.LASF67:
+ 1408 02a0 2E2E2F2E 		.ascii	"../../os/hal/platforms/STM32F4xx/hal_lld.c\000"
+ 1408      2E2F6F73 
+ 1408      2F68616C 
+ 1408      2F706C61 
+ 1408      74666F72 
+ 1409              	.LASF25:
+ 1410 02cb 4C535543 		.ascii	"LSUCNT\000"
+ 1410      4E5400
+ 1411              	.LASF30:
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccR6EWto.s 			page 28
+
+
+ 1412 02d2 4C4F4144 		.ascii	"LOAD\000"
+ 1412      00
+ 1413              	.LASF40:
+ 1414 02d7 41484231 		.ascii	"AHB1RSTR\000"
+ 1414      52535452 
+ 1414      00
+ 1415              	.LASF47:
+ 1416 02e0 41484231 		.ascii	"AHB1ENR\000"
+ 1416      454E5200 
+ 1417              	.LASF42:
+ 1418 02e8 41484233 		.ascii	"AHB3RSTR\000"
+ 1418      52535452 
+ 1418      00
+ 1419              	.LASF36:
+ 1420 02f1 464C4153 		.ascii	"FLASH_TypeDef\000"
+ 1420      485F5479 
+ 1420      70654465 
+ 1420      6600
+ 1421              	.LASF72:
+ 1422 02ff 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1422      52784275 
+ 1422      66666572 
+ 1422      00
+ 1423              	.LASF68:
+ 1424 030c 443A5C6A 		.ascii	"D:\\jenny\\dev\\probe\\chibios\\chibios.workspace\\"
+ 1424      656E6E79 
+ 1424      5C646576 
+ 1424      5C70726F 
+ 1424      62655C63 
+ 1425 0339 64656D6F 		.ascii	"demos\\ARMCM4-STM32F407-LWIP-FATFS-USB\000"
+ 1425      735C4152 
+ 1425      4D434D34 
+ 1425      2D53544D 
+ 1425      33324634 
+ 1426              	.LASF59:
+ 1427 035f 41504232 		.ascii	"APB2LPENR\000"
+ 1427      4C50454E 
+ 1427      5200
+ 1428              	.LASF35:
+ 1429 0369 4F505443 		.ascii	"OPTCR\000"
+ 1429      5200
+ 1430              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.7.4 20130913 (release) [ARM/embedded-4_7-br
+ARM GAS  C:\Users\jenny\AppData\Local\Temp\ccR6EWto.s 			page 29
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 hal_lld.c
+C:\Users\jenny\AppData\Local\Temp\ccR6EWto.s:20     .text.hal_lld_init:00000000 $t
+C:\Users\jenny\AppData\Local\Temp\ccR6EWto.s:26     .text.hal_lld_init:00000000 hal_lld_init
+C:\Users\jenny\AppData\Local\Temp\ccR6EWto.s:144    .text.stm32_clock_init:00000000 $t
+C:\Users\jenny\AppData\Local\Temp\ccR6EWto.s:150    .text.stm32_clock_init:00000000 stm32_clock_init
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+dmaInit
