@@ -29,6 +29,8 @@
 
 #include "ff.h"
 
+#include "myclass.h"
+
 /*===========================================================================*/
 /* Card insertion monitor.                                                   */
 /*===========================================================================*/
@@ -606,6 +608,9 @@ static msg_t Thread1(void *arg) {
  * Application entry point.
  */
 int main(void) {
+
+
+
   static Thread *shelltp = NULL;
   static const evhandler_t evhndl[] = {
     InsertHandler,
@@ -672,6 +677,8 @@ int main(void) {
    */
   chThdCreateStatic(wa_http_server, sizeof(wa_http_server), NORMALPRIO + 1,
                     http_server, NULL);
+
+  MyClass_method(MyClass_getSingletone(), 14);
 
   /*
    * Normal main() thread activity, in this demo it does nothing except
