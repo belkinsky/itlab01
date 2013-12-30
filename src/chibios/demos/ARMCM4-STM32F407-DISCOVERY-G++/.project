@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>ARMCM4-STM32F407-LWIP-FATFS-USB</name>
+	<name>ARMCM4-STM32F407-DISCOVERY-G++</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -19,11 +19,11 @@
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.make.core.autoBuildTarget</key>
-					<value></value>
+					<value>all</value>
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.make.core.buildArguments</key>
-					<value>SHELL=&quot;bash.exe&quot; USE_VERBOSE_COMPILE=yes USE_FPU=yes -j 4</value>
+					<value>-j1</value>
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.make.core.buildCommand</key>
@@ -31,7 +31,7 @@
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.make.core.cleanBuildTarget</key>
-					<value></value>
+					<value>clean</value>
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.make.core.contents</key>
@@ -51,7 +51,7 @@
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.make.core.fullBuildTarget</key>
-					<value></value>
+					<value>all</value>
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.make.core.stopOnError</key>
@@ -59,7 +59,7 @@
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.make.core.useDefaultBuildCmd</key>
-					<value>false</value>
+					<value>true</value>
 				</dictionary>
 			</arguments>
 		</buildCommand>
@@ -79,17 +79,7 @@
 		<link>
 			<name>board</name>
 			<type>2</type>
-			<locationURI>WORKSPACE_LOC/boards/OLIMEX_STM32_E407</locationURI>
-		</link>
-		<link>
-			<name>fatfs</name>
-			<type>2</type>
-			<locationURI>WORKSPACE_LOC/ext/fatfs</locationURI>
-		</link>
-		<link>
-			<name>lwip</name>
-			<type>2</type>
-			<locationURI>WORKSPACE_LOC/ext/lwip</locationURI>
+			<locationURI>WORKSPACE_LOC/boards/ST_STM32F4_DISCOVERY</locationURI>
 		</link>
 		<link>
 			<name>os</name>
