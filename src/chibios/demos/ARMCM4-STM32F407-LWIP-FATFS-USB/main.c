@@ -16,6 +16,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include "servo.h"
 
 #include "ch.h"
 #include "hal.h"
@@ -606,6 +607,8 @@ static msg_t Thread1(void *arg) {
  * Application entry point.
  */
 int main(void) {
+	servo a;
+	a.servo();
   static Thread *shelltp = NULL;
   static const evhandler_t evhndl[] = {
     InsertHandler,

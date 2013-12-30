@@ -17,6 +17,8 @@
 #include <stdio.h>
 #include <string.h>
 
+#include "servo.h"
+
 #include "ch.h"
 #include "hal.h"
 #include "test.h"
@@ -58,13 +60,9 @@ static EventSource inserted_event, removed_event;
  *
  * @notapi
  */
-class abc
-{
-
-};
 
 static void tmrfunc(void *p) {
-  BaseBlockDevice *bbdp = p;
+  BaseBlockDevice *bbdp = static_cast<BaseBlockDevice *>(p);
 
   chSysLockFromIsr();
   if (cnt > 0) {
