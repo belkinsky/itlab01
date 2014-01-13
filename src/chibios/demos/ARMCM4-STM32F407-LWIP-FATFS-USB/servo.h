@@ -1,12 +1,9 @@
-#include "ch.h"
-#include "hal.h"
-
-
 #ifndef _SERVO_H_
 #define _SERVO_H_
 
 #include "ch.h"
 #include "hal.h"
+#include "pal.h"
 
 typedef struct Servo_t {
         ioportid_t port;                        // The GPIO port on which the servo is connected

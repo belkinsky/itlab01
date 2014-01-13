@@ -6,7 +6,7 @@ static PWMConfig pwmcfg = {
         NULL,                // no callback
         NULL,                // channel configuration set dynamicall in servoInit()
     0
-}
+};
 
 void servoInit(Servo *servo) {
         /* create the channel configuration */
@@ -14,7 +14,7 @@ void servoInit(Servo *servo) {
         pwmcfg.channels[servo->pwm_channel] = chcfg;
 
         /* configure PAL */
-        #if defined(STM32F1XX)
+        #if defined(STM32F4XX)
                 palSetPadMode(servo->port, servo->pin, PAL_MODE_STM32_ALTERNATE_PUSHPULL);
         #else
                 #error "PAL configuration for this device not implemented yet - Please modify servoInit()"
