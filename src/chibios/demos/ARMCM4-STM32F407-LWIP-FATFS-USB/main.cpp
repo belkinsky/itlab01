@@ -14,14 +14,14 @@
     limitations under the License.
 */
 
-#include <stdio.h>
+#include "ch.hpp"
+#include "hal.h"
+#include "test.h"
+
 #include <string.h>
 
 #include "servo.h"
 
-#include "ch.h"
-#include "hal.h"
-#include "test.h"
 
 #include "chprintf.h"
 #include "shell.h"

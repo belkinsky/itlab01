@@ -15,7 +15,7 @@ void servoInit(Servo *servo) {
 
         /* configure PAL */
         #if defined(STM32F4XX)
-                palSetPadMode(servo->port, servo->pin, PAL_MODE_STM32_ALTERNATE_PUSHPULL);
+                palSetPadMode(servo->port, servo->pin, PAL_MODE_ALTERNATE(PAL_STM32_OTYPE_PUSHPULL));
         #else
                 #error "PAL configuration for this device not implemented yet - Please modify servoInit()"
         #endif
