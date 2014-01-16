@@ -593,27 +593,41 @@ static void RemoveHandler(eventid_t id) {
 /*
  * Green LED blinker thread, times are in milliseconds.
  */
-/*static WORKING_AREA(waThread1, 128);
-static msg_t Thread1(void *arg) {
+static WORKING_AREA(waBlinker, 128);
+static msg_t Thread1(void *arg)
+{
+	(void)arg;
+	chRegSetThreadName("blinker");
 
-  (void)arg;
-  chRegSetThreadName("blinker");
-  while (TRUE) {
-    palTogglePad(GPIOC, GPIOC_LED);
-    chThdSleepMilliseconds(fs_ready ? 125 : 500);
-  }
+	palClearPad(GPIOG, GPIOG_PIN8);
+	palSetPad(GPIOC, GPIOC_LED);
+
+	while (TRUE)
+	{
+		if (palReadPad(GPIOG, GPIOG_PIN8) == PAL_HIGH)
+		{
+			palClearPad(GPIOC, GPIOC_LED); // LOW_LEVEL
+			chThdSleepMilliseconds(1);
+		}
+		palClearPad(GPIOG, GPIOG_PIN8);
+		palSetPad(GPIOC, GPIOC_LED);
+	}
+
   return (msg_t)0;
 }
-*/
+
 /*
  * Application entry point.
  */
 int main(void) {
+
   static Thread *shelltp = NULL;
+
   static const evhandler_t evhndl[] = {
     InsertHandler,
     RemoveHandler
   };
+
   struct EventListener el0, el1;
 
   /*
@@ -662,7 +676,7 @@ int main(void) {
   /*
    * Creates the blinker thread.
    */
-  //chThdCreateStatic(waThread1, sizeof(waThread1), NORMALPRIO, Thread1, NULL);
+  chThdCreateStatic(waBlinker, sizeof(waBlinker), NORMALPRIO, Thread1, NULL);
 
   /*
    * Creates the LWIP threads (it changes priority internally).
