@@ -9,8 +9,8 @@
 #include "servo.h"
 
 static PWMConfig pwmcfg = {
-    1000000,        // 1MHz PWM clock frequency
-    20000,                // PWM period 20 milliseconds
+    10000,        // 1MHz PWM clock frequency
+    10000,                // PWM period 20 milliseconds
         NULL,                // no callback
         NULL,                // channel configuration set dynamicall in servoInit()
     0

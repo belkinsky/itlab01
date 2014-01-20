@@ -559,6 +559,15 @@ static const ShellConfig shell_cfg1 = {
 /* Main and generic code.                                                    */
 /*===========================================================================*/
 
+Servo servo1 = {
+        GPIOE,
+        GPIOE_PIN5,
+        &PWMD9,
+        0x0,
+        1,
+        65535
+};
+
 /*
  * Card insertion event.
  */
@@ -588,6 +597,31 @@ static void RemoveHandler(eventid_t id) {
   (void)id;
   sdcDisconnect(&SDCD1);
   fs_ready = FALSE;
+}
+
+/*
+ * GERIKON mover thread
+ */
+static WORKING_AREA(waGerikon, 128);
+static msg_t Thread2(void *arg)
+{
+	UINT i;
+
+	(void)arg;
+	chRegSetThreadName("gerikon");
+
+	servoInit(&servo1);
+
+	while(TRUE)
+	{
+		for(i = 1 ; i < 65535 ; i++)
+		{
+                servoSetValue(&servo1, i);
+                chThdSleepMilliseconds(2000);
+		}
+	}
+
+	return 0;
 }
 
 /*
@@ -676,7 +710,12 @@ int main(void) {
   /*
    * Creates the blinker thread.
    */
-  chThdCreateStatic(waBlinker, sizeof(waBlinker), NORMALPRIO, Thread1, NULL);
+  //chThdCreateStatic(waBlinker, sizeof(waBlinker), NORMALPRIO +3, Thread1, NULL);
+
+  /*
+   * Activates the GERIKON thread
+   */
+  chThdCreateStatic(waGerikon, sizeof(waGerikon), NORMALPRIO, Thread2, NULL);
 
   /*
    * Creates the LWIP threads (it changes priority internally).
