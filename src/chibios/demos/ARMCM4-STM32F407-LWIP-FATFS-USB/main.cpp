@@ -14,6 +14,10 @@
     limitations under the License.
 */
 
+#include "chconf.h"
+#include "mcuconf.h"
+#include "ffconf.h"
+
 #include "ch.hpp"
 #include "hal.h"
 #include "test.h"
@@ -560,12 +564,12 @@ static const ShellConfig shell_cfg1 = {
 /*===========================================================================*/
 
 Servo servo1 = {
-        GPIOE,
-        GPIOE_PIN5,
-        &PWMD9,
-        0x0,
-        1,
-        65535
+        .port = GPIOE,
+        .pin = GPIOE_PIN5,
+        .pwm_driver = &PWMD9,
+        .pwm_channel = 0x0,
+        .min = 1,
+        .max = 20000
 };
 
 /*
@@ -611,14 +615,19 @@ static msg_t Thread2(void *arg)
 	chRegSetThreadName("gerikon");
 
 	servoInit(&servo1);
+	palTogglePad(GPIOC, GPIOC_LED);
 
 	while(TRUE)
 	{
-		for(i = 1 ; i < 65535 ; i++)
+		for(i = servo1.min; i < servo1.max ; i+=50)
 		{
                 servoSetValue(&servo1, i);
-                chThdSleepMilliseconds(2000);
+                chThdSleepMilliseconds(90);
+            	palTogglePad(GPIOC, GPIOC_LED);
+                chThdSleepMilliseconds(10);
+            	palTogglePad(GPIOC, GPIOC_LED);
 		}
+		palTogglePad(GPIOC, GPIOC_LED);
 	}
 
 	return 0;
@@ -674,6 +683,7 @@ int main(void) {
   halInit();
   chSysInit();
 
+#if 0
   /*
    * Initializes a serial-over-USB CDC driver.
    */
@@ -711,11 +721,14 @@ int main(void) {
    * Creates the blinker thread.
    */
   //chThdCreateStatic(waBlinker, sizeof(waBlinker), NORMALPRIO +3, Thread1, NULL);
+#endif
 
   /*
    * Activates the GERIKON thread
    */
   chThdCreateStatic(waGerikon, sizeof(waGerikon), NORMALPRIO, Thread2, NULL);
+
+#if 0
 
   /*
    * Creates the LWIP threads (it changes priority internally).
@@ -745,5 +758,10 @@ int main(void) {
     if (palReadPad(GPIOA, GPIOA_BUTTON_WKUP) != 0) {
     }
     chEvtDispatch(evhndl, chEvtWaitOneTimeout(ALL_EVENTS, MS2ST(500)));
+  }
+#endif
+  while(TRUE)
+  {
+	  chThdSleepMilliseconds(1000);
   }
 }

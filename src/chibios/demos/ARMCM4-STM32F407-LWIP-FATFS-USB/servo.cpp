@@ -6,14 +6,24 @@
  * Author: Joel Bodenmann aka Tectu   <joel@unormal.org>
  */
 
+#include "chconf.h"
+#include "mcuconf.h"
+#include "ffconf.h"
+
+
 #include "servo.h"
 
 static PWMConfig pwmcfg = {
-    10000,        // 1MHz PWM clock frequency
-    10000,                // PWM period 20 milliseconds
-        NULL,                // no callback
-        NULL,                // channel configuration set dynamicall in servoInit()
-    0
+	.frequency = 1000000,        // 1MHz PWM clock frequency
+    .period = 20000,                // PWM period 20000 cycles -> freq/period = 50 Hz
+    .callback = NULL,                // no callback
+    .channels = // channel configuration will set dynamical in servoInit()
+    {
+    	{.mode = PWM_OUTPUT_DISABLED, .callback = NULL},
+    	{.mode = PWM_OUTPUT_DISABLED, .callback = NULL},
+    	{.mode = PWM_OUTPUT_DISABLED, .callback = NULL},
+    	{.mode = PWM_OUTPUT_DISABLED, .callback = NULL},
+    },
 };
 
 void servoInit(Servo *servo) {
