@@ -569,7 +569,7 @@ Servo servo1 = {
         .pwm_driver = &PWMD9,
         .pwm_channel = 0x0,
         .min = 1,
-        .max = 20000
+        .max = 20000,
 };
 
 /*
