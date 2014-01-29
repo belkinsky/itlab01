@@ -12,9 +12,9 @@ public:
   {
   }
 
-  virtual void beginState( T state ) {}
-  virtual void updateState( T state ) {}
-  virtual void endState( T state ) {}
+  void beginState( T state ) {}
+  void updateState( T state ) {}
+  void endState( T state ) {}
 
   void setState( T state )
   {
@@ -50,7 +50,7 @@ enum EState
   STT_EAT
 };
 
-class MainFsm: public SimplesFsm<EState>
+class MainFsm: public SimpleFsm<EState>
 {
 public:
   // ...
