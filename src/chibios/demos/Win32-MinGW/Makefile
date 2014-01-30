@@ -19,12 +19,15 @@
 TRGT = mingw32-
 CC   = $(TRGT)gcc
 AS   = $(TRGT)gcc -x assembler-with-cpp
+CPPC = $(TRGT)g++
 
 # List all default C defines here, like -D_DEBUG=1
 DDEFS = -DSIMULATOR -DSHELL_USE_IPRINTF=FALSE
 
 # List all default ASM defines here, like -D_DEBUG=1
 DADEFS =
+
+GTEST_DIR = ../gtest-1.7.0
 
 # List all default directories to look for include files here
 DINCDIR =
@@ -75,13 +78,19 @@ SRC  = ${PORTSRC} \
        ${CHIBIOS}/os/various/chprintf.c \
        main.c
 
+
+# C++ source files here
+CPPSRC = $(CHCPPSRC) \
+       $(GTEST_DIR)/src/gtest-all.cc
+
 # List ASM source files here
 ASRC =
 
 # List all user directories here
 UINCDIR = $(PORTINC) $(KERNINC) $(TESTINC) \
           $(HALINC) $(PLATFORMINC) $(BOARDINC) \
-          ${CHIBIOS}/os/various
+          ${CHIBIOS}/os/various \
+          $(GTEST_DIR)/include
 
 # List the user directory to look for the libraries here
 ULIBDIR =
@@ -90,7 +99,7 @@ ULIBDIR =
 ULIBS =
 
 # Define optimisation level here
-OPT = -ggdb -O2 -fomit-frame-pointer
+OPT = -ggdb -O0 -fomit-frame-pointer
 
 #
 # End of user defines
@@ -101,7 +110,8 @@ INCDIR  = $(patsubst %,-I%,$(DINCDIR) $(UINCDIR))
 LIBDIR  = $(patsubst %,-L%,$(DLIBDIR) $(ULIBDIR))
 DEFS    = $(DDEFS) $(UDEFS)
 ADEFS   = $(DADEFS) $(UADEFS)
-OBJS    = $(ASRC:.s=.o) $(SRC:.c=.o)
+CPPOBJS_1 = $(CPPSRC:.cc=.o)
+OBJS    = $(ASRC:.s=.o) $(SRC:.c=.o) $(CPPOBJS_1:.cpp=.o)
 LIBS    = $(DLIBS) $(ULIBS)
 
 LDFLAGS = -Wl,-Map=$(PROJECT).map,--cref,--no-warn-mismatch $(LIBDIR)
@@ -119,6 +129,9 @@ all: $(OBJS) $(PROJECT).exe
 
 %.o : %.c
 	$(CC) -c $(CPFLAGS) -I . $(INCDIR) $< -o $@
+
+%.o : %.cpp %.cc
+	$(CPPC) -c $(CPFLAGS) -I . $(INCDIR) $< -o $@
 
 %.o : %.s
 	$(AS) -c $(ASFLAGS) $< -o $@
