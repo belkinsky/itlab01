@@ -195,12 +195,58 @@ static evhandler_t fhandlers[] = {
   sd2_handler
 };
 
+void telnetLoop()
+{
+	  EventListener tel;
+
+	  /*
+	   * Serial ports (simulated) initialization.
+	   */
+	  sdStart(&SD1, NULL);
+	  sdStart(&SD2, NULL);
+
+	  /*
+	   * Shell manager initialization.
+	   */
+	  shellInit();
+	  chEvtRegister(&shell_terminated, &tel, 0);
+
+	  /*
+	   * Console thread started.
+	   */
+	  cdtp = chThdCreateFromHeap(NULL, CONSOLE_WA_SIZE, NORMALPRIO + 1,
+	                             console_thread, NULL);
+
+	  /*
+	   * Initializing connection/disconnection events.
+	   */
+	  cputs("Shell service started on SD1, SD2");
+	  cputs("  - Listening for connections on SD1");
+	  chEvtRegister(chnGetEventSource(&SD1), &sd1fel, 1);
+	  cputs("  - Listening for connections on SD2");
+	  chEvtRegister(chnGetEventSource(&SD2), &sd2fel, 2);
+
+	  /*
+	   * Events servicing loop.
+	   */
+	  while (!chThdShouldTerminate())
+	    chEvtDispatch(fhandlers, chEvtWaitOne(ALL_EVENTS));
+
+	  /*
+	   * Clean simulator exit.
+	   */
+	  chEvtUnregister(chnGetEventSource(&SD1), &sd1fel);
+	  chEvtUnregister(chnGetEventSource(&SD2), &sd2fel);
+
+}
+
+#include "gtest/gtest.h"
+
+
 /*------------------------------------------------------------------------*
  * Simulator main.                                                        *
  *------------------------------------------------------------------------*/
-int main(void) {
-  EventListener tel;
-
+int main(int argc, char** argv) {
   /*
    * System initializations.
    * - HAL initialization, this also initializes the configured device drivers
@@ -211,43 +257,20 @@ int main(void) {
   halInit();
   chSysInit();
 
-  /*
-   * Serial ports (simulated) initialization.
-   */
-  sdStart(&SD1, NULL);
-  sdStart(&SD2, NULL);
 
-  /*
-   * Shell manager initialization.
-   */
-  shellInit();
-  chEvtRegister(&shell_terminated, &tel, 0);
+  //telnetLoop();
 
-  /*
-   * Console thread started.
-   */
-  cdtp = chThdCreateFromHeap(NULL, CONSOLE_WA_SIZE, NORMALPRIO + 1,
-                             console_thread, NULL);
+  ::testing::InitGoogleTest(&argc, argv);
+  RUN_ALL_TESTS();
 
-  /*
-   * Initializing connection/disconnection events.
-   */
-  cputs("Shell service started on SD1, SD2");
-  cputs("  - Listening for connections on SD1");
-  chEvtRegister(chnGetEventSource(&SD1), &sd1fel, 1);
-  cputs("  - Listening for connections on SD2");
-  chEvtRegister(chnGetEventSource(&SD2), &sd2fel, 2);
-
-  /*
-   * Events servicing loop.
-   */
-  while (!chThdShouldTerminate())
-    chEvtDispatch(fhandlers, chEvtWaitOne(ALL_EVENTS));
-
-  /*
-   * Clean simulator exit.
-   */
-  chEvtUnregister(chnGetEventSource(&SD1), &sd1fel);
-  chEvtUnregister(chnGetEventSource(&SD2), &sd2fel);
   return 0;
 }
+
+TEST(HelloTest, AlwaysFail) {
+  EXPECT_EQ(1, 0);
+}
+
+TEST(HelloTest, AlwaysOk) {
+  EXPECT_EQ(1, 1);
+}
+

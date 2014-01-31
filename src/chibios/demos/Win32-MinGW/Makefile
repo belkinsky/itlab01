@@ -75,13 +75,14 @@ SRC  = ${PORTSRC} \
        ${PLATFORMSRC} \
        $(BOARDSRC) \
        ${CHIBIOS}/os/various/shell.c \
-       ${CHIBIOS}/os/various/chprintf.c \
-       main.c
+       ${CHIBIOS}/os/various/chprintf.c
 
 
 # C++ source files here
 CPPSRC = $(CHCPPSRC) \
-       $(GTEST_DIR)/src/gtest-all.cc
+       $(GTEST_DIR)/src/gtest-all.cc \
+       main.cpp
+       
 
 # List ASM source files here
 ASRC =
@@ -90,7 +91,8 @@ ASRC =
 UINCDIR = $(PORTINC) $(KERNINC) $(TESTINC) \
           $(HALINC) $(PLATFORMINC) $(BOARDINC) \
           ${CHIBIOS}/os/various \
-          $(GTEST_DIR)/include
+          $(GTEST_DIR)/include \
+          $(GTEST_DIR)
 
 # List the user directory to look for the libraries here
 ULIBDIR =
@@ -117,9 +119,12 @@ LIBS    = $(DLIBS) $(ULIBS)
 LDFLAGS = -Wl,-Map=$(PROJECT).map,--cref,--no-warn-mismatch $(LIBDIR)
 ASFLAGS = -Wa,-amhls=$(<:.s=.lst) $(ADEFS)
 CPFLAGS = $(OPT) -Wall -Wextra -Wstrict-prototypes -fverbose-asm -Wa,-alms=$(<:.c=.lst) $(DEFS)
+CPPFLAGS = $(OPT) -Wall -Wextra $(DEFS)
 
 # Generate dependency information
-CPFLAGS += -MD -MP -MF .dep/$(@F).d
+DEPFFLAGS = -MD -MP -MF .dep/$(@F).d
+CPFLAGS += $(DEPSFLAGS)
+CPPFLAGS += $(DEPSFLAGS)
 
 #
 # makefile rules
@@ -127,17 +132,20 @@ CPFLAGS += -MD -MP -MF .dep/$(@F).d
 
 all: $(OBJS) $(PROJECT).exe
 
-%.o : %.c
-	$(CC) -c $(CPFLAGS) -I . $(INCDIR) $< -o $@
+%.o : %.cc
+	$(CPPC) -o $@ -c $(CPPFLAGS) -I . $(INCDIR) $<
 
-%.o : %.cpp %.cc
-	$(CPPC) -c $(CPFLAGS) -I . $(INCDIR) $< -o $@
+%.o : %.cpp
+	$(CPPC) -o $@ -c $(CPPFLAGS) -I . $(INCDIR) $<
+
+%.o : %.c
+	$(CC) -o $@ -c $(CPFLAGS) -I . $(INCDIR) $<
 
 %.o : %.s
-	$(AS) -c $(ASFLAGS) $< -o $@
+	$(AS) -o $@ -c $(ASFLAGS) $<
 
 %exe: $(OBJS)
-	$(CC) $(OBJS) $(LDFLAGS) $(LIBS) -o $@
+	$(CPPC) -o $@ $(OBJS) $(LDFLAGS) $(LIBS)
 
 gcov:
 	-mkdir gcov
