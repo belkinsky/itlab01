@@ -34,8 +34,7 @@
 #include "web/web.h"
 
 #include "ff.h"
-
-#include "myclass.h"
+#include "io_channel.h"
 
 /*===========================================================================*/
 /* Card insertion monitor.                                                   */
@@ -548,11 +547,61 @@ static void cmd_tree(BaseSequentialStream *chp, int argc, char *argv[]) {
   scan_files(chp, (char *)fbuff);
 }
 
+#include <serial.h>
+
+
+static WORKING_AREA(waSerialRedirectThread, 128);
+static msg_t serialRedirectThread(void *arg)
+{
+	BaseSequentialStream *dstStream = (BaseSequentialStream *)arg;
+	while(TRUE)
+	{
+		uint8_t readByte = (uint8_t)chSequentialStreamGet(&SD1);
+		chSequentialStreamPut(dstStream, readByte);
+		chThdSleepMilliseconds(2);
+	}
+}
+
+static void cmd_serialRedirect(BaseSequentialStream *chp, int argc, char *argv[])
+{
+	(void)argv;
+	(void)argc;
+
+	chprintf(chp, "Redirecting this console to SD1. No exit available\r\n------------\r\n\r\n");
+
+	SerialConfig cfg =
+	{
+		.speed = 115200,
+		.cr1 = 0,
+		.cr2 = 0,
+		.cr3 = 0,
+	};
+	sdStart(&SD1, &cfg);
+
+	palSetPadMode(GPIOB, 6, PAL_MODE_ALTERNATE(7));   //Tx
+	palSetPadMode(GPIOB, 7, PAL_MODE_ALTERNATE(7));   //Rx
+
+	/* start thread to read from serial and put to 'chp' stream */
+	chThdCreateStatic(waSerialRedirectThread, sizeof(waSerialRedirectThread),
+			NORMALPRIO, serialRedirectThread, chp);
+
+	chnWrite(&SD1, (const uint8_t*)"AT+ver=?\r\n", sizeof("AT+ver=?\r\n"));
+
+	while(TRUE)
+	{
+		uint8_t readByte = (uint8_t)chSequentialStreamGet(chp);
+		chSequentialStreamPut(&SD1, readByte);
+		chThdSleepMilliseconds(2);
+	}
+
+}
+
 static const ShellCommand commands[] = {
   {"mem", cmd_mem},
   {"threads", cmd_threads},
   {"test", cmd_test},
   {"tree", cmd_tree},
+  {"serial_redirect", cmd_serialRedirect},
   {NULL, NULL}
 };
 
@@ -638,6 +687,7 @@ static msg_t Thread2(void *arg)
 /*
  * Green LED blinker thread, times are in milliseconds.
  */
+/*
 static WORKING_AREA(waBlinker, 128);
 static msg_t Thread1(void *arg)
 {
@@ -660,6 +710,7 @@ static msg_t Thread1(void *arg)
 
   return (msg_t)0;
 }
+*/
 
 /*
  * Application entry point.
@@ -685,7 +736,6 @@ int main(void) {
   halInit();
   chSysInit();
 
-#if 0
   /*
    * Initializes a serial-over-USB CDC driver.
    */
@@ -723,14 +773,12 @@ int main(void) {
    * Creates the blinker thread.
    */
   //chThdCreateStatic(waBlinker, sizeof(waBlinker), NORMALPRIO +3, Thread1, NULL);
-#endif
 
   /*
    * Activates the GERIKON thread
    */
   chThdCreateStatic(waGerikon, sizeof(waGerikon), NORMALPRIO, Thread2, NULL);
 
-#if 0
 
   /*
    * Creates the LWIP threads (it changes priority internally).
@@ -743,8 +791,6 @@ int main(void) {
    */
   chThdCreateStatic(wa_http_server, sizeof(wa_http_server), NORMALPRIO + 1,
                     http_server, NULL);
-
-  MyClass_method(MyClass_getSingletone(), 14);
 
   /*
    * Normal main() thread activity, in this demo it does nothing except
@@ -763,7 +809,7 @@ int main(void) {
     }
     chEvtDispatch(evhndl, chEvtWaitOneTimeout(ALL_EVENTS, MS2ST(500)));
   }
-#endif
+
   while(TRUE)
   {
 	  chThdSleepMilliseconds(1000);

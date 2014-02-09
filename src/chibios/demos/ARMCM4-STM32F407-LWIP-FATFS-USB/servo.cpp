@@ -68,8 +68,9 @@ uint16_t servoGetMin(Servo *servo) {
         return (servo->min);
 }
 
-/*
-	void servo::init()
+#if 0
+
+void servo::init()
 	{
 	  mx_pinout_config();
 
@@ -153,4 +154,5 @@ uint16_t servoGetMin(Servo *servo) {
 			//Delay(100000);
 		}
 	}*/
+#endif
 
