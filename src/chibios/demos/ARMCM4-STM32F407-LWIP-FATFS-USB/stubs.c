@@ -30,7 +30,7 @@ int _open_r(void *reent, const char *file, int flags, int mode)
 
 int __cxa_end_cleanup()
 {
-
+	return -1;
 }
 
 void __gxx_personality_v0()
