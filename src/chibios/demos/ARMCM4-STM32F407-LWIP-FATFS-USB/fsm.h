@@ -12,9 +12,9 @@ public:
   {
   }
 
-  void beginState( T state ) {}
-  void updateState( T state ) {}
-  void endState( T state ) {}
+   void beginState( T state ) {}
+   void updateState( T state ) {}
+   void endState( T state ) {}
 
   void setState( T state )
   {
