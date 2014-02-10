@@ -267,7 +267,4 @@ int main(int argc, char** argv) {
 }
 
 
-TEST(HelloTest, AlwaysOk) {
-  EXPECT_EQ(1, 1);
-}
 
