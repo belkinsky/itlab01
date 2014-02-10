@@ -29,6 +29,8 @@ DADEFS =
 
 GTEST_DIR = ../gtest-1.7.0
 
+ARMCM4_STM32F407_LWIP_FATFS_USB = ../ARMCM4-STM32F407-LWIP-FATFS-USB
+
 # List all default directories to look for include files here
 DINCDIR =
 
@@ -81,7 +83,8 @@ SRC  = ${PORTSRC} \
 # C++ source files here
 CPPSRC = $(CHCPPSRC) \
        $(GTEST_DIR)/src/gtest-all.cc \
-       main.cpp
+       main.cpp \
+       FsmTest.cpp
        
 
 # List ASM source files here
@@ -92,7 +95,8 @@ UINCDIR = $(PORTINC) $(KERNINC) $(TESTINC) \
           $(HALINC) $(PLATFORMINC) $(BOARDINC) \
           ${CHIBIOS}/os/various \
           $(GTEST_DIR)/include \
-          $(GTEST_DIR)
+          $(GTEST_DIR) \
+          $(ARMCM4_STM32F407_LWIP_FATFS_USB)
 
 # List the user directory to look for the libraries here
 ULIBDIR =

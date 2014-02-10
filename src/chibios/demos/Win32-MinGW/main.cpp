@@ -266,9 +266,6 @@ int main(int argc, char** argv) {
   return 0;
 }
 
-TEST(HelloTest, AlwaysFail) {
-  EXPECT_EQ(1, 0);
-}
 
 TEST(HelloTest, AlwaysOk) {
   EXPECT_EQ(1, 1);
