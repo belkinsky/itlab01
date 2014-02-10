@@ -5,6 +5,6 @@
 </listAttribute>
 <stringAttribute key="org.eclipse.ui.externaltools.ATTR_LAUNCH_CONFIGURATION_BUILD_SCOPE" value="${none}"/>
 <stringAttribute key="org.eclipse.ui.externaltools.ATTR_LOCATION" value="${eclipse_home}..\openocd-0.7.0\bin-x64/openocd-x64-0.7.0.exe"/>
-<stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="-f &quot;${eclipse_home}../openocd-0.7.0/scripts/interface/jlink.cfg&quot; -f &quot;${workspace_loc:/ARMCM4-STM32F407-LWIP-FATFS-USB}/project.cfg&quot;"/>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="-f &quot;${eclipse_home}../openocd-0.7.0/scripts/interface/jlink.cfg&quot; -f &quot;${workspace_loc:/ARMCM4-STM32F407-LWIP-FATFS-USB}/project.cfg&quot;&#13;&#10;-c &quot;stm32f4x.cpu configure -rtos auto;&quot;"/>
 <stringAttribute key="org.eclipse.ui.externaltools.ATTR_WORKING_DIRECTORY" value="${workspace_loc:/ARMCM4-STM32F407-LWIP-FATFS-USB}"/>
 </launchConfiguration>
