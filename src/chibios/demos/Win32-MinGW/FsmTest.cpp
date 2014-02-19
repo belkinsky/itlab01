@@ -25,3 +25,32 @@ TEST(Fsm1, CheckSetStateChange) {
 	  ASSERT_EQ(STATE2, f.getState());
 }
 
+class Test123: public SimpleFsm<EState>
+{
+public:
+	bool called, called2;
+	Test123(): called(false), called2(false){}
+	   void beginState() {
+		   called = true;
+	   }
+	   void endState() {
+		   called2 = true;
+	   }
+};
+
+TEST(Fsm2, a) {
+	Test123 f;
+	f.setState(STT_OFF);
+	ASSERT_TRUE(f.called);
+}
+TEST(Fsm3, ab) {
+	Test123 f;
+	f.setState(STT_OFF);
+	ASSERT_TRUE(f.called2);
+}
+
+template<int N, typename State> class Fsm: public SimpleFsm<State>
+{
+  int handlers[N];
+  Fsm():
+};

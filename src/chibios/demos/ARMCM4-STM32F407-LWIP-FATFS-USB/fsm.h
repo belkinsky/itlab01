@@ -11,8 +11,9 @@ public:
   SimpleFsm() : _time_in_cur_state(0.0f), _cur_state(-1)
   {
   }
+  virtual ~SimpleFsm() {}
 
-   void beginState( T state ) {}
+  virtual void beginState( T state ) {}
    void updateState( T state ) {}
    void endState( T state ) {}
 
